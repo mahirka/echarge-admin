@@ -1,0 +1,298 @@
+<div class="container-fluid top-nav py-2 " [class.top-nav-offset]="isHeaderSearchVisible">
+    <div *ngIf="isDashboardInLargeScreen" class="d-none d-lg-block sidemenu-container">
+        <ul class="uk-nav uk-nav-default uk-nav-parent-icon desktop-menu" uk-nav>
+            <div class="img-logo">
+                <img src="../../assets/img/without-space-logo.png" alt="">
+            </div>
+            <li (click)="navigate('/dashboard')" class="py-2 px-4 "><a><i class="fas fa-home mr-3"></i>Dashboard</a>
+            </li>
+    
+
+            <li class="uk-parent py-2 px-4">
+                <a><i class="fa fa-user mr-3"></i>Users</a>
+                <ul class="uk-nav-sub">
+                    <li (click)="navigate('/dashboard/users/view-all')" class="py-2"><a><span
+                                class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li class="uk-parent py-2 px-4">
+                <a><i class="fa fa-battery-full mr-3"></i>Charging Stations</a>
+                <ul class="uk-nav-sub">
+                    <li (click)="navigate('/dashboard/charging-stations/view-all')" class="py-2"><a><span
+                                class="uk-margin-small-right" uk-icon="chevron-right"></span> View All </a>
+                    </li>
+                    <li (click)="navigate('/dashboard/charging-stations/new')" class="py-2"><a><span class="uk-margin-small-right"
+                                uk-icon="chevron-right"></span>Add New </a></li>
+                </ul>
+            </li>
+
+            <li class="uk-parent py-2 px-4">
+                <a><i class="fa fa-shopping-basket mr-3"></i>Orders</a>
+                <ul class="uk-nav-sub">
+                    <li (click)="navigate('/dashboard/orders/view-all')" class="py-2"><a><span
+                                class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                    </li>
+                    
+                </ul>
+            </li>
+
+
+            <!-- <li *ngIf="loggedInAdminDetails.role == 'super'" (click)="navigate('/user-verification/view-all')"><a>
+                        <i class="fas fa-user mr-3"></i>Users</a></li>
+        
+                <li *ngIf="loggedInAdminDetails.role == 'super'" (click)="navigate('/pages/view-all')"><a><i
+                            class="fas fa-file mr-3"></i>Pages</a></li> -->
+
+
+
+        </ul>
+    </div>
+    <div class="container px-0 px-lg-3">
+        <nav class="navbar navbar-expand-lg navbar-light">
+
+            <button class="btn border side-nav-control mr-3" type="button" uk-toggle="target: #offcanvas-usage">
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="4" width="16" height="1" />
+                    <rect x="2" y="9" width="16" height="1" />
+                    <rect x="2" y="14" width="16" height="1" />
+                </svg>
+            </button>
+            <div id="offcanvas-usage" class="dashboard-maincontainer" uk-offcanvas="overlay: true">
+                <div class="uk-offcanvas-bar dashboard-container">
+                    <div (click)="navigate('/')" class="w-100 d-flex justify-content-end">
+                        <i class="fa fa-times close-icon" aria-hidden="true"></i>
+
+                    </div>
+                    <ul class="uk-nav uk-nav-default uk-nav-parent-icon mobile-menu" uk-nav>
+                        <div class="img-logo">
+                            <img src="../../assets/img/without-space-logo.png" alt="">
+                        </div>
+                        <li (click)="navigate('/dashboard')" class="py-2 px-4 "><a><i
+                                    class="fas fa-home mr-3"></i>Dashboard</a></li>
+                        <li (click)="navigate('/dashboard/users/view-all')" class="py-2 px-4"><a><i
+                                    class="fas fa-shopping-bag mr-3"></i>Users</a></li>
+                        <li class="uk-parent py-2 px-4">
+                            <a><i class="fa fa-list-alt mr-3"></i>Users</a>
+                            <ul class="uk-nav-sub">
+                                <li (click)="navigate('/dashboard/users/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="uk-parent py-2 px-4">
+                            <a><i class="fa fa-inr mr-3"></i>Charging Stations</a>
+                            <ul class="uk-nav-sub">
+                                <li (click)="navigate('/dashboard/plan/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view All</a>
+                                </li>
+                                <li (click)="navigate('/dashboard/plan/new')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>Add New
+                                        </a></li>
+                            </ul>
+                        </li>
+
+                        <li class="uk-parent py-2 px-4">
+                            <a><i class="fa fa-list-alt mr-3"></i>Orders</a>
+                            <ul class="uk-nav-sub">
+                                <li (click)="navigate('/dashboard/business-listing/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>View All
+                                        </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        
+
+
+
+
+                        <!-- <li *ngIf="loggedInAdminDetails.role == 'super'" (click)="navigate('/user-verification/view-all')"><a>
+                                    <i class="fas fa-user mr-3"></i>Users</a></li>
+                    
+                            <li *ngIf="loggedInAdminDetails.role == 'super'" (click)="navigate('/pages/view-all')"><a><i
+                                        class="fas fa-file mr-3"></i>Pages</a></li> -->
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                <div class="d-flex flex-wrap align-items-center jusify-content-end ml-auto nav-controler">
+                    <ul class="navbar-nav flex-row ml-auto mt-0 mr-3">
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown pl-3">
+                <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <label class="dropdown-toggle mr-2 pointer" for="">{{loggedInUserName}}</label>
+                    <img class="profile-pic" src="{{profilePic}}"
+                        onerror="this.src='../../../assets/img/profilePic.jpg'" alt="">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <div class="profile-menu">
+                        <div class="pro-menu mt-2">
+                            <div class="li-icon">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <div class="pro-label">
+                                <a [routerLink]="['dashboard/profile/view']" routerLinkActive="router-link-active">VIEW
+                                    MY PROFILE</a>
+                            </div>
+                        </div>
+                        <div class="pro-menu">
+                            <div class="li-icon">
+                                <i class="fas fa-edit" aria-hidden="true"></i>
+                            </div>
+                            <div class="pro-label">
+                                <a [routerLink]="['dashboard/profile/edit']" routerLinkActive="router-link-active">EDIT
+                                    PROFILE</a>
+                            </div>
+                        </div>
+                        <div class="pro-menu">
+                            <div class="li-icon">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            </div>
+                            <div class="pro-label">
+                                <a class="  uk-margin-small-right " uk-toggle="target: #modal-example4">LOG OUT</a>
+                            </div>
+                            <div id="modal-example4" uk-modal>
+                                <div class="uk-modal-dialog uk-modal-body logout-block">
+                                    <div class="heading">
+                                        <h3>Logout</h3>
+                                    </div>
+                                    <div class="para">
+                                        <p>Are you sure you want to logout?</p>
+                                    </div>
+                                    <div class="bt-block">
+                                        <button class="uk-modal-close modal-button sub-bt mr-2">No</button>
+                                        <button class="uk-modal-close modal-button sub-bt1"
+                                            (click)="logout()">Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid py-3 top-nav-secondary">
+    <nav class="navbar navbar-expand-lg navbar-light py-0">
+
+
+        <button class="btn border side-nav-control" type="button" uk-toggle="target: #offcanvas-usage">
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="4" width="16" height="1" />
+                <rect x="2" y="9" width="16" height="1" />
+                <rect x="2" y="14" width="16" height="1" />
+            </svg>
+        </button>
+
+        <div id="offcanvas-usage" uk-offcanvas>
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Title</h3>
+
+                <p>Lorem jjjujjujujujj dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat.</p>
+
+            </div>
+        </div>
+
+
+        <!-- 
+        <div class="search-header-component ">
+            <button class="btn btn-white shadow-none"><i class="fas fa-search"></i></button>
+            <div class="form-group col">
+                <input type="password" class="form-control input-box" id="exampleInputPassword1"
+                    placeholder="Find new Business">
+            </div>
+            <select class="form-control d-lg-inline-block d-none">
+                <option>Default select</option>
+            </select>
+        </div> -->
+        <div class=" flex-wrap d-none d-lg-flex  align-items-center jusify-content-end ml-auto nav-controler">
+
+        </div>
+        <div class="dropdown border-left pl-2">
+            <a role="button" id="dropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <label class="dropdown-toggle mr-2 pointer d-lg-inline-block d-none" for="">{{loggedInUserName}}</label>
+                <img class="profile-pic" src="{{profilePic}}" onerror="this.src='../../../assets/img/profilePic.jpg'"
+                    alt="">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink-5">
+                <div class="profile-menu">
+                    <div class="pro-menu mt-2">
+                        <div class="li-icon">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="pro-label">
+                            <a [routerLink]="['dashboard/profile/view']" routerLinkActive="router-link-active">VIEW MY
+                                PROFILE</a>
+                        </div>
+                    </div>
+                    <div class="pro-menu">
+                        <div class="li-icon">
+                            <i class="fas fa-edit" aria-hidden="true"></i>
+                        </div>
+                        <div class="pro-label">
+                            <a [routerLink]="['dashboard/profile/edit']" routerLinkActive="router-link-active">EDIT
+                                PROFILE</a>
+                        </div>
+                    </div>
+                    <div class="pro-menu">
+                        <div class="li-icon">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </div>
+                        <div class="pro-label">
+                            <a class="  uk-margin-small-right " uk-toggle="target: #modal-example4">LOG OUT</a>
+                        </div>
+                        <div id="modal-example4" uk-modal>
+                            <div class="uk-modal-dialog uk-modal-body logout-block">
+                                <div class="heading">
+                                    <h3>Logout</h3>
+                                </div>
+                                <div class="para">
+                                    <p>Are you sure you want to logout?</p>
+                                </div>
+                                <div class="bt-block">
+                                    <button class="uk-modal-close modal-button sub-bt mr-2">No</button>
+                                    <button class="uk-modal-close modal-button sub-bt1" (click)="logout()">Yes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- <div class="d-flex  flex-wrap d-lg-none align-items-center jusify-content-end ml-auto add-mobile-button">
+    <ul class="navbar-nav  flex-row ml-auto mt-0 mr-3">
+
+        <li class="nav-item pr-2">
+            <a class="nav-link" [routerLink]="['']" routerLinkActive="router-link-active"><i
+                    class="fas fa-comments"></i></a>
+        </li>
+        <li class="nav-item pr-2">
+            <a class="nav-link" [routerLink]="['']" routerLinkActive="router-link-active"><i
+                    class="fas fa-bell"></i></a>
+        </li>
+        <button class="btn-add"><i class="fas fa-plus"></i></button>
+    </ul>
+</div> -->
+
+<div class="container-fluid pt-5 px-0">
+    <router-outlet></router-outlet>
+</div>

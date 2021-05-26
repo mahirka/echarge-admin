@@ -1,0 +1,113 @@
+<div class="main-container ">
+    <div class="container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link px-2 px-md-3 active" id="station-nav-published-tab" data-toggle="tab" href="#station-nav-published"
+                    role="tab" aria-controls="nav-published" aria-selected="true">Published</a>
+                <a class="nav-item nav-link px-2 px-md-3" id="station-nav-un-tab" data-toggle="tab" href="#station-nav-un" role="tab"
+                    aria-controls="nav-un" aria-selected="false">UnPublished</a>
+            </div>
+        </nav>
+        <div class="tab-content mt-4" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="station-nav-published" role="tabpanel" aria-labelledby="station-nav-published-tab">
+                <div class="search-field">
+                    <button class="btn btn-white shadow-none"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <div class="form-field col">
+                        <input type="text" (input)="publishedUserSuggestionChanged($event)" class="form-control input-box" id="exampleInputPassword1" placeholder="Search">
+                    </div>
+                </div>
+                <div class="main-card mb-3 card">
+                  <div class="card-body"><h5 class="card-title">All Stations</h5>
+                    <table class="mb-0 table table-hover">
+                      <thead>
+                      <tr >
+                        <th>#</th>
+                        <th> Station Name</th>
+                        <th>Mechines</th>
+                        <th>Place</th>
+                        <th>Actions</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let chargingStation of publishedChargingStationToShow;let i=index;" >
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{chargingStation.name}}</td>
+                        <td>
+                            {{chargingStation.mechines}}
+                        </td>
+                        <td>{{chargingStation.place}}</td>
+
+                        <td>
+                          <div class="img">
+                              <div class="icon">
+                                <a [routerLink]="['/dashboard/charging-stations/view']" routerLinkActive="router-link-active"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              </div>
+                              <div class="icon">
+                                  <a><i class="fa fa-ban "></i></a>
+                              </div>
+                              <div class="icon">
+                                  <a><i class="fa fa-trash" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div *ngIf="publishedChargingStationToShow.length==0" class="empty">
+                    <h3>No Charging Stations To Display</h3>
+                </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="station-nav-un" role="tabpanel" aria-labelledby="station-nav-un-tab">
+                <div class="search-field">
+                    <button class="btn btn-white shadow-none"><i class="fas fa-search"></i></button>
+                    <div class="form-field col">
+                        <input type="text" (input)="unPublishedUserSuggestionChanged($event)" class="form-control input-box" id="exampleInputPassword1" placeholder="Search">
+                    </div>
+                </div>
+                <div class="main-card mb-3 card">
+                  <div class="card-body"><h5 class="card-title">All Users</h5>
+                    <table class="mb-0 table table-hover">
+                      <thead>
+                      <tr>
+                        <th>#</th>
+                        <th> Station Name</th>
+                        <th>Mechines</th>
+                        <th>Place</th>
+                        <th>Actions</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let chargingStation of unPublishedChargingStationToShow;let i=index;">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{chargingStation.name}}</td>
+                        <td>
+                            {{chargingStation.mechines}}
+                        </td>
+                        <td>{{chargingStation.place}}</td>
+                        <td>
+                          <div class="img">
+                              <div class="icon">
+                                <a [routerLink]="['/dashboard/charging-stations/view']" routerLinkActive="router-link-active"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                              </div>
+                              <div class="icon">
+                                  <a><i class="fa fa-ban "></i></a>
+                              </div>
+                              <div class="icon">
+                                  <a><i class="fa fa-trash" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div *ngIf="unPublishedChargingStationToShow.length==0" class="empty">
+                    <h3>No Charging Stations To Display</h3>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

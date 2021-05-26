@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="profile-view">
+        <div class="profile-title">
+            <div class="heading-tag">
+                <p>Charging Stations</p>
+            </div>
+        </div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-basic-tab" data-toggle="tab" href="#nav-basic" role="tab" aria-controls="nav-basic" aria-selected="true">Basic Info</a>
+              <a class="nav-item nav-link" id="nav-vehicle-tab" data-toggle="tab" href="#nav-vehicle" role="tab" aria-controls="nav-vehicle" aria-selected="true">Charging Mechines</a>
+            </div> 
+        </nav>
+        <div class="tab-content mt-4" id="nav-tabContent" >
+        <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-basic-tab">
+        <div class="pro-detail">
+            <div class="pro-img">
+                <img  src="../../../assets/images/avatars/images.jpeg" alt="">
+            </div>
+            <div class="about-pro">
+                <h4>Reliance Charging Station</h4>
+                <p>EV Ather 450x</p>
+                <a>Calicut</a>
+            </div>
+        </div>
+        </div>
+        <div class="tab-pane fade" id="nav-vehicle" role="tabpanel" aria-labelledby="nav-vehicle-tab"><a [routerLink]="['/dashboard/charging-mechines/view-all']" routerLinkActive="router-link-active"></a></div> 
+        
+        </div>
+        
+    </div>
+  </div>
+  
+  
+  
+  
