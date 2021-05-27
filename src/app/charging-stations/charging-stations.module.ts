@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'view-all',component:ViewAllComponent},
   {path:'view',component:ViewComponent},
   {path:'new',component:NewComponent},
-  {path:'edit',canActivate: [AuthGuard],component:EditComponent},
+  {path:'edit',component:EditComponent},
   
 ];
 

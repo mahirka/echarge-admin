@@ -8,14 +8,14 @@
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <a class="nav-item nav-link active" id="nav-basic-tab" data-toggle="tab" href="#nav-basic" role="tab" aria-controls="nav-basic" aria-selected="true">Basic Info</a>
-              <a class="nav-item nav-link" id="nav-vehicle-tab" data-toggle="tab" href="#nav-vehicle" role="tab" aria-controls="nav-vehicle" aria-selected="true">Charging Mechines</a>
+              <a class="nav-item nav-link" id="nav-mechine-tab" data-toggle="tab" href="#nav-mechine" role="tab" aria-controls="nav-mechine" aria-selected="true">Charging Mechines</a>
             </div> 
         </nav>
         <div class="tab-content mt-4" id="nav-tabContent" >
         <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-basic-tab">
         <div class="pro-detail">
             <div class="pro-img">
-                <img  src="../../../assets/images/avatars/images.jpeg" alt="">
+                <img  src="../../../assets/img/images.jpeg" alt="">
             </div>
             <div class="about-pro">
                 <h4>Reliance Charging Station</h4>
@@ -24,8 +24,77 @@
             </div>
         </div>
         </div>
-        <div class="tab-pane fade" id="nav-vehicle" role="tabpanel" aria-labelledby="nav-vehicle-tab"><a [routerLink]="['/dashboard/charging-mechines/view-all']" routerLinkActive="router-link-active"></a></div> 
-        
+        <div class="tab-pane fade" id="nav-mechine" role="tabpanel" aria-labelledby="nav-mechine-tab">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-activation-tab" data-toggle="tab" href="#nav-activation" role="tab" aria-controls="nav-activation" aria-selected="true">Active</a>
+                  <a class="nav-item nav-link" id="nav-under-tab" data-toggle="tab" href="#nav-under" role="tab" aria-controls="nav-under" aria-selected="true">Under Maintanance</a>
+                </div> 
+            </nav>
+            <div class="tab-content mt-4" id="nav-tabContent" >
+                <div class="tab-pane fade show active" id="nav-activation" role="tabpanel" aria-labelledby="nav-activation-tab">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12  mb-3">
+                            <div class="plan-card">
+                                <div class="title-block">
+                                    <img src="../../../assets/img/plug.png">
+                                </div>
+                                <div class="plan-card__detail">
+                                    <p>EV Ather</p>
+                                    <p>B Type</p>
+                                    <p>300kw</p>
+                                </div>
+                    
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12  mb-3">
+                            <div class="plan-card">
+                                <div class="title-block">
+                                    <img src="../../../assets/img/plug.png">
+                                </div>
+                                <div class="plan-card__detail">
+                                    <p>EV Ather</p>
+                                    <p>C Type</p>
+                                    <p>450kw</p>
+                                </div>
+                    
+                            </div>
+                        </div>
+                    </div>
+                 </div>  
+                 <div class="tab-pane fade show active" id="nav-under" role="tabpanel" aria-labelledby="nav-under-tab">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12  mb-3">
+                            <div class="plan-card">
+                                <div class="title-block">
+                                    <img src="../../../assets/img/plug.png">
+                                </div>
+                                <div class="plan-card__detail">
+                                    <p>EV Ather</p>
+                                    <p>B Type</p>
+                                    <p>300kw</p>
+                                </div>
+                    
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12  mb-3">
+                            <div class="plan-card">
+                                <div class="title-block">
+                                    <img src="../../../assets/img/plug.png">
+                                </div>
+                                <div class="plan-card__detail">
+                                    <p>EV Ather</p>
+                                    <p>C Type</p>
+                                    <p>450kw</p>
+                                </div>
+                    
+                            </div>
+                        </div>
+                    </div>
+                 </div> 
+            </div>
+        </div> 
+         
         </div>
         
     </div>

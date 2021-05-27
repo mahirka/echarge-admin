@@ -10,10 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
-  {path:'view-all',canActivate: [AuthGuard],component:ViewAllComponent},
-  {path:'view',canActivate: [AuthGuard],component:ViewComponent},
-  {path:'new',canActivate: [AuthGuard],component:NewComponent},
-  {path:'edit',canActivate: [AuthGuard],component:EditComponent},
+  {path:'view-all',component:ViewAllComponent},
+  {path:'view',component:ViewComponent},
+  {path:'new',component:NewComponent},
+  {path:'edit',component:EditComponent},
   
 ];
 
