@@ -69,9 +69,13 @@ login() {
         console.log("data reached")
 
         this.isLoading = false;
-        localStorage.setItem('tocken', data['tocken']);
-        this._router.navigate(['/dashboard'])
-        this.toastr.success("Logged in Successful");
+        if (data['response'] == 'success') {
+         //data['token']
+          localStorage.setItem('token', data['token']);
+          this._router.navigate(['/dashboard'])
+          
+
+        }
 
       },
 
