@@ -1,1 +1,101 @@
-<p>view works!</p>
+<div class="container">
+    <div class="profile-view">
+        <div class="profile-title">
+            <div class="heading-tag">
+                <p>Charging Machine</p>
+            </div>
+        </div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-basic-tab" data-toggle="tab" href="#nav-basic" role="tab" aria-controls="nav-basic" aria-selected="true">Basic Info</a>
+              <a class="nav-item nav-link" id="nav-booking-tab" data-toggle="tab" href="#nav-booking" role="tab" aria-controls="nav-booking" aria-selected="true">Booking History</a>
+              <a class="nav-item nav-link" id="nav-data-tab" data-toggle="tab" href="#nav-data" role="tab" aria-controls="nav-data" aria-selected="true">Charging Data</a>
+            </div> 
+        </nav>
+        <div class="tab-content mt-4" id="nav-tabContent" >
+        <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-basic-tab">
+        <div class="pro-detail">
+            <div class="pro-img">
+                <img  src="../../../assets/img/machine.jpeg" alt="">
+            </div>
+            <div class="about-pro">
+                <h4>EV Ather</h4>
+                <p>C Type</p>
+                <a>450 kw</a>
+                <div class="edit-bt">
+                    <div class="edit-icon">
+                        <i class="fas fa-edit" aria-hidden="true"></i> 
+                    </div>
+                    <div class="text-label">
+                        <a [routerLink]="['/dashboard/charging-mechines/edit']" routerLinkActive="router-link-active">Edit</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        </div>
+            <div class="tab-pane fade" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab">
+                <div class="main-card mb-3 card">
+                    <div class="card-body"><h5 class="card-title">Booking Details</h5>
+                      <table class="mb-0 table table-hover">
+                        <thead>
+                        <tr >
+                          <th>#</th>
+                          <th>  Name</th>
+                          <th> Date</th>
+                          <th> Scheduled Time</th>
+                          <th> Unit Price</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Vyshak I V </td>
+                          <td>11/05/2021 </td>
+                          <td>12:30 to 1:30 </td>
+                          <td> 500</td>
+
+                          
+                        </tr>
+                       
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+            </div> 
+            <div class="tab-pane fade" id="nav-data" role="tabpanel" aria-labelledby="nav-data-tab">
+                <div class="main-card mb-3 card">
+                    <div class="card-body"><h5 class="card-title">Charging Details</h5>
+                      <table class="mb-0 table table-hover">
+                        <thead>
+                        <tr >
+                          <th>#</th>
+                          <th>  Name</th>
+                          <th> Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Vyshak I V </td>
+                          <td>11/05/2021 </td>
+                          
+                        </tr>
+                       
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+            </div> 
+         
+        </div>
+        
+    </div>
+  </div>
+  
+  
+  
+  
