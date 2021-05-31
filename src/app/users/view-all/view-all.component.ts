@@ -93,7 +93,7 @@ export class ViewAllComponent implements OnInit {
   constructor(private _router: Router,private _httpService: HttpService) { }
 
   ngOnInit(): void {
- 
+   this.getusersProfile()
   }
   getusersProfile(){
     this._httpService.getusersProfile()
@@ -113,7 +113,7 @@ export class ViewAllComponent implements OnInit {
       this.unPublishedUsersProfiles =  this.unPublishedUsersProfilesToShow
       },
       error => {
-        this._router.navigate(['/dashboard']);
+        this._router.navigate(['']);
       },
     );
   }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -46,8 +47,8 @@ export class HttpService {
   }
   //VNSqk8pW8lJrkHBG
   getLoggedInAdminDetails() {
-    return this.http.post('https://api.listnsell.in/api/adminDashboard',{requestType:'getLoggedInAdminDetails'}, {
-     
+    return this.http.get('http://134.209.153.116/api/admin/profile', {
+      headers: { "x-access-token": environment.apiKey},
       observe: 'body',
     });
   }

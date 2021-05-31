@@ -37,10 +37,10 @@ export class ProfileViewComponent implements OnInit {
 
             this.loggedInUserId = appState.loggedInUserDetails.userId
             this.loggedInUserName = appState.loggedInUserDetails.name
-            this.profilePic = appState.loggedInUserDetails.profilePic
+            
             this.loggedInUserEmail = appState.loggedInUserDetails.email
             this.loggedInUserMobile = appState.loggedInUserDetails.mobile
-            this.profilePicMediaId = appState.loggedInUserDetails.mediaId
+          
             console.log("user details appstate reached")
             console.log(this.loggedInUserId)
             console.log(this.loggedInUserName)
@@ -76,7 +76,7 @@ export class ProfileViewComponent implements OnInit {
             console.log(this.loggedInUserName)
             this.store.dispatch(AppActions.updateLoggedInUserDetails({
               loggedInUserDetails: {
-                userId: this.loggedInUserId, name: this.loggedInUserName, profilePic: this.profilePic, email: this.loggedInUserEmail, mobile: this.loggedInUserMobile, mediaId: this.profilePicMediaId
+                userId: this.loggedInUserId, name: this.loggedInUserName,  email: this.loggedInUserEmail, mobile: this.loggedInUserMobile, 
               }
             }))
           }

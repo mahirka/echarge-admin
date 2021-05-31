@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-new',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new.component.css']
 })
 export class NewComponent implements OnInit {
+  newChargingStations: FormGroup;
 
   constructor() { }
 

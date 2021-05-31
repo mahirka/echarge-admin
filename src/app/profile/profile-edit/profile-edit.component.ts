@@ -66,12 +66,11 @@ console.log(appState)
 
             this.loggedInUserId = appState.loggedInUserDetails.userId
             this.loggedInUserName = appState.loggedInUserDetails.name
-            this.profilePic = appState.loggedInUserDetails.profilePic
-            this.modalProfilePic = appState.loggedInUserDetails.profilePic
+            
             
             this.loggedInUserEmail = appState.loggedInUserDetails.email
             this.loggedInUserMobile = appState.loggedInUserDetails.mobile
-            this.profilePicMediaId = appState.loggedInUserDetails.mediaId
+            
             this.initializedFormData()
             console.log("user details appstate reached")
             console.log(this.loggedInUserId)
@@ -138,7 +137,7 @@ getLoggedInAdminDetails() {
               console.log(this.profilePicMediaId)
           this.store.dispatch(AppActions.updateLoggedInUserDetails({
             loggedInUserDetails: {
-              userId: this.loggedInUserId, name: this.loggedInUserName,profilePic:this.profilePic ,email:this.loggedInUserEmail,mobile:this.loggedInUserMobile,mediaId:this.profilePicMediaId
+              userId: this.loggedInUserId, name: this.loggedInUserName ,email:this.loggedInUserEmail,mobile:this.loggedInUserMobile,
             }
           }))
         }

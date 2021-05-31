@@ -56,6 +56,10 @@
   .logsign__container--img {
     display: block;
     margin: auto;
+    width: 80px;
+    height: 80px;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
   }
   
   .logsign__container--title {
@@ -89,8 +93,7 @@
     border: none;
     border-bottom: 1px solid #E1E3E2;
     border-radius: 0px;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
+    box-shadow: none !important;
     font-size: 14px;
   }
   
@@ -103,6 +106,10 @@
   }
   
   .logsign__container--form-group .form-control::-ms-input-placeholder {
+    color: #222222;
+  }
+  
+  .logsign__container--form-group .form-control::-moz-placeholder {
     color: #222222;
   }
   
@@ -180,5 +187,4 @@
     
 
   }
-  /*# sourceMappingURL=logsign.css.map */
   

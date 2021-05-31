@@ -8,6 +8,7 @@ import * as AppActions from '../state/app.actions'
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/http.service';
 import * as uikit from 'uikit'
+import { FormGroup } from '@angular/forms';
 
 
 
@@ -20,7 +21,7 @@ export class LayoutComponent implements OnInit {
 
 
   public href: string = "";
-
+  loginForm:FormGroup;
   isDashboardInLargeScreen = false;
   isLocationBoxHeaderVisible = false;
   isChatBoxHeaderVisible = false;
@@ -68,7 +69,6 @@ export class LayoutComponent implements OnInit {
 
             this.loggedInUserId = appState.loggedInUserDetails.userId
             this.loggedInUserName = appState.loggedInUserDetails.name
-            this.profilePic = appState.loggedInUserDetails.profilePic
             this.loggedInUserEmail = appState.loggedInUserDetails.email
             this.loggedInUserMobile = appState.loggedInUserDetails.mobile
 
@@ -102,18 +102,17 @@ export class LayoutComponent implements OnInit {
       .subscribe(
         data => {
 
-          if (data['adminDetails']) {
+          if (data['Admin']) {
 
-            this.loggedInUserId = data['adminDetails']['id']
-            this.loggedInUserName = data['adminDetails']['name']
-            this.profilePic = data['adminDetails']['profilePic']
-            this.loggedInUserEmail = data['adminDetails']['email']
-            this.loggedInUserMobile = data['adminDetails']['mobile']
-            this.profilePicMediaId = data['adminDetails']['profilePicMediaId']
+            this.loggedInUserId = data['Admin']['id']
+            this.loggedInUserName = data['Admin']['name']
+            this.loggedInUserEmail = data['Admin']['email']
+            this.loggedInUserMobile = data['Admin']['mobile']
+            
 
             this.store.dispatch(AppActions.updateLoggedInUserDetails({
               loggedInUserDetails: {
-                userId: this.loggedInUserId, name: this.loggedInUserName, profilePic: this.profilePic, email: this.loggedInUserEmail, mobile: this.loggedInUserMobile, mediaId: this.profilePicMediaId
+                userId: this.loggedInUserId, name: this.loggedInUserName,  email: this.loggedInUserEmail, mobile: this.loggedInUserMobile
               }
             }))
             

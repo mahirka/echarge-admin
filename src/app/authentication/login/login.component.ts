@@ -69,7 +69,7 @@ login() {
         console.log("data reached")
 
         this.isLoading = false;
-        if (data['response'] == 'success') {
+        if (data['token'] != null) {
          //data['token']
           localStorage.setItem('token', data['token']);
           this._router.navigate(['/dashboard'])

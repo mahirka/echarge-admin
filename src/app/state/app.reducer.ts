@@ -13,10 +13,9 @@ export interface State {
 const initialLoggedInUserDetails: LoggedInUserDetails = {
     userId: 'userId',
     name: 'name',
-    profilePic:'profilePic',
     email:'email',
     mobile:'mobile',
-    mediaId:'mediaId'
+    
 }
 
 
