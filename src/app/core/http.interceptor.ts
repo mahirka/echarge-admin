@@ -12,11 +12,12 @@ export class ListNHttpInterceptor implements HttpInterceptor {
   
 
     if(authTocken){
-      return next.handle(httpRequest.clone({ setHeaders: { authTocken,apiKey } }));
+      return next.handle(httpRequest.clone({ setHeaders:  { "x-access-token": localStorage.getItem('token')} }));
+
 
     }else{
       console.log("else")
-      return next.handle(httpRequest.clone({ setHeaders: { apiKey } }));
+      return next.handle(httpRequest.clone({ setHeaders: {  } }));
 
     }
 

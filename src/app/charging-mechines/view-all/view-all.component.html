@@ -29,13 +29,13 @@
                       </tr>
                       </thead>
                       <tbody>
-                      <tr *ngFor="let chargingStation of publishedChargingMechineToShow;let i=index;" >
+                      <tr *ngFor="let chargingMachines of publishedChargingMechineToShow;let i=index;" >
                         <th scope="row">{{ i + 1 }}</th>
-                        <td>{{chargingStation.name}}</td>
+                        <td>{{chargingMachines.name}}</td>
                         <td>
-                            {{chargingStation.slot}}
+                            {{chargingMachines.slot}}
                         </td>
-                        <td>{{chargingStation.kw}}</td>
+                        <td>{{chargingMachines.kw}}</td>
   
                         <td>
                           <div class="img">
@@ -82,13 +82,13 @@
                       </tr>
                       </thead>
                       <tbody>
-                      <tr *ngFor="let chargingStation of unPublishedChargingMechineToShow;let i=index;">
+                      <tr *ngFor="let chargingMachines of unPublishedChargingMechineToShow;let i=index;">
                         <th scope="row">{{ i + 1 }}</th>
-                        <td>{{chargingStation.name}}</td>
+                        <td>{{chargingMachines.name}}</td>
                         <td>
-                            {{chargingStation.slot}}
+                            {{chargingMachines.slot}}
                         </td>
-                        <td>{{chargingStation.kw}}</td>
+                        <td>{{chargingMachines.kw}}</td>
                         <td>
                           <div class="img">
                               <div class="icon">

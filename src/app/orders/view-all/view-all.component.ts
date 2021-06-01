@@ -9,108 +9,37 @@ import { HttpService } from '../http.service';
 })
 export class ViewAllComponent implements OnInit {
 
-  publishedChargingStationToShow:any[]=[{
-    name:"Reliance Charging Station",
-    place:"Calicut",
-    mechines:"EV Ather 450x",
-  },
-  {
-    name:"Bharath Charging Station",
-    place:"Kannur",
-    mechines:"EV Ather 450x",
-  },
-  ]
-  publishedChargingStations:any[]=[{
-    name:"Bharath Charging Station",
-    place:"Kannur",
-    mechines:"EV Ather 450x",
-  },
-  {
-    name:"Reliance Charging Station",
-    place:"Calicut",
-    mechines:"EV Ather 450x",
-  },
-  ]
-  unPublishedChargingStationToShow:any[]=[{
-    name:"Bharath Charging Station",
-    place:"Kannur",
-    mechines:"EV Ather 450x",
-  },
-  {
-    name:"Reliance Charging Station",
-    place:"Calicut",
-    mechines:"EV Ather 450x",
-  },
-  ]
-  unPublishedChargingStations:any[]=[{
-    name:"Bharath Charging Station",
-    place:"Kannur",
-    mechines:"EV Ather 450x",
-  },
-  {
-    name:"Reliance Charging Station",
-    place:"Calicut",
-    mechines:"EV Ather 450x",
-  },
-  ]
-  profiles = []
+  OrderDetailsToShow:any[]=[ ]
+  orders = []
 
   constructor(private _router: Router,private _httpService: HttpService) { }
 
   ngOnInit(): void {
+   this.getordersDetails()
+
  
   }
   getordersDetails(){
     this._httpService.getordersDetails()
     .subscribe(
       data => {
-        console.log("chargingStation")
+        console.log("ordersDetails")
           console.log(data)
-      this.profiles =  data["users"]
-      this.publishedChargingStationToShow =  this.profiles.filter(profile=>    
-        profile.published == true
-      )
-      this.publishedChargingStations =  this.publishedChargingStationToShow
-
-      this.unPublishedChargingStationToShow =  this.profiles.filter(profile=>    
-        profile.published == false
-      )
-      this.unPublishedChargingStations =  this.unPublishedChargingStationToShow
+      this.orders =  data["Orders"]
+      this.OrderDetailsToShow = this.orders
+      console.log(this.OrderDetailsToShow)
+     
       },
       error => {
-        this._router.navigate(['/dashboard']);
+        this._router.navigate(['']);
       },
     );
   }
 
 
-  publishedUserSuggestionChanged(e){
-    let tempArray = []
-    for (let index = 0; index < this.publishedChargingStations.length; index++) {
-      if(this.publishedChargingStations[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
-        tempArray.push(this.publishedChargingStations[index])
-      }
-      //let searchString = this.publishedUsersProfiles[index]["firstName"].toLowerCase() + " " + this.publishedUsersProfiles[index]["secondName"].toLowerCase() + " "+ this.publishedUsersProfiles[index]["nearestTown"].toLowerCase()
-      // if(searchString.includes(e.target.value.toLowerCase())){
-      //   tempArray.push(this.publishedUsersProfiles[index])
-      // }
-    }
-    this.publishedChargingStationToShow = tempArray;
-  }
+ 
 
-  unPublishedUserSuggestionChanged(e){
-    let tempArray = []
-    for (let index = 0; index < this.unPublishedChargingStations.length; index++) {
-      if(this.unPublishedChargingStations[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
-        tempArray.push(this.unPublishedChargingStations[index])
-      }
-      //let searchString = this.publishedUsersProfiles[index]["firstName"].toLowerCase() + " " + this.publishedUsersProfiles[index]["secondName"].toLowerCase() + " "+ this.publishedUsersProfiles[index]["nearestTown"].toLowerCase()
-      // if(searchString.includes(e.target.value.toLowerCase())){
-      //   tempArray.push(this.publishedUsersProfiles[index])
-      // }
-    }
-    this.unPublishedChargingStationToShow = tempArray;
-  }
+
 
 
 }

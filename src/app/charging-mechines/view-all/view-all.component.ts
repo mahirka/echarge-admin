@@ -9,64 +9,24 @@ import { HttpService } from '../http.service';
 })
 export class ViewAllComponent implements OnInit {
 
-  publishedChargingMechineToShow:any[]=[{
-    name:"EV Ather",
-    slot:"C Type",
-    kw:"450x",
-  },
-  {
-    name:"EV Ather",
-    slot:"C Type",
-    kw:" 450x",
-  },
-  ]
-  publishedChargingMechines:any[]=[{
-    name:"EV Ather",
-    slot:"C Type",
-    kw:"450x",
-  },
-  {
-    name:"EV Ather",
-    slot:"C Type",
-    kw:" 450x",
-  },
-  ]
-  unPublishedChargingMechineToShow:any[]=[{
-    name:"EV Ather",
-    slot:"C Type",
-    kw:"450x",
-  },
-  {
-    name:"EV Ather",
-    slot:"C Type",
-    kw:" 450x",
-  },
-  ]
-  unPublishedChargingMechines:any[]=[{
-    name:"EV Ather",
-    slot:"C Type",
-    kw:"450x",
-  },
-  {
-    name:"EV Ather",
-    slot:"C Type",
-    kw:" 450x",
-  },
-  ]
+  publishedChargingMechineToShow:any[]=[ ]
+  publishedChargingMechines:any[]=[ ]
+  unPublishedChargingMechineToShow:any[]=[]
+  unPublishedChargingMechines:any[]=[ ]
   profiles = []
 
   constructor(private _router: Router,private _httpService: HttpService) { }
 
   ngOnInit(): void {
- 
+    this.getchargingMechine()
   }
   getchargingMechine(){
     this._httpService.getchargingMechine()
     .subscribe(
       data => {
-        console.log("chargingStation")
+        console.log("chargingMachines")
           console.log(data)
-      this.profiles =  data["users"]
+      this.profiles =  data["Charging Machines"]
       this.publishedChargingMechineToShow =  this.profiles.filter(profile=>    
         profile.published == true
       )
@@ -78,7 +38,7 @@ export class ViewAllComponent implements OnInit {
       this.unPublishedChargingMechines =  this.unPublishedChargingMechineToShow
       },
       error => {
-        this._router.navigate(['/dashboard']);
+        this._router.navigate(['']);
       },
     );
   }

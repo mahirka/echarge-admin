@@ -48,7 +48,7 @@ export class HttpService {
   //VNSqk8pW8lJrkHBG
   getLoggedInAdminDetails() {
     return this.http.get('http://134.209.153.116/api/admin/profile', {
-      headers: { "x-access-token": environment.apiKey},
+      headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }

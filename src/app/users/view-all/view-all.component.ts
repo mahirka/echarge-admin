@@ -9,85 +9,10 @@ import { HttpService } from '../http.service';
 })
 export class ViewAllComponent implements OnInit {
 
-  publishedUsersProfilesToShow:any[]=[{
-    firstName:"John",
-    lastName:"Kora",
-    email:"john@gmail.com",
-  },
-  {
-    firstName:"Marrt",
-    lastName:"Kayn",
-    email:"kayn@gmail.com",
-  },
-  {
-    firstName:"Marry",
-    lastName:"John",
-    email:"john@gmail.com",
-  },{
-    firstName:"Marco",
-    lastName:"Luis",
-    email:"luis@gmail.com",
-  }]
-  publishedUsersProfiles:any[]=[{
-    firstName:"John",
-    lastName:"Kora",
-    email:"john@gmail.com",
-  },
-  {
-    firstName:"Marrt",
-    lastName:"Kayn",
-    email:"kayn@gmail.com",
-  },
-  {
-    firstName:"Marry",
-    lastName:"John",
-    email:"john@gmail.com",
-  },{
-    firstName:"Marco",
-    lastName:"Luis",
-    email:"luis@gmail.com",
-  }]
-  unPublishedUsersProfilesToShow:any[]=[{
-    firstName:"Marry",
-    lastName:"John",
-    email:"john@gmail.com",
-  },
-  {
-    firstName:"Marco",
-    lastName:"Luis",
-    email:"luis@gmail.com",
-  },
-    {
-    firstName:"John",
-    lastName:"Kora",
-    email:"john@gmail.com",
-  },
-  {
-    firstName:"Marrt",
-    lastName:"Kayn",
-    email:"kayn@gmail.com",
-  },
-  ]
-  unPublishedUsersProfiles:any[]=[{
-    firstName:"Marry",
-    lastName:"John",
-    email:"john@gmail.com",
-  },
-  {
-    firstName:"Marco",
-    lastName:"Luis",
-    email:"luis@gmail.com",
-  },
-    {
-    firstName:"John",
-    lastName:"Kora",
-    email:"john@gmail.com",
-  },
-  {
-    firstName:"Marrt",
-    lastName:"Kayn",
-    email:"kayn@gmail.com",
-  },]
+  publishedUsersProfilesToShow:any[]=[]
+  publishedUsersProfiles:any[]=[]
+  unPublishedUsersProfilesToShow:any[]=[]
+  unPublishedUsersProfiles:any[]=[]
   profiles = []
 
   constructor(private _router: Router,private _httpService: HttpService) { }
@@ -101,7 +26,7 @@ export class ViewAllComponent implements OnInit {
       data => {
         console.log("usersProfile")
           console.log(data)
-      this.profiles =  data["users"]
+      this.profiles =  data["Users"]
       this.publishedUsersProfilesToShow =  this.profiles.filter(profile=>    
         profile.published == true
       )
@@ -122,7 +47,7 @@ export class ViewAllComponent implements OnInit {
   publishedUserSuggestionChanged(e){
     let tempArray = []
     for (let index = 0; index < this.publishedUsersProfiles.length; index++) {
-      if(this.publishedUsersProfiles[index]["firstName"].toLowerCase().includes(e.target.value.toLowerCase())){
+      if(this.publishedUsersProfiles[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
         tempArray.push(this.publishedUsersProfiles[index])
       }
       //let searchString = this.publishedUsersProfiles[index]["firstName"].toLowerCase() + " " + this.publishedUsersProfiles[index]["secondName"].toLowerCase() + " "+ this.publishedUsersProfiles[index]["nearestTown"].toLowerCase()
@@ -136,7 +61,7 @@ export class ViewAllComponent implements OnInit {
   unPublishedUserSuggestionChanged(e){
     let tempArray = []
     for (let index = 0; index < this.unPublishedUsersProfiles.length; index++) {
-      if(this.unPublishedUsersProfiles[index]["firstName"].toLowerCase().includes(e.target.value.toLowerCase())){
+      if(this.unPublishedUsersProfiles[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
         tempArray.push(this.unPublishedUsersProfiles[index])
       }
       //let searchString = this.publishedUsersProfiles[index]["firstName"].toLowerCase() + " " + this.publishedUsersProfiles[index]["secondName"].toLowerCase() + " "+ this.publishedUsersProfiles[index]["nearestTown"].toLowerCase()

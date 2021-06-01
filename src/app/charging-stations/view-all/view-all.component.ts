@@ -9,50 +9,10 @@ import { HttpService } from '../http.service';
 })
 export class ViewAllComponent implements OnInit {
 
-  publishedChargingStationToShow:any[]=[{
-    name:"Reliance Charging Station",
-    place:"Calicut",
-    mechines:"EV Ather 450x",
-  },
-  {
-    name:"Bharath Charging Station",
-    place:"Kannur",
-    mechines:"EV Ather 450x",
-  },
-  ]
-  publishedChargingStations:any[]=[{
-    name:"Bharath Charging Station",
-    place:"Kannur",
-    mechines:"EV Ather 450x",
-  },
-  {
-    name:"Reliance Charging Station",
-    place:"Calicut",
-    mechines:"EV Ather 450x",
-  },
-  ]
-  unPublishedChargingStationToShow:any[]=[{
-    name:"Bharath Charging Station",
-    place:"Kannur",
-    mechines:"EV Ather 450x",
-  },
-  {
-    name:"Reliance Charging Station",
-    place:"Calicut",
-    mechines:"EV Ather 450x",
-  },
-  ]
-  unPublishedChargingStations:any[]=[{
-    name:"Bharath Charging Station",
-    place:"Kannur",
-    mechines:"EV Ather 450x",
-  },
-  {
-    name:"Reliance Charging Station",
-    place:"Calicut",
-    mechines:"EV Ather 450x",
-  },
-  ]
+  publishedChargingStationToShow:any[]=[]
+  publishedChargingStations:any[]=[ ]
+  unPublishedChargingStationToShow:any[]=[]
+  unPublishedChargingStations:any[]=[]
   profiles = []
 
   constructor(private _router: Router,private _httpService: HttpService) { }
@@ -66,7 +26,7 @@ export class ViewAllComponent implements OnInit {
       data => {
         console.log("chargingStation")
           console.log(data)
-      this.profiles =  data["users"]
+      this.profiles =  data["Charging Stations"]
       this.publishedChargingStationToShow =  this.profiles.filter(profile=>    
         profile.published == true
       )
