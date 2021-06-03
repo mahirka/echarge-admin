@@ -17,4 +17,11 @@ export class HttpService {
       observe: 'body',
     });
   }
+
+  readById() : Observable<any>{
+    return this.http.get('http://134.209.153.116/api/users/:userId',  {
+      headers: { "x-access-token": localStorage.getItem('token') },
+      observe: 'body',
+    });
+  }
 }

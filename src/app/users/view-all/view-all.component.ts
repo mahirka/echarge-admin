@@ -47,8 +47,11 @@ export class ViewAllComponent implements OnInit {
   publishedUserSuggestionChanged(e){
     let tempArray = []
     for (let index = 0; index < this.publishedUsersProfiles.length; index++) {
-      if(this.publishedUsersProfiles[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
-        tempArray.push(this.publishedUsersProfiles[index])
+      let name=this.publishedUsersProfiles[index]["name"];
+      if(name){
+        if(this.publishedUsersProfiles[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
+          tempArray.push(this.publishedUsersProfiles[index])
+        }
       }
       //let searchString = this.publishedUsersProfiles[index]["firstName"].toLowerCase() + " " + this.publishedUsersProfiles[index]["secondName"].toLowerCase() + " "+ this.publishedUsersProfiles[index]["nearestTown"].toLowerCase()
       // if(searchString.includes(e.target.value.toLowerCase())){
@@ -61,8 +64,12 @@ export class ViewAllComponent implements OnInit {
   unPublishedUserSuggestionChanged(e){
     let tempArray = []
     for (let index = 0; index < this.unPublishedUsersProfiles.length; index++) {
-      if(this.unPublishedUsersProfiles[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
-        tempArray.push(this.unPublishedUsersProfiles[index])
+      let name=this.unPublishedUsersProfiles[index]["name"];
+
+      if(name){
+        if(this.unPublishedUsersProfiles[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
+          tempArray.push(this.unPublishedUsersProfiles[index])
+        }
       }
       //let searchString = this.publishedUsersProfiles[index]["firstName"].toLowerCase() + " " + this.publishedUsersProfiles[index]["secondName"].toLowerCase() + " "+ this.publishedUsersProfiles[index]["nearestTown"].toLowerCase()
       // if(searchString.includes(e.target.value.toLowerCase())){

@@ -47,8 +47,12 @@ export class ViewAllComponent implements OnInit {
   publishedUserSuggestionChanged(e){
     let tempArray = []
     for (let index = 0; index < this.publishedChargingMechines.length; index++) {
-      if(this.publishedChargingMechines[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
-        tempArray.push(this.publishedChargingMechines[index])
+      let name=this.publishedChargingMechines[index]["name"];
+
+      if(name){
+        if(this.publishedChargingMechines[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
+          tempArray.push(this.publishedChargingMechines[index])
+        }
       }
       //let searchString = this.publishedUsersProfiles[index]["firstName"].toLowerCase() + " " + this.publishedUsersProfiles[index]["secondName"].toLowerCase() + " "+ this.publishedUsersProfiles[index]["nearestTown"].toLowerCase()
       // if(searchString.includes(e.target.value.toLowerCase())){
@@ -61,8 +65,12 @@ export class ViewAllComponent implements OnInit {
   unPublishedUserSuggestionChanged(e){
     let tempArray = []
     for (let index = 0; index < this.unPublishedChargingMechines.length; index++) {
-      if(this.unPublishedChargingMechines[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
-        tempArray.push(this.unPublishedChargingMechines[index])
+      let name=this.publishedChargingMechines[index]["name"];
+
+      if(name){
+        if(this.unPublishedChargingMechines[index]["name"].toLowerCase().includes(e.target.value.toLowerCase())){
+          tempArray.push(this.unPublishedChargingMechines[index])
+        }
       }
       //let searchString = this.publishedUsersProfiles[index]["firstName"].toLowerCase() + " " + this.publishedUsersProfiles[index]["secondName"].toLowerCase() + " "+ this.publishedUsersProfiles[index]["nearestTown"].toLowerCase()
       // if(searchString.includes(e.target.value.toLowerCase())){

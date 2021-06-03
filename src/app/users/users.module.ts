@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
 
   {path:'view-all',component:ViewAllComponent},
-  {path:'view',component:ViewComponent},
+  {path:'view/:userId',component:ViewComponent},
   
 ];
 
