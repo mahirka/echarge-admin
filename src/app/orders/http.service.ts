@@ -16,4 +16,12 @@ export class HttpService {
       observe: 'body',
     });
   }
+  readById(orderId) : Observable<any>{
+    console.log("orderId")
+    console.log(orderId)
+    return this.http.get('http://134.209.153.116/api/order/'+orderId,  {
+      headers: { "x-access-token": localStorage.getItem('token') },
+      observe: 'body',
+    });
+  }
 }

@@ -22,35 +22,23 @@ export class ViewComponent implements OnInit {
   constructor(private toastr: ToastrService, private _activatedRoute: ActivatedRoute, private store: Store<State>, private _httpService: HttpService, private fb: FormBuilder, private _router: Router,) { }
 
   ngOnInit(): void {
-    this.readUserById()
+    
     this.userId = this._activatedRoute.snapshot.paramMap.get('userId');
+    this.readUserById()
   }
 
 
   readUserById() {
-    this._httpService.readById()
+    this._httpService.readById(this.userId)
       .subscribe(
         data => {
           console.log('readById result is ')
           console.log(data)
-
-          if (data['response'] == 'success') {
-
-            this.published = data['userDetails']['published'];
-            this.userName = data['userDetails']['name'];
-            
-            
-
-            this.name = data['userDetails']['name']
-            this.email = data['userDetails']['email']
-            this.mobile = data['userDetails']['mobile']
-            
-
-          } else {
-            this.toastr.error("No Admin Present with given Id ", "Admin Not Found");
-
-
-          }
+          this.published = data['User'][0]['published'];
+          this.userName = data['User'][0]['name'];
+          this.name = data['User'][0]['name']
+          this.email = data['User'][0]['email']
+          this.mobile = data['User'][0]['mobile']
 
 
 

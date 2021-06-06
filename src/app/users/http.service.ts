@@ -18,8 +18,10 @@ export class HttpService {
     });
   }
 
-  readById() : Observable<any>{
-    return this.http.get('http://134.209.153.116/api/users/:userId',  {
+  readById(userId) : Observable<any>{
+    console.log("userId")
+    console.log(userId)
+    return this.http.get('http://134.209.153.116/api/users/'+userId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
