@@ -8,8 +8,8 @@
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <a class="nav-item nav-link active" id="nav-basic-tab" data-toggle="tab" href="#nav-basic" role="tab" aria-controls="nav-basic" aria-selected="true">Basic Info</a>
-              <a class="nav-item nav-link" id="nav-booking-tab" data-toggle="tab" href="#nav-booking" role="tab" aria-controls="nav-booking" aria-selected="true">Booking History</a>
-              <a class="nav-item nav-link" id="nav-data-tab" data-toggle="tab" href="#nav-data" role="tab" aria-controls="nav-data" aria-selected="true">Charging Data</a>
+              <a class="nav-item nav-link" id="nav-booking-tab" data-toggle="tab" href="#nav-booking" role="tab" aria-controls="nav-booking" aria-selected="true" click="readHistoryById()">Booking History</a>
+              <a class="nav-item nav-link" id="nav-data-tab" data-toggle="tab" href="#nav-data" role="tab" aria-controls="nav-data" aria-selected="true" click="chargingDataById()">Charging Data</a>
             </div> 
         </nav>
         <div class="tab-content mt-4" id="nav-tabContent" >
@@ -19,9 +19,9 @@
                 <img  src="../../../assets/img/machine.jpeg" alt="">
             </div>
             <div class="about-pro">
-                <h4>EV Ather</h4>
-                <p>C Type</p>
-                <a>450 kw</a>
+                <h4>{{name}}</h4>
+                <p>{{electricity_supply_type}}</p>
+                <p>{{minimum_charging_power}}</p>
                 <div class="edit-bt">
                     <div class="edit-icon">
                         <i class="fas fa-edit" aria-hidden="true"></i> 
@@ -43,20 +43,20 @@
                         <thead>
                         <tr >
                           <th>#</th>
-                          <th>  Name</th>
+                          <th>  User</th>
+                          <th> Order Name</th>
                           <th> Date</th>
-                          <th> Scheduled Time</th>
-                          <th> Unit Price</th>
+                          <th> Total</th>
 
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr *ngFor="let orderDetails of orderDetailsToShow;let i=index;">
                           <th scope="row">1</th>
-                          <td>Vyshak I V </td>
-                          <td>11/05/2021 </td>
-                          <td>12:30 to 1:30 </td>
-                          <td> 500</td>
+                          <td>{{orderDetails.user}} </td>
+                          <td>{{orderDetails.name}} </td>
+                          <td>{{orderDetails.create_date}} </td>
+                          <td> {{orderDetails.total}}</td>
 
                           
                         </tr>
@@ -73,15 +73,19 @@
                         <thead>
                         <tr >
                           <th>#</th>
-                          <th>  Name</th>
+                          
+                          <th> Phase Voltage</th>
                           <th> Date</th>
+                          <th> Frequency</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr  *ngFor="let chargingDetails of dataDetailsToShow;let i=index;">
                           <th scope="row">1</th>
-                          <td>Vyshak I V </td>
-                          <td>11/05/2021 </td>
+                          
+                          <td>{{chargingDetails.phase_voltage}}  </td>
+                          <td>{{chargingDetails.create_date}}  </td>
+                          <td>{{chargingDetails.frequency}} </td>
                           
                         </tr>
                        

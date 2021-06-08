@@ -12,11 +12,30 @@ import { HttpService } from '../http.service';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
+  vehiclesToShow:any[]=[]
+  favouritesToShow:any[]=[]
+  ordersToShow:any[]=[]
+
   published = false
   userId = ""
   name: string = ""
   email: string = ""
   mobile: string = ""
+
+  vehicle_name: string = ""
+  charging_power:string=""
+  plug_type: string = ""
+  battery_capacity: string = ""
+
+  favourite_name: string = ""
+  favourite_place: string = ""
+  favourite_date: string = ""
+
+  order_name: string = ""
+  booking_time: string = ""
+  order_date: string = ""
+
+  wallet: string = ""
   userName = "User"
 
   constructor(private toastr: ToastrService, private _activatedRoute: ActivatedRoute, private store: Store<State>, private _httpService: HttpService, private fb: FormBuilder, private _router: Router,) { }
@@ -39,7 +58,24 @@ export class ViewComponent implements OnInit {
           this.name = data['User'][0]['name']
           this.email = data['User'][0]['email']
           this.mobile = data['User'][0]['mobile']
+          this.wallet = data['User'][0]['wallet']
 
+          this.vehiclesToShow=data["vehicles"]
+          this.vehicle_name = data['vehicles'][0]['name']
+          this.charging_power = data['vehicles'][0]['charging_power']
+          this.plug_type = data['vehicles'][0]['plug_type']
+          this.battery_capacity = data['vehicles'][0]['battery_capacity']
+
+          this.favouritesToShow=data["favorites"]
+          this.favourite_name = data['favorites'][0]['name']
+          this.favourite_place = data['favorites'][0]['city']
+          this.favourite_date = data['favorites'][0]['create_date']
+          
+          this.ordersToShow=data["charging_history"]
+          this.order_name = data['charging_history'][0]['name']
+          this.booking_time = data['charging_history'][0]['booking_time']
+          this.order_date = data['charging_history'][0]['create_date']
+          
 
 
         },

@@ -41,30 +41,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr  *ngFor="let vehicleDetails of vehiclesToShow;let i=index;">
                       <th scope="row">1</th>
-                      <td>TATA Nexon</td>
+                      <td>{{vehicleDetails.name}}</td>
                       <td>
-                          450 kw
+                          {{vehicleDetails.charging_power}}
                       </td>
-                      <td>C Type</td>
+                      <td>{{vehicleDetails.plug_type}}</td>
 
                       <td>
-                         320 kw
+                        {{vehicleDetails.battery_capacity}}
                       </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Tesla</td>
-                        <td>
-                            350 kw
-                        </td>
-                        <td>C Type</td>
-  
-                        <td>
-                           220 kw
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -77,25 +65,22 @@
                     <thead>
                     <tr >
                       <th>#</th>
-                      <th> Machine Name</th>
-                      <th>Charging Power</th>
+                      <th> Order Name</th>
+                      <th>Booking Time</th>
+                      <th>Date</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr  *ngFor="let chargingDetails of ordersToShow;let i=index;">
                       <th scope="row">1</th>
-                      <td>EV Ather</td>
+                      <td>{{chargingDetails.name}}</td>
                       <td>
-                          450 kw
+                        {{chargingDetails.booking_time}}
                       </td>
+                      <td>{{chargingDetails.create_date}}</td>
+
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>EV Ather</td>
-                        <td>
-                            350 kw
-                        </td>
-                      </tr>
+                    
                     </tbody>
                   </table>
                 </div>
@@ -114,7 +99,7 @@
                     <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td>500</td>
+                      <td>{{wallet}}</td>
                       
                     </tr>
                    
@@ -128,17 +113,23 @@
                 <div class="card-body"><h5 class="card-title">Favourite Details</h5>
                   <table class="mb-0 table table-hover">
                     <thead>
-                    <tr >
+                    <tr>
                       <th>#</th>
                       <th> Station Name</th>
+                      <th> Place</th>
                       <th> Date</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr  *ngFor="let favouriteDetails of favouritesToShow;let i=index;" >
                       <th scope="row">1</th>
-                      <td>Reliance </td>
-                      <td>11/05/2021 </td>
+                      <td>
+                       {{favouriteDetails.charging_station.name}}
+                       </td>
+                      <td>
+                        {{favouriteDetails.charging_station.city}}
+                      </td>
+                      <td>{{favouriteDetails.create_date}} </td>
                       
                     </tr>
                    

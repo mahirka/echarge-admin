@@ -18,9 +18,9 @@
                 <img  src="../../../assets/img/images.jpeg" alt="">
             </div>
             <div class="about-pro">
-                <h4>Reliance Charging Station</h4>
-                <p>EV Ather 450x</p>
-                <a>Calicut</a>
+                <h4>{{name}}</h4>
+                <p>{{plug_type}}</p>
+                <a>{{city}}</a>
                 <div class="edit-bt">
                     <div class="edit-icon">
                         <i class="fas fa-edit" aria-hidden="true"></i> 
@@ -54,26 +54,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr >
+                            <tr *ngFor="let chargingMachines of machinesDetailsToShow;let i=index;">
                               <th scope="row">1</th>
-                              <td>EV Ather</td>
-                              <td>C Type </td>
-                              <td> AC </td>
-                              <td> 500 KW </td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>EV Ather</td>
-                              <td>B Type </td>
-                              <td> DC </td>
-                              <td> 320 KW </td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>EV Ather</td>
-                              <td>A Type </td>
-                              <td> AC </td>
-                              <td> 450 KW </td>
+                              <td>{{chargingMachines.name}}</td>
+                              <td>{{chargingMachines.plug_type}} </td>
+                              <td> {{chargingMachines.electricity_supply_type}} </td>
+                              <td> {{chargingMachines.minimum_charging_power}} </td>
                             </tr>
                             </tbody>
                           </table>

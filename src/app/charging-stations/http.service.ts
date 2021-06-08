@@ -15,4 +15,12 @@ export class HttpService {
       observe: 'body',
     });
   }
+  readById(stationId) : Observable<any>{
+    console.log("stationId")
+    console.log(stationId)
+    return this.http.get('http://134.209.153.116/api/charging_station/'+stationId,  {
+      headers: { "x-access-token": localStorage.getItem('token') },
+      observe: 'body',
+    });
+  }
 }

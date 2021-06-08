@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
 
   {path:'view-all',component:ViewAllComponent},
-  {path:'view',component:ViewComponent},
+  {path:'view/:stationId',component:ViewComponent},
   {path:'new',component:NewComponent},
   {path:'edit',component:EditComponent},
   
