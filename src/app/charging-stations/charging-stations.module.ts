@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'view-all',component:ViewAllComponent},
   {path:'view/:stationId',component:ViewComponent},
   {path:'new',component:NewComponent},
-  {path:'edit',component:EditComponent},
+  {path:'edit/:stationId',component:EditComponent},
   
 ];
 

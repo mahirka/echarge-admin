@@ -1,119 +1,101 @@
 <div class="container">
-    <div class="profile-view">
-        <div class="profile-title">
-            <div class="heading-tag">
-                <p>Charging Stations</p>
-            </div>
-        </div>
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-basic-tab" data-toggle="tab" href="#nav-basic" role="tab" aria-controls="nav-basic" aria-selected="true">Basic Info</a>
-              <a class="nav-item nav-link" id="nav-mechine-tab" data-toggle="tab" href="#nav-mechine" role="tab" aria-controls="nav-mechine" aria-selected="true">Charging Machines</a>
-            </div> 
-        </nav>
-        <div class="tab-content mt-4" id="nav-tabContent" >
-        <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-basic-tab">
-        <div class="pro-detail">
-            <div class="pro-img">
-                <img  src="../../../assets/img/images.jpeg" alt="">
-            </div>
-            <div class="about-pro">
-                <h4>{{name}}</h4>
-                <p>{{plug_type}}</p>
-                <a>{{city}}</a>
-                <div class="edit-bt">
-                    <div class="edit-icon">
-                        <i class="fas fa-edit" aria-hidden="true"></i> 
-                    </div>
-                    <div class="text-label">
-                        <a [routerLink]="['/dashboard/charging-mechines/edit']" routerLinkActive="router-link-active">Edit</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="tab-pane fade" id="nav-mechine" role="tabpanel" aria-labelledby="nav-mechine-tab">
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active" id="nav-activation-tab" data-toggle="tab" href="#nav-activation" role="tab" aria-controls="nav-activation" aria-selected="true">Active</a>
-                  <a class="nav-item nav-link" id="nav-under-tab" data-toggle="tab" href="#nav-under" role="tab" aria-controls="nav-under" aria-selected="true">Under Maintanance</a>
-                </div> 
-            </nav>
-            <div class="tab-content mt-4" id="nav-tabContent" >
-                <div class="tab-pane fade show active" id="nav-activation" role="tabpanel" aria-labelledby="nav-activation-tab">
-                    <div class="main-card mb-3 card">
-                        <div class="card-body"><h5 class="card-title">Active Machines</h5>
-                          <table class="mb-0 table table-hover">
-                            <thead>
-                            <tr>
-                              <th>#</th>
-                              <th> Name</th>
-                              <th>Plug Type</th>
-                              <th>Electricity Supply</th>
-                              <th>Charging Power</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr *ngFor="let chargingMachines of machinesDetailsToShow;let i=index;">
-                              <th scope="row">1</th>
-                              <td>{{chargingMachines.name}}</td>
-                              <td>{{chargingMachines.plug_type}} </td>
-                              <td> {{chargingMachines.electricity_supply_type}} </td>
-                              <td> {{chargingMachines.minimum_charging_power}} </td>
-                            </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                 </div>  
-                 <div class="tab-pane fade show active" id="nav-under" role="tabpanel" aria-labelledby="nav-under-tab">
-                    <div class="main-card mb-3 card">
-                        <div class="card-body"><h5 class="card-title">Under Maintanance Machines</h5>
-                          <table class="mb-0 table table-hover">
-                            <thead>
-                            <tr>
-                              <th>#</th>
-                              <th> Name</th>
-                              <th>Plug Type</th>
-                              <th>Electricity Supply</th>
-                              <th>Charging Power</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr >
-                              <th scope="row">1</th>
-                              <td>EV Ather</td>
-                              <td>C Type </td>
-                              <td> AC </td>
-                              <td> 500 KW </td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>EV Ather</td>
-                              <td>B Type </td>
-                              <td> DC </td>
-                              <td> 320 KW </td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>EV Ather</td>
-                              <td>A Type </td>
-                              <td> AC </td>
-                              <td> 450 KW </td>
-                            </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                 </div> 
-            </div>
-        </div> 
-         
-        </div>
-        
+  <div class="profile-view">
+    <div class="profile-title">
+      <div class="heading-tag">
+        <p>Charging Stations</p>
+      </div>
     </div>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-basic-tab" data-toggle="tab" href="#nav-basic" role="tab"
+          aria-controls="nav-basic" aria-selected="true">Basic Info</a>
+        <a class="nav-item nav-link" id="nav-mechine-tab" data-toggle="tab" href="#nav-mechine" role="tab"
+          aria-controls="nav-mechine" aria-selected="true">Charging Machines</a>
+      </div>
+    </nav>
+    <div class="tab-content mt-4" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-basic-tab">
+        <div class="pro-detail">
+          <div class="pro-img">
+            <img src="../../../assets/img/images.jpeg" alt="">
+          </div>
+          <div class="about-pro">
+            <h4>{{name}}</h4>
+            <p>{{city}}</p>
+            <a>{{state}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-mechine" role="tabpanel" aria-labelledby="nav-mechine-tab">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-activation-tab" data-toggle="tab" href="#nav-activation"
+              role="tab" aria-controls="nav-activation" aria-selected="true">Active</a>
+            <a class="nav-item nav-link" id="nav-under-tab" data-toggle="tab" href="#nav-under" role="tab"
+              aria-controls="nav-under" aria-selected="true">Under Maintanance</a>
+          </div>
+        </nav>
+        <div class="tab-content mt-4" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-activation" role="tabpanel"
+            aria-labelledby="nav-activation-tab">
+            <div class="main-card mb-3 card">
+              <div class="card-body">
+                <h5 class="card-title">Active Machines</h5>
+                <table class="mb-0 table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th> Name</th>
+                      <th>Plug Type</th>
+                      <th>Electricity Supply</th>
+                      <th>Charging Power</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let chargingMachines of machinesDetailsToShow;let i=index;">
+                      <th scope="row">1</th>
+                      <td>{{chargingMachines.name}}</td>
+                      <td>{{chargingMachines.plug_type}} </td>
+                      <td> {{chargingMachines.electricity_supply_type}} </td>
+                      <td> {{chargingMachines.minimum_charging_power}} </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade show active" id="nav-under" role="tabpanel" aria-labelledby="nav-under-tab">
+            <div class="main-card mb-3 card">
+              <div class="card-body">
+                <h5 class="card-title">Under Maintanance Machines</h5>
+                <table class="mb-0 table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th> Name</th>
+                      <th>Plug Type</th>
+                      <th>Electricity Supply</th>
+                      <th>Charging Power</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>EV Ather</td>
+                      <td>C Type </td>
+                      <td> AC </td>
+                      <td> 500 KW </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-  
-  
-  
-  
+</div>

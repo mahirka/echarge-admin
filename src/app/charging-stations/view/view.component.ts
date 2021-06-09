@@ -16,7 +16,7 @@ export class ViewComponent implements OnInit {
   machinesDetailsToShow:any[]=[]
   stationId = ""
   name: string = ""
-  plug_type: string = ""
+  state: string = ""
   city: string = ""
 
  machine_name: string = ""
@@ -41,7 +41,7 @@ export class ViewComponent implements OnInit {
           this.published = data['Charging Station']['published'];
           this.userName = data['Charging Station']['name'];
           this.name = data['Charging Station']['name']
-          this.plug_type = data['Charging Station']['plug_type']
+          this.state = data['Charging Station']['state']
           this.city = data['Charging Station']['city']
           
           this.machinesDetailsToShow=data['charging_machines']

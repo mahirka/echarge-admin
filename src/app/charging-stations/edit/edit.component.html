@@ -1,25 +1,66 @@
 <div class="main-card mb-3 card">
     <div class="card-body "><h5 class="card-title">Edit Charging Station Details</h5>
-      <form [formGroup]="editChargingStations">
-        <div class="position-relative form-group"><label for="exampleEmail">Name</label><input name="email"
-                                                                                                id="exampleEmail"
-                                                                                                formControlName="name"
-                                                                                                type="text"
-                                                                                                class="form-control">
-        </div>
-        <div class="position-relative form-group"><label for="exampleEmail">City</label><input name="email"
+      <form [formGroup]="newChargingStationForm">
+        <div class="position-relative form-group"><label for="exampleEmail">Name</label><input name="name"
           id="exampleEmail"
-          formControlName="city"
+          formControlName="name"
           type="text"
           class="form-control">
-        </div>
-        <div class="position-relative form-group"><label for="exampleEmail">Mechine Name</label><input name="email"
-          id="exampleEmail"
-          formControlName="street"
-          type="text"
-          class="form-control">
-        </div>
-        <button class="mt-1 btn btn-primary">Submit</button>
+</div>
+<div class="position-relative form-group"><label for="exampleEmail">City</label><input name="city"
+id="exampleEmail"
+formControlName="city"
+type="text"
+class="form-control">
+</div>
+<div class="position-relative form-group"><label for="exampleEmail">Street</label><input name="street"
+id="exampleEmail"
+formControlName="street"
+type="text"
+class="form-control">
+</div>
+<div class="position-relative form-group"><label for="exampleEmail">State</label><input name="state"
+id="exampleEmail"
+formControlName="state"
+type="text"
+class="form-control">
+</div>
+<div class="position-relative form-group"><label for="exampleEmail">Country</label><input name="country"
+id="exampleEmail"
+formControlName="country"
+type="text"
+class="form-control">
+</div>
+<div class="position-relative form-group"><label for="exampleEmail">Address</label><input name="address"
+id="exampleEmail"
+formControlName="address"
+type="text"
+class="form-control">
+</div>
+<div class="position-relative form-group"><label for="exampleEmail">Longitude</label><input name="longitude"
+id="exampleEmail"
+formControlName="longitude"
+type="text"
+class="form-control">
+</div>
+<div class="position-relative form-group"><label for="exampleEmail">Latitude</label><input name="latitude"
+id="exampleEmail"
+formControlName="latitude"
+type="text"
+class="form-control">
+</div>
+<div class="position-relative form-group"><label for="exampleEmail">Zipcode</label><input name="zipcode"
+id="exampleEmail"
+formControlName="zipcode"
+type="text"
+class="form-control">
+</div>
+<div class="button-block">
+  <p class="error-msg" *ngIf="errorMessage" for="">{{errorMessage}}</p>
+
+  <button class="btn btn-primary mt-3 save-button" (click)="submit()">Save<i *ngIf="isLoading"
+          class="fa fa-spin fa-spinner"></i></button>
+</div>
       </form>
     </div>
   </div>
