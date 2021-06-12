@@ -14,17 +14,20 @@ export class ViewAllComponent implements OnInit {
   unPublishedUsersProfilesToShow:any[]=[]
   unPublishedUsersProfiles:any[]=[]
   profiles = []
+  isLoading = false;
 
   constructor(private _router: Router,private _httpService: HttpService) { }
 
   ngOnInit(): void {
    this.getusersProfile()
+   this.isLoading = true;
   }
   getusersProfile(){
     this._httpService.getusersProfile()
     .subscribe(
       data => {
         console.log("usersProfile")
+        this.isLoading = false;
           console.log(data)
       this.profiles =  data["Users"]
       this.publishedUsersProfilesToShow =  this.profiles.filter(profile=>    
@@ -38,6 +41,7 @@ export class ViewAllComponent implements OnInit {
       this.unPublishedUsersProfiles =  this.unPublishedUsersProfilesToShow
       },
       error => {
+        this.isLoading = false;
         this._router.navigate(['']);
       },
     );

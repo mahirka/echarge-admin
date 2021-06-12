@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -14,17 +15,21 @@ export class ViewAllComponent implements OnInit {
   unPublishedChargingStationToShow:any[]=[]
   unPublishedChargingStations:any[]=[]
   stations = []
+  
+  isLoading = false;
 
-  constructor(private _router: Router,private _httpService: HttpService) { }
+  constructor(private _router: Router,private _httpService: HttpService,private toastr: ToastrService, ) { }
 
   ngOnInit(): void {
    this.getchargingStation()
   }
   getchargingStation(){
+    this.isLoading = true;
     this._httpService.getchargingStation()
     .subscribe(
       data => {
         console.log("chargingStation")
+        this.isLoading = false;
           console.log(data)
       this.stations =  data["Charging Station"]
       this.publishedChargingStationToShow =  this.stations
@@ -33,6 +38,7 @@ export class ViewAllComponent implements OnInit {
       this.unPublishedChargingStations =  this.unPublishedChargingStationToShow
       },
       error => {
+        this.isLoading = false;
         this._router.navigate(['/dashboard']);
       },
     );
@@ -74,6 +80,58 @@ export class ViewAllComponent implements OnInit {
     }
     this.unPublishedChargingStationToShow = tempArray;
   }
+
+  deleteStation(stationId) {
+
+    if (confirm("Are you sure to delete ")) {
+
+    this._httpService.deleteStation(stationId)
+      .subscribe(
+
+        data => {
+          if (data['status'] == 'OK') {
+            this.toastr.success("Plan Deleted Successfully", "Success");
+
+            this.getchargingStation()
+          }
+
+
+        },
+
+        error => {
+          this.toastr.error("Could you please try again?", error.error,);
+
+        },
+
+      );
+
+    }
+  }
+  changePublishedStatus(planId,published) {
+    if (confirm("Are you sure to delete ")) {
+
+    this._httpService.updateStation({ stationId: stationId, published: !published })
+      .subscribe(
+
+        data => {
+
+          if (data['response'] == 'success') {
+            this.toastr.success("station Updated Successfully", "Success");
+            this.getchargingStation()
+          }
+
+        },
+
+        error => {
+          console.log("error")
+          console.log(error)
+          this.toastr.error("Could you please try again?", error.error,);
+        },
+
+      );
+  }
+  }
+
 
 
 }

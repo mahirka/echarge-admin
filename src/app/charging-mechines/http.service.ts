@@ -40,4 +40,18 @@ export class HttpService {
       observe: 'body',
     });
   }
+  createMachine(body: any) {
+    return this.http.post('http://134.209.153.116/api/charging_machine', body, {
+      headers: { "x-access-token": localStorage.getItem('token')  },
+      observe: 'body'
+    });
+  }
+  updateMachine(stationId,body: any) {
+    console.log("stationId")
+    console.log(stationId)
+    return this.http.patch('http://134.209.153.116/api/charging_machine/'+stationId,body, {
+      headers: { "x-access-token": localStorage.getItem('token')  },
+      observe: 'body'
+    });
+  }
 }

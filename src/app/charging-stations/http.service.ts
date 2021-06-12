@@ -29,12 +29,20 @@ export class HttpService {
       observe: 'body'
     });
   }
-  updateStation(stationId) {
+  updateStation(stationId,body: any) {
     console.log("stationId")
     console.log(stationId)
-    return this.http.patch('http://134.209.153.116/api/charging_station/'+stationId, {
+    return this.http.patch('http://134.209.153.116/api/charging_station/'+stationId,body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
+    });
+  }
+  deleteStation(stationId) : Observable<any>{
+    console.log("stationId")
+    console.log(stationId)
+    return this.http.delete('http://134.209.153.116/api/charging_station/'+stationId,  {
+      headers: { "x-access-token": localStorage.getItem('token') },
+      observe: 'body',
     });
   }
 }

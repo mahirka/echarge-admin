@@ -1,4 +1,4 @@
-<div class="main-card mb-3 card">
+<div *ngIf="!isLoading"  class="main-card mb-3 card">
     <div class="card-body "><h5 class="card-title">Charging Station Details</h5>
       <form [formGroup]="newChargingStationForm">
         <div class="position-relative form-group"><label for="exampleEmail">Name</label><input name="name"
@@ -63,4 +63,7 @@
       </div>
       </form>
     </div>
+  </div>
+  <div *ngIf="isLoading" class="loadingScreen d-flex justify-content-center align-items-center">
+    <i  class="fa fa-spin fa-spinner"></i>
   </div>

@@ -1,4 +1,4 @@
-<div class="main-container ">
+<div *ngIf="!isLoading" class="main-container ">
     <div class="container">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -105,4 +105,7 @@
             </div>
         </div>
     </div>
+  </div>
+  <div *ngIf="isLoading" class="loadingScreen d-flex justify-content-center align-items-center">
+    <i  class="fa fa-spin fa-spinner"></i>
   </div>

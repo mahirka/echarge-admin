@@ -11,7 +11,7 @@ const routes: Routes = [
     {path: 'dashboard/users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule)},
     {path: 'dashboard/vendors', loadChildren: () => import('./vendors/vendors.module').then(m => m.VendorsModule)},
     {path: 'dashboard/charging-stations', loadChildren: () => import('./charging-stations/charging-stations.module').then(m => m.ChargingStationsModule)},
-    {path: 'dashboard/charging-mechines', loadChildren: () => import('./charging-mechines/charging-mechines.module').then(m => m.ChargingMechinesModule)},
+    {path: 'dashboard/charging-machines', loadChildren: () => import('./charging-mechines/charging-mechines.module').then(m => m.ChargingMechinesModule)},
     {path: 'dashboard/orders', loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)},
   
 

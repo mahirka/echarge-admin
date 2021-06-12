@@ -16,9 +16,10 @@ export class NewComponent implements OnInit {
   errorMessage = null;
   isLoading = false;
 
-  constructor(private toastr: ToastrService, private store: Store<State>, private _httpService: HttpService, private fb: FormBuilder, private _router: Router,) { }
+  constructor(private toastr: ToastrService, private store: Store<State>,  private _httpService: HttpService, private fb: FormBuilder, private _router: Router,) { }
 
   ngOnInit(): void {
+    
 
     this.newChargingStationForm = new FormGroup({
       name: new FormControl(null, Validators.required),

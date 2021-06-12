@@ -14,17 +14,20 @@ export class ViewAllComponent implements OnInit {
   unPublishedChargingMechineToShow:any[]=[]
   unPublishedChargingMechines:any[]=[ ]
   profiles = []
+  isLoading = false;
 
   constructor(private _router: Router,private _httpService: HttpService) { }
 
   ngOnInit(): void {
     this.getchargingMechine()
+    this.isLoading = true;
   }
   getchargingMechine(){
     this._httpService.getchargingMechine()
     .subscribe(
       data => {
         console.log("chargingMachines")
+        this.isLoading = false;
           console.log(data)
       this.profiles =  data["Charging Machines"]
       this.publishedChargingMechineToShow =  this.profiles.filter(profile=>    
@@ -38,6 +41,7 @@ export class ViewAllComponent implements OnInit {
       this.unPublishedChargingMechines =  this.unPublishedChargingMechineToShow
       },
       error => {
+        this.isLoading = false;
         this._router.navigate(['']);
       },
     );

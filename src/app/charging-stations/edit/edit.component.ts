@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { State } from 'src/app/state/app.reducer';
@@ -16,10 +16,10 @@ export class EditComponent implements OnInit {
   errorMessage = null;
   isLoading = false;
   stationId = ""
-  constructor(private toastr: ToastrService, private store: Store<State>, private _httpService: HttpService, private fb: FormBuilder, private _router: Router,) { }
+  constructor(private toastr: ToastrService, private store: Store<State>, private _activatedRoute: ActivatedRoute,private _httpService: HttpService, private fb: FormBuilder, private _router: Router,) { }
 
   ngOnInit(): void {
-
+    this.stationId = this._activatedRoute.snapshot.paramMap.get('stationId');
     this.newChargingStationForm = new FormGroup({
       name: new FormControl(null, Validators.required),
       city: new FormControl(null, Validators.required),
@@ -79,16 +79,16 @@ export class EditComponent implements OnInit {
     this.errorMessage = null;
     this.isLoading = true;
     
-    this._httpService.updateStation(this.newChargingStationForm.value)
+    this._httpService.updateStation(this.stationId,this.newChargingStationForm.value)
 
       .subscribe(
         data => {
           console.log("data reached")
 
           this.isLoading = false;
-          if (data['status'] == 'OK') {
+          if (data['status'] == ['OK']) {
             //data['tocken']
-
+           
             this.toastr.success("Station Updated Successfully");
             this._router.navigate(['/dashboard/charging-stations/view-all']);
           }

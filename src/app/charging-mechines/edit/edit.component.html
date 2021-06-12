@@ -1,26 +1,46 @@
 <div class="main-card mb-3 card">
-    <div class="card-body "><h5 class="card-title">Edit Charging Machine</h5>
-      <form [formGroup]="editChargingMachines">
-        <div class="position-relative form-group"><label for="exampleEmail">Name</label><input name="email"
-                                                                                                id="exampleEmail"
-                                                                                                formControlName="name"
-                                                                                                type="text"
-                                                                                                class="form-control">
-        </div>
-        <div class="position-relative form-group"><label for="exampleEmail">Plug Type</label><input name="email"
-          id="exampleEmail"
-          formControlName="plug_type"
-          type="text"
-          class="form-control">
-        </div>
-        <div class="position-relative form-group"><label for="exampleEmail">Charging Power</label><input name="email"
-          id="exampleEmail"
-          formControlName="minimum_charging_power"
-          type="text"
-          class="form-control">
-        </div>
-        <button class="mt-1 btn btn-primary">Submit</button>
-      </form>
-    </div>
-  </div>
+  <div class="card-body "><h5 class="card-title">Edit Charging Machine Details</h5>
+    <form [formGroup]="newChargingMachineForm">
+      <div class="position-relative form-group"><label for="exampleEmail">Name</label><input name="email"
+                                                                                              id="exampleEmail"
+                                                                                              formControlName="name"
+                                                                                              type="text"
+                                                                                              class="form-control">
+      </div>
+      <div class="position-relative form-group"><label for="exampleEmail">Charging Power</label><input name="power"
+        id="exampleEmail"
+        formControlName="minimum_charging_power"
+        type="text"
+        class="form-control">
+      </div>
+      <div class="position-relative form-group"><label for="exampleSelectMulti">Plug Type</label><select  name="selectMulti" id="exampleSelectMulti"
+                                class="form-control"formControlName="plug_type">
+        <option>3 Pin</option>
+        <option>Chedamo</option>
+        <option>CCS</option>
+        <option>Type 1</option>
+        <option>Type 2</option>
+      </select></div>
+      <div class="position-relative form-group"><label for="exampleEmail">Unit Price</label><input name="price"
+        id="exampleEmail"
+        formControlName="unit_price"
+        type="text"
+        class="form-control">
+      </div>
+      <div class="position-relative form-group"><label for="exampleSelectMulti">Electricity Sypply Type</label><select  name="selectMulti" id="exampleSelectMulti"
+                                class="form-control"formControlName="electricity_supply_type">
+        <option>AC</option>
+        <option>DC</option>
+        
+      </select></div>
+      <div class="position-relative form-group"><label for="exampleText">Description</label><textarea
+        name="text" id="exampleText" formControlName="description" class="form-control"></textarea></div>
+        <div class="button-block">
+          <p class="error-msg" *ngIf="errorMessage" for="">{{errorMessage}}</p>
 
+          <button class="btn btn-primary mt-3 save-button" (click)="submit()">Save<i *ngIf="isLoading"
+                  class="fa fa-spin fa-spinner"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
