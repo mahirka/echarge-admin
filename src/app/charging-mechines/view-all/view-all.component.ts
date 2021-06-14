@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -13,10 +14,10 @@ export class ViewAllComponent implements OnInit {
   publishedChargingMechines:any[]=[ ]
   unPublishedChargingMechineToShow:any[]=[]
   unPublishedChargingMechines:any[]=[ ]
-  profiles = []
+  machines = []
   isLoading = false;
 
-  constructor(private _router: Router,private _httpService: HttpService) { }
+  constructor(private _router: Router,private _httpService: HttpService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getchargingMechine()
@@ -29,14 +30,14 @@ export class ViewAllComponent implements OnInit {
         console.log("chargingMachines")
         this.isLoading = false;
           console.log(data)
-      this.profiles =  data["Charging Machines"]
-      this.publishedChargingMechineToShow =  this.profiles.filter(profile=>    
-        profile.published == true
+      this.machines =  data["Charging Machines"]
+      this.publishedChargingMechineToShow =  this.machines.filter(machines=>    
+        machines.published == true
       )
       this.publishedChargingMechines =  this.publishedChargingMechineToShow
 
-      this.unPublishedChargingMechineToShow =  this.profiles.filter(profile=>    
-        profile.published == false
+      this.unPublishedChargingMechineToShow =  this.machines.filter(machines=>    
+        machines.published == false
       )
       this.unPublishedChargingMechines =  this.unPublishedChargingMechineToShow
       },
@@ -82,6 +83,32 @@ export class ViewAllComponent implements OnInit {
       // }
     }
     this.unPublishedChargingMechineToShow = tempArray;
+  }
+  deleteMachine(machineId) {
+
+    if (confirm("Are you sure to delete ")) {
+
+    this._httpService.deleteMachine(machineId)
+      .subscribe(
+
+        data => {
+          if (data['status'] == 'OK') {
+            this.toastr.success("Machine Deleted Successfully", "Success");
+
+            this.getchargingMechine()
+          }
+
+
+        },
+
+        error => {
+          this.toastr.error("Could you please try again?", error.error,);
+
+        },
+
+      );
+
+    }
   }
 
 

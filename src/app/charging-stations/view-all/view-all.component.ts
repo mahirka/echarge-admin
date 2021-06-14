@@ -32,9 +32,9 @@ export class ViewAllComponent implements OnInit {
         this.isLoading = false;
           console.log(data)
       this.stations =  data["Charging Station"]
-      this.publishedChargingStationToShow =  this.stations
+      this.publishedChargingStationToShow =  this.stations.filter(station => station.published == true)
       this.publishedChargingStations =  this.publishedChargingStationToShow
-      this.unPublishedChargingStationToShow =  this.stations
+      this.unPublishedChargingStationToShow =  this.stations.filter(station => station.published == false)
       this.unPublishedChargingStations =  this.unPublishedChargingStationToShow
       },
       error => {
@@ -90,7 +90,7 @@ export class ViewAllComponent implements OnInit {
 
         data => {
           if (data['status'] == 'OK') {
-            this.toastr.success("Plan Deleted Successfully", "Success");
+            this.toastr.success("Station Deleted Successfully", "Success");
 
             this.getchargingStation()
           }
@@ -107,10 +107,10 @@ export class ViewAllComponent implements OnInit {
 
     }
   }
-  changePublishedStatus(planId,published) {
+  changePublishedStatus(stationId,published) {
     if (confirm("Are you sure to delete ")) {
 
-    this._httpService.updateStation({ stationId: stationId, published: !published })
+    this._httpService.updateStation(stationId,{ published: published?"publish":"unpublish" })
       .subscribe(
 
         data => {

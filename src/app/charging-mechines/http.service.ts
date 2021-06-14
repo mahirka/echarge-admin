@@ -46,12 +46,20 @@ export class HttpService {
       observe: 'body'
     });
   }
-  updateMachine(stationId,body: any) {
+  updateMachine(machineId,body: any) {
     console.log("stationId")
-    console.log(stationId)
-    return this.http.patch('http://134.209.153.116/api/charging_machine/'+stationId,body, {
+    console.log(machineId)
+    return this.http.patch('http://134.209.153.116/api/charging_machine/'+machineId,body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
+    });
+  }
+  deleteMachine(machineId) : Observable<any>{
+    console.log("stationId")
+    console.log(machineId)
+    return this.http.delete('http://134.209.153.116/api/charging_machine/'+machineId,  {
+      headers: { "x-access-token": localStorage.getItem('token') },
+      observe: 'body',
     });
   }
 }
