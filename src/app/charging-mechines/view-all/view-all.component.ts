@@ -110,6 +110,30 @@ export class ViewAllComponent implements OnInit {
 
     }
   }
+  changePublishedStatus(machineId,published) {
+    if (confirm("Are you sure to delete ")) {
+
+    this._httpService.updateMachine(machineId,{ published: published?"publish":"unpublish" })
+      .subscribe(
+
+        data => {
+
+          if (data['status'] == 'OK') {
+            this.toastr.success("station Updated Successfully", "Success");
+            this.getchargingMechine()
+          }
+
+        },
+
+        error => {
+          console.log("error")
+          console.log(error)
+          this.toastr.error("Could you please try again?", error.error,);
+        },
+
+      );
+  }
+  }
 
 
 }

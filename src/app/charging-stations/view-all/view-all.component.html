@@ -1,5 +1,10 @@
 <div *ngIf="!isLoading"  class="main-container ">
     <div class="container">
+      <div class="profile-title">
+        <div class="heading-tag">
+            <p>All Stations </p>
+        </div>
+      </div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link px-2 px-md-3 active" id="station-nav-published-tab" data-toggle="tab" href="#station-nav-published"
@@ -34,7 +39,7 @@
                         <td>{{chargingStation.name}}</td>
                         <td>
                             <span *ngFor="let machine of chargingStation .charging_machines">
-                              {{machine.name}}
+                              {{machine.id}}
                             </span>
                         </td>
                         <td>{{chargingStation.city}}</td>
@@ -102,7 +107,7 @@
                                 <a [routerLink]="['/dashboard/charging-stations/edit/'+chargingStation.id]" routerLinkActive="router-link-active"><i class="fa fa-edit" aria-hidden="true"></i></a>
                               </div>
                               <div class="icon">
-                                  <a><i class="fa fa-check "></i></a>
+                                  <a (click)="changePublishedStatus(chargingStation.id,false)"><i class="fa fa-check "></i></a>
                               </div>
                               <div class="icon">
                                   <a><i class="fas fa-trash" aria-hidden="true"></i></a>

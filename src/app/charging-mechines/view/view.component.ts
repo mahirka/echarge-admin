@@ -16,7 +16,7 @@ export class ViewComponent implements OnInit {
   orderDetailsToShow:any[]=[]
   dataDetailsToShow:any[]=[]
   machineId = ""
-  name: string = ""
+  id: string = ""
   electricity_supply_type: string = ""
   minimum_charging_power: string = ""
 
@@ -46,7 +46,7 @@ export class ViewComponent implements OnInit {
           console.log(data)
           this.published = data['Charging Machhine']['published'];
           this.userName = data['Charging Machhine']['name'];
-          this.name = data['Charging Machhine']['name']
+          this.id = data['Charging Machhine']['id']
           this.electricity_supply_type = data['Charging Machhine']['electricity_supply_type']
           this.minimum_charging_power = data['Charging Machhine']['minimum_charging_power']
           
@@ -89,7 +89,7 @@ export class ViewComponent implements OnInit {
           console.log(data)
           this.orderDetailsToShow=data['charging_data']
           this.published = data['charging_data']['published'];
-          this.name = data['charging_data']['name']
+          this.id = data['charging_data']['id']
           this.history_date = data['charging_data']['create_date']
           this.total = data['charging_data']['total']
         

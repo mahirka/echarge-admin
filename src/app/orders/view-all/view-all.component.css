@@ -8,6 +8,12 @@
     background-color: white;
     padding: 2rem;
   }
+  .heading-tag{
+    font-weight: bold;
+    font-size: x-large;
+    color: #1b9a59;
+    font-family: monospace;
+  }
   .main-container{
     margin-left: 16rem;  }
   .plan-card__title {

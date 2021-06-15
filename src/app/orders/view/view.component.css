@@ -9,6 +9,12 @@
    
   
   }
+  .heading-tag{
+    font-weight: bold;
+    font-size: x-large;
+    color: #1b9a59;
+    font-family: monospace;
+  }
   .container{
     padding: 0;
     max-width: 72%;

@@ -1,1 +1,192 @@
-<p>view works!</p>
+<div class="container">
+    <div class="profile-view">
+        <div class="profile-title">
+            <div class="heading-tag">
+                <p>{{name}}'s Profile</p>
+            </div>
+        </div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-basic-tab" data-toggle="tab" href="#nav-basic" role="tab" aria-controls="nav-basic" aria-selected="true">Basic Info</a>
+              <a class="nav-item nav-link " id="nav-charge-tab" data-toggle="tab" href="#nav-charge" role="tab" aria-controls="nav-charge" aria-selected="true">Charging Staion</a>
+              <a class="nav-item nav-link" id="nav-vehicle-tab" data-toggle="tab" href="#nav-vehicle" role="tab" aria-controls="nav-vehicle" aria-selected="true">Vehicles</a>
+              <a class="nav-item nav-link" id="nav-stations-tab" data-toggle="tab" href="#nav-stations" role="tab" aria-controls="nav-stations" aria-selected="true">Charging History</a>
+              <a class="nav-item nav-link" id="nav-wallet-tab" data-toggle="tab" href="#nav-wallet" role="tab" aria-controls="nav-wallet" aria-selected="true">Wallet</a>
+              <a class="nav-item nav-link" id="nav-favourite-tab" data-toggle="tab" href="#nav-favourite" role="tab" aria-controls="nav-favourite" aria-selected="true">Favourite</a>
+            </div> 
+        </nav>
+        <div class="tab-content mt-4" id="nav-tabContent" >
+        <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-basic-tab">
+        <div class="pro-detail">
+            <div class="pro-img">
+                <img  src="../../../assets/img/pro_icon.png" alt="">
+            </div>
+            <div class="vendor-detail">
+                <div class="about-pro">
+                    <h2>{{name}}</h2>
+                    <p>{{mobile}}</p>
+                    <a>{{email}}</a>
+                </div>
+                <div class="bank-detail">
+                    <p>Bank : {{bank_name}}</p>
+                    <p>A/C No : {{account_number}}</p>
+                    <a>Branch : {{branch}}</a>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+        <div class="tab-pane fade" id="nav-charge" role="tabpanel" aria-labelledby="nav-charge-tab">
+            <div class="main-card mb-3 card">
+                <div class="card-body"><h5 class="card-title"> All Station </h5>
+                  <table class="mb-0 table table-hover">
+                    <thead>
+                    <tr >
+                      <th>#</th>
+                      <th> Station Name</th>
+                      <th>Machines</th>
+                      <th>PLace</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  *ngFor="let stationDetails of stationsToShow;let i=index;">
+                      <th scope="row">1</th>
+                      <td>{{stationDetails.name}}</td>
+                      <td>
+                          {{stationDetails.id}}
+                      </td>
+                      <td>{{stationDetails.city}}</td>
+                      <td>
+                        <div class="img">
+                            <div class="icon">
+                                <a [routerLink]="['/dashboard/charging-stations/view/'+stationDetails.id]" routerLinkActive="router-link-active"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                      </td>
+                
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        </div> 
+        <div class="tab-pane fade" id="nav-vehicle" role="tabpanel" aria-labelledby="nav-vehicle-tab">
+            <div class="main-card mb-3 card">
+                <div class="card-body"><h5 class="card-title">Vehicle Details</h5>
+                  <table class="mb-0 table table-hover">
+                    <thead>
+                    <tr >
+                      <th>#</th>
+                      <th> Vehicle Name</th>
+                      <th>Charging Power</th>
+                      <th>Plug Type</th>
+                      <th>Battery Capacity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  *ngFor="let vehicleDetails of vehiclesToShow;let i=index;">
+                      <th scope="row">1</th>
+                      <td>{{vehicleDetails.name}}</td>
+                      <td>
+                          {{vehicleDetails.charging_power}}
+                      </td>
+                      <td>{{vehicleDetails.plug_type}}</td>
+
+                      <td>
+                        {{vehicleDetails.battery_capacity}}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        </div> 
+        <div class="tab-pane fade" id="nav-stations" role="tabpanel" aria-labelledby="nav-stations-tab">
+            <div class="main-card mb-3 card">
+                <div class="card-body"><h5 class="card-title">Charging Details</h5>
+                  <table class="mb-0 table table-hover">
+                    <thead>
+                    <tr >
+                      <th>#</th>
+                      <th> Order Name</th>
+                      <th>Booking Time</th>
+                      <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  *ngFor="let chargingDetails of ordersToShow;let i=index;">
+                      <th scope="row">1</th>
+                      <td>{{chargingDetails.name}}</td>
+                      <td>
+                        {{chargingDetails.booking_time}}
+                      </td>
+                      <td>{{chargingDetails.create_date}}</td>
+
+                    </tr>
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        </div> 
+        <div class="tab-pane fade" id="nav-wallet" role="tabpanel" aria-labelledby="nav-wallet-tab">
+            <div class="main-card mb-3 card">
+                <div class="card-body"><h5 class="card-title">Wallet Details</h5>
+                  <table class="mb-0 table table-hover">
+                    <thead>
+                    <tr >
+                      <th>#</th>
+                      <th> Total Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{wallet}}</td>
+                      
+                    </tr>
+                   
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        </div> 
+        <div class="tab-pane fade" id="nav-favourite" role="tabpanel" aria-labelledby="nav-favourite-tab">
+            <div class="main-card mb-3 card">
+                <div class="card-body"><h5 class="card-title">Favourite Details</h5>
+                  <table class="mb-0 table table-hover">
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th> Station Name</th>
+                      <th> Place</th>
+                      <th> Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  *ngFor="let favouriteDetails of favouritesToShow;let i=index;" >
+                      <th scope="row">1</th>
+                      <td>
+                       {{favouriteDetails.charging_station.name}}
+                       </td>
+                      <td>
+                        {{favouriteDetails.charging_station.city}}
+                      </td>
+                      <td>{{favouriteDetails.create_date}} </td>
+                      
+                    </tr>
+                   
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        </div> 
+        </div>
+        
+    </div>
+  </div>
+  
+  
+  
+  

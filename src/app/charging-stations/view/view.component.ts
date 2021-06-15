@@ -13,7 +13,8 @@ import { HttpService } from '../http.service';
 })
 export class ViewComponent implements OnInit {
   published = false
-  machinesDetailsToShow:any[]=[]
+  activeMachinesDetailsToShow:any[]=[]
+  underMachinesDetailsToShow:any[]=[]
   stationId = ""
   name: string = ""
   state: string = ""
@@ -44,7 +45,13 @@ export class ViewComponent implements OnInit {
           this.state = data['Charging Station']['state']
           this.city = data['Charging Station']['city']
           
-          this.machinesDetailsToShow=data['charging_machines']
+          this.activeMachinesDetailsToShow=data['charging_machines']
+          this.machine_name = data['charging_machines'][0]['name']
+          this.machine_plug_type = data['charging_machines'][0]['plug_type']
+          this.electricity_supply_type = data['charging_machines'][0]['electricity_supply_type']
+          this.charging_power = data['charging_machines'][0]['minimum_charging_power']
+
+          this.underMachinesDetailsToShow=data['charging_machines']
           this.machine_name = data['charging_machines'][0]['name']
           this.machine_plug_type = data['charging_machines'][0]['plug_type']
           this.electricity_supply_type = data['charging_machines'][0]['electricity_supply_type']

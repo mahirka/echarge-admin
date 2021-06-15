@@ -29,14 +29,16 @@ export class ViewAllComponent implements OnInit {
         console.log("usersProfile")
         this.isLoading = false;
           console.log(data)
-      this.profiles =  data["Users"]
+      this.profiles =  data["Users"].filter(profile=>    
+        profile.is_vendor == false 
+      )
       this.publishedUsersProfilesToShow =  this.profiles.filter(profile=>    
-        profile.published == true
+        profile.published == true 
       )
       this.publishedUsersProfiles =  this.publishedUsersProfilesToShow
 
       this.unPublishedUsersProfilesToShow =  this.profiles.filter(profile=>    
-        profile.published == false
+        profile.published == false 
       )
       this.unPublishedUsersProfiles =  this.unPublishedUsersProfilesToShow
       },

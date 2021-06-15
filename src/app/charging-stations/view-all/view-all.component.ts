@@ -115,7 +115,7 @@ export class ViewAllComponent implements OnInit {
 
         data => {
 
-          if (data['response'] == 'success') {
+          if (data['status'] == 'OK') {
             this.toastr.success("station Updated Successfully", "Success");
             this.getchargingStation()
           }

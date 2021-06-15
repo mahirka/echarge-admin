@@ -8,8 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
-  {path:'view-all',canActivate: [AuthGuard],component:ViewAllComponent},
-  {path:'view/:userId',canActivate: [AuthGuard],component:ViewComponent},
+  {path:'view-all',component:ViewAllComponent},
+  {path:'view/:userId',component:ViewComponent},
   
 ];
 

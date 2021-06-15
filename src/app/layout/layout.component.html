@@ -6,7 +6,15 @@
             </div>
             <li (click)="navigate('/dashboard')" class="py-2 px-4 "><a><i class="fas fa-home mr-3"></i>Dashboard</a>
             </li>
-    
+            <li class="uk-parent py-2 px-4">
+                <a><i class="fa fa-user mr-3"></i>Vendors</a>
+                <ul class="uk-nav-sub">
+                    <li (click)="navigate('/dashboard/vendors/view-all')" class="py-2"><a><span
+                                class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                    </li>
+                    
+                </ul>
+            </li>
 
             <li class="uk-parent py-2 px-4">
                 <a><i class="fa fa-user mr-3"></i>Users</a>
@@ -18,7 +26,7 @@
                 </ul>
             </li>
             <li class="uk-parent py-2 px-4">
-                <a><i class="fa fa-battery-full mr-3"></i>Charging Stations</a>
+                <a><i class="fa fa-plug mr-3" aria-hidden="true"></i>Charging Stations</a>
                 <ul class="uk-nav-sub">
                     <li (click)="navigate('/dashboard/charging-stations/view-all')" class="py-2"><a><span
                                 class="uk-margin-small-right" uk-icon="chevron-right"></span> View All </a>
@@ -29,7 +37,7 @@
             </li>
 
             <li class="uk-parent py-2 px-4">
-                <a><i class="fa fa-battery-full mr-3"></i>Charging Machines</a>
+                <a><i class="fas fa-charging-station mr-3"></i>Charging Machines</a>
                 <ul class="uk-nav-sub">
                     <li (click)="navigate('/dashboard/charging-machines/view-all')" class="py-2"><a><span
                                 class="uk-margin-small-right" uk-icon="chevron-right"></span> View All </a>
@@ -40,7 +48,7 @@
             </li>
 
             <li class="uk-parent py-2 px-4">
-                <a><i class="fa fa-shopping-basket mr-3"></i>Orders</a>
+                <a><i class="fa fa-shopping-basket mr-3"></i>Bookings</a>
                 <ul class="uk-nav-sub">
                     <li (click)="navigate('/dashboard/orders/view-all')" class="py-2"><a><span
                                 class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>

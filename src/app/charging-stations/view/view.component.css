@@ -6,8 +6,12 @@
   .profile-title{
     display: flex;
     justify-content: space-between;
-   
-  
+  }
+  .heading-tag{
+    font-weight: bold;
+    font-size: x-large;
+    color: #1b9a59;
+    font-family: monospace;
   }
   .container{
     padding: 0;
