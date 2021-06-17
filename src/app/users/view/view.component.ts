@@ -56,7 +56,7 @@ export class ViewComponent implements OnInit {
           this.published = data['User'][0]['published'];
           this.userName = data['User'][0]['name'];
           this.name = data['User'][0]['name']
-          this.email = data['User'][0]['email']
+          this.email = data['User'][0]['email'] 
           this.mobile = data['User'][0]['mobile']
           this.wallet = data['User'][0]['wallet']
 

@@ -56,6 +56,15 @@
                     
                 </ul>
             </li>
+            <li class="uk-parent py-2 px-4">
+                <a><i class="fas fa-car mr-3"></i>Vehicles</a>
+                <ul class="uk-nav-sub">
+                    <li (click)="navigate('/dashboard/vehicles/view-all')" class="py-2"><a><span
+                                class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                    </li>
+                    
+                </ul>
+            </li>
 
 
             <!-- <li *ngIf="loggedInAdminDetails.role == 'super'" (click)="navigate('/user-verification/view-all')"><a>
