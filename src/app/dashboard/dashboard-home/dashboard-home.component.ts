@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Color } from 'ng2-charts';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-dashboard-home',
@@ -152,9 +154,26 @@ export class DashboardHomeComponent implements OnInit {
     responsive: true,
     maintainAspectRatio: false
   };
+  isLoading = false;
 
 
+  constructor(private _router: Router,private _httpService: HttpService) { }
   ngOnInit(): void {
+  }
+  getdashboardDetails(){
+    this._httpService.getdashboardDetails()
+    .subscribe(
+      data => {
+        console.log("usersProfile")
+        this.isLoading = false;
+          console.log(data)
+      
+      },
+      error => {
+        this.isLoading = false;
+        this._router.navigate(['']);
+      },
+    );
   }
 
 }

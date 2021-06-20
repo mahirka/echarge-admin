@@ -136,6 +136,17 @@
 .text-success {
   color: #73A839 !important;
 }
+.show-label{
+  text-align: center;
+}
+.show-label button{
+  background-color: white;
+  border: 1px solid darkgrey;
+  font-size: small;
+  /* padding: 0.3rem; */
+  padding: 0.2rem 0.7rem;
+  color: blue;
+}
 .progress {
   display: flex;
   height: 1rem;
