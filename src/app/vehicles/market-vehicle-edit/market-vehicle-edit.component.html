@@ -1,0 +1,45 @@
+<div class="main-card mb-3 card">
+    <div class="card-body "><h5 class="card-title">Edit Market Vehicle</h5>
+      <form [formGroup]="newMarketVehicleForm">
+
+        <div class="position-relative form-group"><label for="exampleEmail"> Name</label><input name="name"
+            id="exampleEmail"
+            formControlName="name"
+            type="text"
+            class="form-control">
+          </div>
+
+        <div class="position-relative form-group"><label for="exampleSelectMulti">Plug Type</label><select  name="selectMulti" id="exampleSelectMulti"
+                                  class="form-control"formControlName="plug_type">
+          <option>3 pin</option>
+          <option>Chedemo</option>
+          <option>CSS</option>
+        </select></div>
+        
+        <div class="position-relative form-group"><label for="exampleSelectMulti">Vehicle Type</label><select  name="selectMulti" id="exampleSelectMulti"
+            class="form-control"formControlName="vehicle_type">
+            <option>Bike</option>
+            <option>Car</option>
+            <option>Auto</option>
+            </select></div>
+            <div class="position-relative form-group"><label for="exampleEmail"> Charging Power</label><input name="charging_power"
+                id="exampleEmail"
+                formControlName="charging_power"
+                type="text"
+                class="form-control">
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail"> Battery Capacity</label><input name="battery_capacity"
+                id="exampleEmail"
+                formControlName="battery_capacity"
+                type="text"
+                class="form-control">
+              </div>
+          <div class="button-block">
+            <p class="error-msg" *ngIf="errorMessage" for="">{{errorMessage}}</p>
+  
+            <button class="btn btn-primary mt-3 save-button" (click)="submit()">Save<i *ngIf="isLoading"
+                    class="fa fa-spin fa-spinner"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>

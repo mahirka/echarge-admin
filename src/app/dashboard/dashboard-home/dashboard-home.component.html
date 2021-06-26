@@ -72,7 +72,7 @@
                       <div class="sub-label-left">YoY Growth</div>
                       <div class="sub-label-right">100%</div>
                     </div>
-                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="visibleGraph=='bookingGraph'" >
+                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isBookingGraphVisible" >
                       <div class="widget-chart widget-chart2 text-left p-0">
                         <div class="widget-chat-wrapper-outer">
                           <div class="widget-chart-content widget-chart-content-lg pb-0">
@@ -95,10 +95,10 @@
                             <div class="d-block">
                               <canvas baseChart
                                       class="bookingChart"
-                                      [datasets]="datasets"
-                                      [labels]="labels"
-                                      [colors]="lineChartColors"
-                                      [options]="options"
+                                      [datasets]="bookingDatasets"
+                                      [labels]="bookingLabels"
+                                      [colors]="bookingLineChartColors"
+                                      [options]="bookingOptions"
                                       [chartType]="'line'"></canvas>
                             </div>
                           </div>
@@ -106,9 +106,9 @@
                       </div>
                     </div>
                     <div class="show-label">
-                      <button (click)="visibleGraph='bookingGraph'">
-                        <span *ngIf="visibleGraph!='bookingGraph'">Show More</span>
-                        <span *ngIf="visibleGraph=='bookingGraph'">Show Less</span>
+                      <button (click)="isBookingGraphVisible=!isBookingGraphVisible">
+                        <span *ngIf="!isBookingGraphVisible" >Show More</span>
+                        <span *ngIf="isBookingGraphVisible">Show Less</span>
                       </button>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
                       <div class="sub-label-right">100%</div>
                     </div>
                   </div>
-                  <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="visibleGraph=='usersGraph'" >
+                  <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isUsersGraphVisible">
                     <div class="widget-chart widget-chart2 text-left p-0">
                       <div class="widget-chat-wrapper-outer">
                         <div class="widget-chart-content widget-chart-content-lg pb-0">
@@ -170,9 +170,9 @@
                     </div>
                   </div>
                   <div class="show-label">
-                    <button (click)="visibleGraph='usersGraph'">
-                      <span *ngIf="visibleGraph!='usersGraph'">Show More</span>
-                      <span *ngIf="visibleGraph=='usersGraph'">Show Less</span>
+                    <button (click)="isUsersGraphVisible=!isUsersGraphVisible">
+                      <span *ngIf="!isUsersGraphVisible">Show More</span>
+                      <span *ngIf="isUsersGraphVisible">Show Less</span>
                     </button>
                   </div>
                 </div>
@@ -198,7 +198,7 @@
                       <div class="sub-label-left">Per Month</div>
                       <div class="sub-label-right">100%</div>
                     </div>
-                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="visibleGraph=='vendorsGraph'">
+                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isVendorsGraphVisible">
                       <div class="widget-chart widget-chart2 text-left p-0">
                         <div class="widget-chat-wrapper-outer">
                           <div class="widget-chart-content widget-chart-content-lg pb-0">
@@ -232,9 +232,9 @@
                       </div>
                     </div>
                     <div class="show-label">
-                      <button (click)="visibleGraph='vendorsGraph'">
-                        <span *ngIf="visibleGraph!='vendorsGraph'">Show More</span>
-                        <span *ngIf="visibleGraph=='vendorsGraph'">Show Less</span>
+                      <button (click)="isVendorsGraphVisible=!isVendorsGraphVisible">
+                        <span *ngIf="!isVendorsGraphVisible" >Show More</span>
+                        <span *ngIf="isVendorsGraphVisible"  >Show Less</span>
                       </button>
                     </div>
                   </div>
@@ -261,7 +261,7 @@
                       <div class="sub-label-left">Station Progress</div>
                       <div class="sub-label-right">100%</div>
                     </div>
-                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="visibleGraph=='stationGraph'">
+                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isStationGraphVisible">
                       <div class="widget-chart widget-chart2 text-left p-0">
                         <div class="widget-chat-wrapper-outer">
                           <div class="widget-chart-content widget-chart-content-lg pb-0">
@@ -295,9 +295,9 @@
                       </div>
                     </div>
                     <div class="show-label">
-                      <button (click)="visibleGraph='stationGraph'">
-                        <span *ngIf="visibleGraph!='stationGraph'">Show More</span>
-                        <span *ngIf="visibleGraph=='stationGraph'">Show Less</span>
+                      <button (click)="isStationGraphVisible=!isStationGraphVisible">
+                        <span *ngIf="!isStationGraphVisible" >Show More</span>
+                        <span *ngIf="isStationGraphVisible">Show Less</span>
                       </button>
                     </div>
                   </div>
@@ -324,7 +324,7 @@
                         <div class="sub-label-left"> Progress</div>
                         <div class="sub-label-right">100%</div>
                       </div>
-                      <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="visibleGraph=='machineGraph'">
+                      <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isMachineGraphVisible">
                         <div class="widget-chart widget-chart2 text-left p-0">
                           <div class="widget-chat-wrapper-outer">
                             <div class="widget-chart-content widget-chart-content-lg pb-0">
@@ -358,9 +358,9 @@
                         </div>
                       </div>
                       <div class="show-label">
-                        <button (click)="visibleGraph='machineGraph'">
-                          <span *ngIf="visibleGraph!='machineGraph'">Show More</span>
-                          <span *ngIf="visibleGraph=='machineGraph'">Show Less</span>
+                        <button (click)="isMachineGraphVisible=!isMachineGraphVisible">
+                          <span *ngIf="!isMachineGraphVisible">Show More</span>
+                          <span *ngIf="isMachineGraphVisible">Show Less</span>
                         </button>
                       </div>
                     </div>

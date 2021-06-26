@@ -1,0 +1,30 @@
+<div class="main-card mb-3 card">
+    <div class="card-body "><h5 class="card-title">Edit Model</h5>
+      <form [formGroup]="newVehicleModelForm">
+        <div class="position-relative form-group"><label for="exampleSelectMulti">Vehicle Type</label><select  name="selectMulti" id="exampleSelectMulti"
+                                  class="form-control"formControlName="vehicle_type">
+          <option>Car</option>
+          <option>Bike</option>
+          <option>Auto</option>
+        </select></div>
+        <div class="position-relative form-group"><label for="exampleEmail">Model Name</label><input name="model_name"
+          id="exampleEmail"
+          formControlName="name"
+          type="text"
+          class="form-control">
+        </div>
+        <div class="position-relative form-group"><label for="exampleSelectMulti">Vehicle Make</label><select  name="selectMulti" id="exampleSelectMulti"
+            class="form-control"formControlName="vehicle_make">
+            <option>Honda</option>
+            <option>TATA</option>
+            <option>Mahindra</option>
+            </select></div>
+          <div class="button-block">
+            <p class="error-msg" *ngIf="errorMessage" for="">{{errorMessage}}</p>
+  
+            <button class="btn btn-primary mt-3 save-button" (click)="submit()">Save<i *ngIf="isLoading"
+                    class="fa fa-spin fa-spinner"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>

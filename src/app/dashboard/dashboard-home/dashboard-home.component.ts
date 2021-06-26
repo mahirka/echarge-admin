@@ -24,10 +24,13 @@ export class DashboardHomeComponent implements OnInit {
     dots: true,
   };
 
-  public datasets = [
+  public bookingDatasets = [
     {
-      label: 'My First dataset',
-      data: [65, 59, 80, 81, 46, 55, 38, 59, 80],
+      
+      
+      data: [46, 55, 59, 80, 81, 38, 65, 59, 80], label: 'My First dataset', fill: false,
+      borderColor: '#f7b924',
+      backgroundColor: 'rgba(247, 185, 36, 0.2)',
       datalabels: {
         display: false,
       },
@@ -56,7 +59,7 @@ export class DashboardHomeComponent implements OnInit {
 
     }
   ];
-  public lineChartColors: Color[] = [
+  public bookingLineChartColors: Color[] = [
     { // dark grey
       backgroundColor: 'rgba(247, 185, 36, 0.2)',
       borderColor: '#f7b924',
@@ -119,9 +122,9 @@ export class DashboardHomeComponent implements OnInit {
     },
   ];
 
-  public labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'];
+  public bookingLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'];
 
-  public options = {
+  public bookingOptions = {
     layout: {
       padding: {
         left: 0,
@@ -435,10 +438,16 @@ export class DashboardHomeComponent implements OnInit {
 
 
   visibleGraph='none';
+  isBookingGraphVisible=false;
+  isUsersGraphVisible=false;
+  isVendorsGraphVisible=false;
+  isStationGraphVisible=false;
+  isMachineGraphVisible=false;
   isLoading = false;
   dashboardDetails = []
   bookingCountsToShow:any[]=[]
   booking_total: string = ""
+  booking_date:string=""
   users_total: string = ""
   vendors_total: string = ""
   stations_total: string = ""
@@ -447,7 +456,13 @@ export class DashboardHomeComponent implements OnInit {
   tree_total: string = ""
   time_total: string = ""
   data_total: string = ""
-  
+  startDate = ""
+  endDate = ""
+  viewsToShow = []
+  reaches = []
+  reachesToShow = []
+  responses = []
+  responsesToShow = []
 
   constructor(private _router: Router,private _httpService: HttpService) { }
   ngOnInit(): void {
@@ -462,6 +477,7 @@ export class DashboardHomeComponent implements OnInit {
           console.log(data)
          this.dashboardDetails=data['data']
           this.booking_total = data['data']['orders']['total']
+          this.booking_date= data['data']['orders']['created_dates'][0]
           this.users_total = data['data']['users']['total']
           this.vendors_total = data['data']['vendors']['total']
           this.stations_total = data['data']['charging_stations']['total']
@@ -481,6 +497,195 @@ export class DashboardHomeComponent implements OnInit {
         this._router.navigate(['']);
       },
     );
+  }
+  getDaysArray(start, end) {
+    for (var arr = [], dt = ['data']['orders']['created_dates'][0](start); dt <= new Date(end); dt.setDate(dt.getDate() + 1)) {
+      arr.push(new Date(dt));
+    }
+    return arr;
+  };
+
+  getDayAndMonth(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate();
+                                                                  
+      
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [day, month].join('-');
+  }
+
+  getWeekStartDate(d) {
+    d = new Date(d);
+    var day = d.getDay(),
+      diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
+    return new Date(d.setDate(diff));
+  }
+
+  formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
+  getMonths(startDate, endDate) {
+    
+    var start = this.formatDate(startDate).split('-');
+    var end = this.formatDate(endDate).split('-');
+    var startYear = parseInt(start[0]);
+    var endYear = parseInt(end[0]);
+    var dates = [];
+
+    for (var i = startYear; i <= endYear; i++) {
+      var endMonth = i != endYear ? 11 : parseInt(end[1]) - 1;
+      var startMon = i === startYear ? parseInt(start[1]) - 1 : 0;
+      for (var j = startMon; j <= endMonth; j = j > 12 ? j % 12 || 11 : j + 1) {
+        var month = j + 1;
+        var displayMonth = month < 10 ? '0' + month : month;
+        dates.push(new Date([i, displayMonth, '01'].join('-')));
+      }
+    }
+
+    return dates;
+
+  }
+
+  checkIfSameMonth(date1, date2) {
+
+    var d1 = new Date(date1)
+    var d2 = new Date(date2)
+    var month1 = d1.getMonth()
+    var month2 = d2.getMonth()
+    var year1 = d1.getFullYear()
+    var year2 = d2.getFullYear()
+
+    return [year1, month1].join('-') == [year2, month2].join('-')
+
+
+  }
+
+  getYearAndMonth(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      year = d.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+
+
+    return [year, month].join('-');
+  }
+
+
+  setUpChart(duration) {
+
+    let reachCreatedDate = this.reachesToShow.map(s => s.createdOn);
+    
+    let reachesArray = []
+    
+    
+
+    if (duration == "Daily") {
+      let daysBetween = this.getDaysArray(this.startDate, this.endDate)
+
+
+      for (let index = 0; index < daysBetween.length; index++) {
+        let obje = {
+          "timeStamp": daysBetween[index],
+          "reaches": reachCreatedDate.filter(reachCreatedDate => this.formatDate(reachCreatedDate) == this.formatDate(daysBetween[index]))
+        }
+        reachesArray.push(obje)
+      }
+
+
+      this.bookingLabels = daysBetween.map(day => this.getDayAndMonth(day))
+
+    }
+
+
+
+    if (duration == "Weekly") {
+
+      let daysBetween = this.getDaysArray(this.startDate, this.endDate)
+
+      let weeksBetween = []
+
+      for (let index = 0; index < daysBetween.length; index++) {
+
+        if (weeksBetween.indexOf(this.getWeekStartDate(daysBetween[index])) == -1) {
+          weeksBetween.push(this.getWeekStartDate(daysBetween[index]));
+
+        }
+
+      }
+
+
+      weeksBetween = weeksBetween
+        .map(function (date) { return date.getTime() })
+        .filter(function (date, i, array) {
+          return array.indexOf(date) === i;
+        })
+        .map(function (time) { return new Date(time); });
+      console.log("weekly")
+      console.log(weeksBetween)
+
+      for (let index = 0; index < weeksBetween.length; index++) {
+        let obje = {
+          "timeStamp": weeksBetween[index],
+          "reaches": reachCreatedDate.filter(reachCreatedDate => this.formatDate(this.getWeekStartDate(reachCreatedDate)) == this.formatDate(weeksBetween[index]))
+        }
+        reachesArray.push(obje)
+      }
+
+
+      this.bookingLabels = weeksBetween.map(day => this.getDayAndMonth(day))
+
+    }
+
+    if (duration == "Monthly") {
+      let monthsBetween = this.getMonths(this.startDate, this.endDate)
+
+
+      for (let index = 0; index < monthsBetween.length; index++) {
+        let obje = {
+          "timeStamp": monthsBetween[index],
+          "reaches": reachCreatedDate.filter(reachCreatedDate => this.checkIfSameMonth(reachCreatedDate, monthsBetween[index]))
+        }
+        reachesArray.push(obje)
+      }
+
+      this.bookingLabels = monthsBetween.map(day => this.getYearAndMonth(day))
+
+
+    }
+
+
+    this.bookingDatasets = [
+      {
+        data: reachesArray.map(reach => reach.reaches.length),label: 'My First dataset', fill: false,
+        borderColor: '#f7b924',
+        backgroundColor: 'rgba(247, 185, 36, 0.2)',
+        datalabels: {
+          display: false,
+        },
+      },
+      
+    ];
+
+
+
   }
 
 }
