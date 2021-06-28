@@ -16,10 +16,14 @@ export class ViewAllComponent implements OnInit {
   unPublishedChargingMechines:any[]=[ ]
   machines = []
   isLoading = false;
+  datingArray=[]
+  startDate=new Date
+  endDate=new Date
 
   constructor(private _router: Router,private _httpService: HttpService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    
     this.getchargingMechine()
     this.isLoading = true;
   }
@@ -35,6 +39,7 @@ export class ViewAllComponent implements OnInit {
         machines.published == true
       )
       this.publishedChargingMechines =  this.publishedChargingMechineToShow
+      this.datingArray = this.machines.map( (createdArray)=> createdArray.property );
 
       this.unPublishedChargingMechineToShow =  this.machines.filter(machines=>    
         machines.published == false
@@ -134,6 +139,9 @@ export class ViewAllComponent implements OnInit {
       );
   }
   }
+  btnClick() {
+    this._router.navigateByUrl('/dashboard/charging-machines/new');
+};
 
 
 }

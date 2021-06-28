@@ -148,6 +148,79 @@ width: 96%;
   font-family: monospace;
 
 }
+.menu-container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+.button-block button{
+  background-color: #1b9a59;;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color:white;
+  color: black;
+  padding: 0.3rem 1rem;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 8px;
+}
+.dropbtn i{
+  margin-left: 1rem;
+}
+.date-label{
+  margin: 0 1rem;
+}
+.graph-block{
+  display: flex;
+  align-items: center;
+}
+.button-block button{
+  padding: 0.2rem 1rem;
+}
+.date-block input{
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 0.2rem 0.2rem;
+  border-radius: 8px;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #1b9a59; color: white;}
   
 @media (max-width: 1068px) {
   .plan-card__detail h2{

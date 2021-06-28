@@ -20,7 +20,32 @@
                     </div>
                 </div>
                 <div class="main-card mb-3 card">
-                  <div class="card-body"><h5 class="card-title">All Orders</h5>
+                  <div class="card-body">
+                    <div class="menu-container">
+                      <div class="button-block">
+                        <button class="btn btn-primary  add-button" (click)="btnClick();">+ Add New</button>
+                      </div>
+                      <div class="graph-block">
+                        <a><i class="fa fa-line-chart" aria-hidden="true"></i></a>
+                      </div>
+                      <div class="date-block">
+                        <input type="date" id="start" name="trip-start"
+                          value="2021-07-22"
+                          min="2021-01-01" max="2021-12-31"><label for="exampleSelectMulti" class="date-label">to</label><input type="date" id="end" name="trip-end"
+                          value="2021-10-22"
+                          min="2021-01-01" max="2021-12-31">
+                      </div>
+                      <div class="filter-block">
+                        <div class="dropdown">
+                          <button class="dropbtn">Filter<i class="fa fa-caret-down"></i></button>
+                          <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <table class="mb-0 table table-hover">
                       <thead>
                       <tr>

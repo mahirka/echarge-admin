@@ -1,374 +1,368 @@
 <div class="container-fluid p-4">
-    <div class="container">
-        <div class="row mt-4">
-          <div class="col-lg-6 col-xl-6 ">
-            <div class="card mb-3 widget-content">
-              <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                  <div class="widget-content-left">
-                    <div class="widget-heading"> CO2 Saved</div>
-                    <div class="widget-subheading">Total Saved CO2 </div>
-                  </div>
-                  <div class="widget-content-right">
-                    <div class="widget-numbers" style="color: chocolate;">{{co2_total}} gm</div>
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-lg-6 col-xl-6 ">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading"> CO2 Saved</div>
+                <div class="widget-subheading">Total Saved CO2 </div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers" style="color: chocolate;">{{co2_total}} gm</div>
+              </div>
+            </div>
+            <div class="widget-content-wrapper mt-3">
+              <div class="widget-content-left">
+                <div class="widget-heading"> No.of Trees Saved</div>
+                <div class="widget-subheading"> Total No.of Trees Saved </div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers" style="color: hotpink;">{{tree_total}}</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xl-6 ">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading"> Charging Power</div>
+                <div class="widget-subheading">Total Charging Power </div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers" style="color: darkcyan;">{{data_total}} kw</div>
+              </div>
+            </div>
+            <div class="widget-content-wrapper mt-3">
+              <div class="widget-content-left">
+                <div class="widget-heading"> Charging Time</div>
+                <div class="widget-subheading"> Total Charging Time </div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers" style="color: darkgoldenrod;">{{time_total}} min</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-xl-6">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading"> Bookings</div>
+                <div class="widget-subheading">Last Month Bookings</div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers text-success">{{booking_total}}</div>
+              </div>
+            </div>
+            <div class="widget-progress-wrapper">
+              <div class="progress-bar-xs progress">
+                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="65" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 65%;"></div>
+              </div>
+              <div class="progress-sub-label">
+                <div class="sub-label-left">YoY Growth</div>
+                <div class="sub-label-right">100%</div>
+              </div>
+              <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isBookingGraphVisible">
+                <div class="widget-chart widget-chart2 text-left p-0">
+                  <div class="widget-chat-wrapper-outer">
+                    <div class="widget-chart-content widget-chart-content-lg pb-0">
+                      <div class="widget-chart-flex">
+
+                      </div>
+                      <div class="widget-numbers">
+                        <div class="widget-chart-flex">
+                          <div>
+                            <span class="text-warning">Bookings</span>
+                          </div>
+                          <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
+                            <span class="opacity-5 text-muted pl-2 pr-1">5%</span>
+                            increase
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="widget-chart-wrapper he-auto opacity-10 m-0">
+                      <div class="d-block">
+                        <canvas baseChart [datasets]="bookingChartData" [labels]="lineChartLabels"
+                          [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType"
+                          [plugins]="lineChartPlugins">
+                        </canvas>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="widget-content-wrapper mt-3">
-                  <div class="widget-content-left">
-                    <div class="widget-heading"> No.of Trees Saved</div>
-                    <div class="widget-subheading"> Total No.of Trees Saved </div>
-                  </div>
-                  <div class="widget-content-right">
-                    <div class="widget-numbers" style="color: hotpink;">{{tree_total}}</div>
-                  </div>
-                </div>
-                
+              </div>
+              <div class="show-label">
+                <button (click)="isBookingGraphVisible=!isBookingGraphVisible">
+                  <span *ngIf="!isBookingGraphVisible">Show More</span>
+                  <span *ngIf="isBookingGraphVisible">Show Less</span>
+                </button>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-xl-6 ">
-            <div class="card mb-3 widget-content">
-              <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                  <div class="widget-content-left">
-                    <div class="widget-heading"> Charging Power</div>
-                    <div class="widget-subheading">Total Charging Power </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xl-6">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading"> Users</div>
+                <div class="widget-subheading">Total Users </div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers text-primary">{{users_total}}</div>
+              </div>
+            </div>
+            <div class="widget-progress-wrapper">
+              <div class="progress-bar-lg progress-bar-animated progress">
+                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="47" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 47%;"></div>
+              </div>
+              <div class="progress-sub-label">
+                <div class="sub-label-left">Per Month</div>
+                <div class="sub-label-right">100%</div>
+              </div>
+            </div>
+            <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isUsersGraphVisible">
+              <div class="widget-chart widget-chart2 text-left p-0">
+                <div class="widget-chat-wrapper-outer">
+                  <div class="widget-chart-content widget-chart-content-lg pb-0">
+                    <div class="widget-chart-flex">
+
+                    </div>
+                    <div class="widget-numbers">
+                      <div class="widget-chart-flex">
+                        <div>
+                          <span class="text" style="color: darkblue;">Users</span>
+                        </div>
+                        <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
+                          <span class="opacity-5 text-muted pl-2 pr-1">3%</span>
+                          increase
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="widget-content-right">
-                    <div class="widget-numbers" style="color: darkcyan;">{{data_total}} kw</div>
+                  <div class="widget-chart-wrapper he-auto opacity-10 m-0">
+                    <div class="d-block">
+
+                      <canvas baseChart [datasets]="usersChartData" [labels]="lineChartLabels"
+                        [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType"
+                        [plugins]="lineChartPlugins">
+                      </canvas>
+
+                    </div>
                   </div>
                 </div>
-                <div class="widget-content-wrapper mt-3">
-                  <div class="widget-content-left">
-                    <div class="widget-heading"> Charging Time</div>
-                    <div class="widget-subheading"> Total Charging Time </div>
-                  </div>
-                  <div class="widget-content-right">
-                    <div class="widget-numbers" style="color: darkgoldenrod;">{{time_total}} min</div>
+              </div>
+            </div>
+            <div class="show-label">
+              <button (click)="isUsersGraphVisible=!isUsersGraphVisible">
+                <span *ngIf="!isUsersGraphVisible">Show More</span>
+                <span *ngIf="isUsersGraphVisible">Show Less</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xl-6">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading">Vendors</div>
+                <div class="widget-subheading">Total Vendors</div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers " style="color: #9f0ec4;">{{vendors_total}}</div>
+              </div>
+            </div>
+            <div class="widget-progress-wrapper">
+              <div class="progress-bar-xs progress-bar-animated-alt progress">
+                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 85%;"></div>
+              </div>
+              <div class="progress-sub-label">
+                <div class="sub-label-left">Per Month</div>
+                <div class="sub-label-right">100%</div>
+              </div>
+              <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isVendorsGraphVisible">
+                <div class="widget-chart widget-chart2 text-left p-0">
+                  <div class="widget-chat-wrapper-outer">
+                    <div class="widget-chart-content widget-chart-content-lg pb-0">
+                      <div class="widget-chart-flex">
+
+                      </div>
+                      <div class="widget-numbers">
+                        <div class="widget-chart-flex">
+                          <div>
+                            <span class="text" style="color: deepskyblue;">Vendors</span>
+                          </div>
+                          <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
+                            <span class="opacity-5 text-muted pl-2 pr-1">6%</span>
+                            increase
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="widget-chart-wrapper he-auto opacity-10 m-0">
+                      <div class="d-block">
+
+                        <canvas baseChart [datasets]="vendorsChartData" [labels]="lineChartLabels"
+                          [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType"
+                          [plugins]="lineChartPlugins">
+                        </canvas>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                
+              </div>
+              <div class="show-label">
+                <button (click)="isVendorsGraphVisible=!isVendorsGraphVisible">
+                  <span *ngIf="!isVendorsGraphVisible">Show More</span>
+                  <span *ngIf="isVendorsGraphVisible">Show Less</span>
+                </button>
               </div>
             </div>
           </div>
-          
-            <div class="col-lg-6 col-xl-6" >
-              <div  class="card mb-3 widget-content">
-                <div class="widget-content-outer">
-                  <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                      <div class="widget-heading"> Bookings</div>
-                      <div class="widget-subheading">Last Month Bookings</div>
-                    </div>
-                    <div class="widget-content-right" >
-                      <div class="widget-numbers text-success"   >{{booking_total}}</div>
-                    </div>
-                  </div>
-                  <div class="widget-progress-wrapper">
-                    <div class="progress-bar-xs progress">
-                      <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"></div>
-                    </div>
-                    <div class="progress-sub-label">
-                      <div class="sub-label-left">YoY Growth</div>
-                      <div class="sub-label-right">100%</div>
-                    </div>
-                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isBookingGraphVisible" >
-                      <div class="widget-chart widget-chart2 text-left p-0">
-                        <div class="widget-chat-wrapper-outer">
-                          <div class="widget-chart-content widget-chart-content-lg pb-0">
-                            <div class="widget-chart-flex">
-                              
-                            </div>
-                            <div class="widget-numbers">
-                              <div class="widget-chart-flex">
-                                <div>
-                                  <span class="text-warning">Bookings</span>
-                                </div>
-                                <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
-                                  <span class="opacity-5 text-muted pl-2 pr-1">5%</span>
-                                  increase
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="widget-chart-wrapper he-auto opacity-10 m-0">
-                            <div class="d-block">
-                              <canvas baseChart
-                                      class="bookingChart"
-                                      [datasets]="bookingDatasets"
-                                      [labels]="bookingLabels"
-                                      [colors]="bookingLineChartColors"
-                                      [options]="bookingOptions"
-                                      [chartType]="'line'"></canvas>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="show-label">
-                      <button (click)="isBookingGraphVisible=!isBookingGraphVisible">
-                        <span *ngIf="!isBookingGraphVisible" >Show More</span>
-                        <span *ngIf="isBookingGraphVisible">Show Less</span>
-                      </button>
-                    </div>
-                </div>
-              </div> 
-            </div>
-            </div>
-            <div class="col-lg-6 col-xl-6">
-              <div class="card mb-3 widget-content">
-                <div class="widget-content-outer">
-                  <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                      <div class="widget-heading"> Users</div>
-                      <div class="widget-subheading">Total Users </div>
-                    </div>
-                    <div class="widget-content-right">
-                      <div class="widget-numbers text-primary">{{users_total}}</div>
-                    </div>
-                  </div>
-                  <div class="widget-progress-wrapper">
-                    <div class="progress-bar-lg progress-bar-animated progress">
-                      <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%;"></div>
-                    </div>
-                    <div class="progress-sub-label">
-                      <div class="sub-label-left">Per Month</div>
-                      <div class="sub-label-right">100%</div>
-                    </div>
-                  </div>
-                  <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isUsersGraphVisible">
-                    <div class="widget-chart widget-chart2 text-left p-0">
-                      <div class="widget-chat-wrapper-outer">
-                        <div class="widget-chart-content widget-chart-content-lg pb-0">
-                          <div class="widget-chart-flex">
-                            
-                          </div>
-                          <div class="widget-numbers">
-                            <div class="widget-chart-flex">
-                              <div>
-                                <span class="text" style="color: darkblue;">Users</span>
-                              </div>
-                              <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
-                                <span class="opacity-5 text-muted pl-2 pr-1">3%</span>
-                                increase
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="widget-chart-wrapper he-auto opacity-10 m-0">
-                          <div class="d-block">
-                            <canvas baseChart
-                                    class="usersChart"
-                                    [datasets]="usersDatasets"
-                                    [labels]="usersLabels"
-                                    [colors]="usersLineChartColors"
-                                    [options]="usersOptions"
-                                    [chartType]="'line'"></canvas>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="show-label">
-                    <button (click)="isUsersGraphVisible=!isUsersGraphVisible">
-                      <span *ngIf="!isUsersGraphVisible">Show More</span>
-                      <span *ngIf="isUsersGraphVisible">Show Less</span>
-                    </button>
-                  </div>
-                </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xl-6">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading">Charging Stations</div>
+                <div class="widget-subheading">Total Charging Stations </div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers text-danger">{{stations_total}}</div>
               </div>
             </div>
-            <div class="col-lg-6 col-xl-6">
-              <div class="card mb-3 widget-content">
-                <div class="widget-content-outer">
-                  <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                      <div class="widget-heading">Vendors</div>
-                      <div class="widget-subheading">Total Vendors</div>
-                    </div>
-                    <div class="widget-content-right">
-                      <div class="widget-numbers " style="color: #9f0ec4;">{{vendors_total}}</div>
-                    </div>
-                  </div>
-                  <div class="widget-progress-wrapper">
-                    <div class="progress-bar-xs progress-bar-animated-alt progress">
-                      <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
-                    </div>
-                    <div class="progress-sub-label">
-                      <div class="sub-label-left">Per Month</div>
-                      <div class="sub-label-right">100%</div>
-                    </div>
-                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isVendorsGraphVisible">
-                      <div class="widget-chart widget-chart2 text-left p-0">
-                        <div class="widget-chat-wrapper-outer">
-                          <div class="widget-chart-content widget-chart-content-lg pb-0">
-                            <div class="widget-chart-flex">
-                              
-                            </div>
-                            <div class="widget-numbers">
-                              <div class="widget-chart-flex">
-                                <div>
-                                  <span class="text" style="color: deepskyblue;">Vendors</span>
-                                </div>
-                                <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
-                                  <span class="opacity-5 text-muted pl-2 pr-1">6%</span>
-                                  increase
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="widget-chart-wrapper he-auto opacity-10 m-0">
-                            <div class="d-block">
-                              <canvas baseChart
-                                      class="vendorsChart"
-                                      [datasets]="vendorsDatasets"
-                                      [labels]="vendorsLabels"
-                                      [colors]="vendorsLineChartColors"
-                                      [options]="vendorsOptions"
-                                      [chartType]="'line'"></canvas>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="show-label">
-                      <button (click)="isVendorsGraphVisible=!isVendorsGraphVisible">
-                        <span *ngIf="!isVendorsGraphVisible" >Show More</span>
-                        <span *ngIf="isVendorsGraphVisible"  >Show Less</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+            <div class="widget-progress-wrapper">
+              <div class="progress-bar-sm progress-bar-animated-alt progress">
+                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="65" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 65%;"></div>
               </div>
-            </div>
-            <div class="col-lg-6 col-xl-6">
-              <div class="card mb-3 widget-content">
-                <div class="widget-content-outer">
-                  <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                      <div class="widget-heading">Charging Stations</div>
-                      <div class="widget-subheading">Total Charging Stations </div>
-                    </div>
-                    <div class="widget-content-right">
-                      <div class="widget-numbers text-danger">{{stations_total}}</div>
-                    </div>
-                  </div>
-                  <div class="widget-progress-wrapper">
-                    <div class="progress-bar-sm progress-bar-animated-alt progress">
-                      <div class="progress-bar bg-success" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"></div>
-                    </div>
-                    <div class="progress-sub-label">
-                      <div class="sub-label-left">Station Progress</div>
-                      <div class="sub-label-right">100%</div>
-                    </div>
-                    <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isStationGraphVisible">
-                      <div class="widget-chart widget-chart2 text-left p-0">
-                        <div class="widget-chat-wrapper-outer">
-                          <div class="widget-chart-content widget-chart-content-lg pb-0">
-                            <div class="widget-chart-flex">
-                              
-                            </div>
-                            <div class="widget-numbers">
-                              <div class="widget-chart-flex">
-                                <div>
-                                  <span class="text" style="color:blueviolet;">Stations</span>
-                                </div>
-                                <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
-                                  <span class="opacity-5 text-muted pl-2 pr-1">8%</span>
-                                  increase
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="widget-chart-wrapper he-auto opacity-10 m-0">
-                            <div class="d-block">
-                              <canvas baseChart
-                                      class="stationsChart"
-                                      [datasets]="stationDatasets"
-                                      [labels]="stationLabels"
-                                      [colors]="stationLineChartColors"
-                                      [options]="stationOptions"
-                                      [chartType]="'line'"></canvas>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="show-label">
-                      <button (click)="isStationGraphVisible=!isStationGraphVisible">
-                        <span *ngIf="!isStationGraphVisible" >Show More</span>
-                        <span *ngIf="isStationGraphVisible">Show Less</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+              <div class="progress-sub-label">
+                <div class="sub-label-left">Station Progress</div>
+                <div class="sub-label-right">100%</div>
               </div>
-            </div>
-            <div class="col-lg-6 col-xl-6">
-                <div class="card mb-3 widget-content">
-                  <div class="widget-content-outer">
-                    <div class="widget-content-wrapper">
-                      <div class="widget-content-left">
-                        <div class="widget-heading">Charging Machines</div>
-                        <div class="widget-subheading">Total Charging Machines </div>
+              <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isStationGraphVisible">
+                <div class="widget-chart widget-chart2 text-left p-0">
+                  <div class="widget-chat-wrapper-outer">
+                    <div class="widget-chart-content widget-chart-content-lg pb-0">
+                      <div class="widget-chart-flex">
+
                       </div>
-                      <div class="widget-content-right">
-                        <div class="widget-numbers" style="color: #ffc107;">{{machines_total}}</div>
-                      </div>
-                    </div>
-                    <div class="widget-progress-wrapper">
-                      <div class="progress-bar-sm progress-bar-animated-alt progress">
-                        <div class="progress-bar " role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%; background-color: #9f0ec4;"></div>
-                      </div>
-                      <div class="progress-sub-label">
-                        <div class="sub-label-left"> Progress</div>
-                        <div class="sub-label-right">100%</div>
-                      </div>
-                      <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isMachineGraphVisible">
-                        <div class="widget-chart widget-chart2 text-left p-0">
-                          <div class="widget-chat-wrapper-outer">
-                            <div class="widget-chart-content widget-chart-content-lg pb-0">
-                              <div class="widget-chart-flex">
-                                
-                              </div>
-                              <div class="widget-numbers">
-                                <div class="widget-chart-flex">
-                                  <div>
-                                    <span class="text" style="color: lightcoral;">Machines</span>
-                                  </div>
-                                  <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
-                                    <span class="opacity-5 text-muted pl-2 pr-1">2%</span>
-                                    increase
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="widget-chart-wrapper he-auto opacity-10 m-0">
-                              <div class="d-block">
-                                <canvas baseChart
-                                        class="machinesChart"
-                                        [datasets]="machineDatasets"
-                                        [labels]="machineLabels"
-                                        [colors]="machineLineChartColors"
-                                        [options]="machineOptions"
-                                        [chartType]="'line'"></canvas>
-                              </div>
-                            </div>
+                      <div class="widget-numbers">
+                        <div class="widget-chart-flex">
+                          <div>
+                            <span class="text" style="color:blueviolet;">Stations</span>
+                          </div>
+                          <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
+                            <span class="opacity-5 text-muted pl-2 pr-1">8%</span>
+                            increase
                           </div>
                         </div>
                       </div>
-                      <div class="show-label">
-                        <button (click)="isMachineGraphVisible=!isMachineGraphVisible">
-                          <span *ngIf="!isMachineGraphVisible">Show More</span>
-                          <span *ngIf="isMachineGraphVisible">Show Less</span>
-                        </button>
+                    </div>
+                    <div class="widget-chart-wrapper he-auto opacity-10 m-0">
+                      <div class="d-block">
+                        <canvas baseChart [datasets]="stationsChartData" [labels]="lineChartLabels"
+                          [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType"
+                          [plugins]="lineChartPlugins">
+                        </canvas>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="show-label">
+                <button (click)="isStationGraphVisible=!isStationGraphVisible">
+                  <span *ngIf="!isStationGraphVisible">Show More</span>
+                  <span *ngIf="isStationGraphVisible">Show Less</span>
+                </button>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xl-6">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading">Charging Machines</div>
+                <div class="widget-subheading">Total Charging Machines </div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers" style="color: #ffc107;">{{machines_total}}</div>
+              </div>
+            </div>
+            <div class="widget-progress-wrapper">
+              <div class="progress-bar-sm progress-bar-animated-alt progress">
+                <div class="progress-bar " role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 65%; background-color: #9f0ec4;"></div>
+              </div>
+              <div class="progress-sub-label">
+                <div class="sub-label-left"> Progress</div>
+                <div class="sub-label-right">100%</div>
+              </div>
+              <div class="p-1 slick-slider-sm mx-auto mt-4 mb-4" *ngIf="isMachineGraphVisible">
+                <div class="widget-chart widget-chart2 text-left p-0">
+                  <div class="widget-chat-wrapper-outer">
+                    <div class="widget-chart-content widget-chart-content-lg pb-0">
+                      <div class="widget-chart-flex">
+
+                      </div>
+                      <div class="widget-numbers">
+                        <div class="widget-chart-flex">
+                          <div>
+                            <span class="text" style="color: lightcoral;">Machines</span>
+                          </div>
+                          <div class="widget-title ml-2 font-size-md font-weight-normal text-dark">
+                            <span class="opacity-5 text-muted pl-2 pr-1">2%</span>
+                            increase
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="widget-chart-wrapper he-auto opacity-10 m-0">
+                      <div class="d-block">
+                        
+                        <canvas baseChart [datasets]="machinesChartData" [labels]="lineChartLabels"
+                          [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType"
+                          [plugins]="lineChartPlugins">
+                        </canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="show-label">
+                <button (click)="isMachineGraphVisible=!isMachineGraphVisible">
+                  <span *ngIf="!isMachineGraphVisible">Show More</span>
+                  <span *ngIf="isMachineGraphVisible">Show Less</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- <div class="col-sm-12 col-lg-6 ">
@@ -449,4 +443,3 @@
     </div>
   </div>
 </div> -->
-

@@ -131,6 +131,9 @@ export class ViewAllComponent implements OnInit {
       );
   }
   }
+  btnClick() {
+    this._router.navigateByUrl('/dashboard/charging-stations/new');
+};
 
 
 

@@ -1,7 +1,8 @@
 import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Color } from 'ng2-charts';
+import { ChartDataSets } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -14,440 +15,64 @@ export class DashboardHomeComponent implements OnInit {
   heading = 'Analytics Dashboard';
   subheading = 'This is an example dashboard created using build-in elements and components.';
   icon = 'pe-7s-plane icon-gradient bg-tempting-azure';
-
-  slideConfig6 = {
-    className: 'center',
-    infinite: true,
-    slidesToShow: 1,
-    speed: 500,
-    adaptiveHeight: true,
-    dots: true,
+  lineChartType = 'line';
+  lineChartPlugins = [];
+  lineChartLegend = true;
+  lineChartOptions = {
+    responsive: true,
   };
+  lineChartLabels: Label[] = ['January'];
 
-  public bookingDatasets = [
+
+  bookingChartData: ChartDataSets[] = [
     {
-      
-      
-      data: [46, 55, 59, 80, 81, 38, 65, 59, 80], label: 'My First dataset', fill: false,
-      borderColor: '#f7b924',
-      backgroundColor: 'rgba(247, 185, 36, 0.2)',
-      datalabels: {
-        display: false,
-      },
-
-    }
-  ];
-
-  public datasets2 = [
-    {
-      label: 'My First dataset',
-      data: [46, 55, 59, 80, 81, 38, 65, 59, 80],
-      datalabels: {
-        display: false,
-      },
-
-    }
-  ];
-
-  public datasets3 = [
-    {
-      label: 'My First dataset',
-      data: [65, 59, 80, 81, 55, 38, 59, 80, 46],
-      datalabels: {
-        display: false,
-      },
-
-    }
-  ];
-  public bookingLineChartColors: Color[] = [
-    { // dark grey
-      backgroundColor: 'rgba(247, 185, 36, 0.2)',
-      borderColor: '#f7b924',
-      borderCapStyle: 'round',
-      borderDash: [],
-      borderWidth: 4,
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'round',
-      pointBorderColor: '#f7b924',
-      pointBackgroundColor: '#fff',
-      pointHoverBorderWidth: 4,
-      pointRadius: 6,
-      pointBorderWidth: 5,
-      pointHoverRadius: 8,
-      pointHitRadius: 10,
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: '#f7b924',
-    },
-  ];
-
-  public lineChartColors2: Color[] = [
-    { // dark grey
-      backgroundColor: 'rgba(48, 177, 255, 0.2)',
+      data: [133, 425, 155, 682, 77, 421], label: 'Bookings', fill: false,
       borderColor: '#30b1ff',
-      borderCapStyle: 'round',
-      borderDash: [],
-      borderWidth: 4,
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'round',
-      pointBorderColor: '#30b1ff',
-      pointBackgroundColor: '#ffffff',
-      pointHoverBorderWidth: 4,
-      pointRadius: 6,
-      pointBorderWidth: 5,
-      pointHoverRadius: 8,
-      pointHitRadius: 10,
-      pointHoverBackgroundColor: '#ffffff',
-      pointHoverBorderColor: '#30b1ff',
     },
   ];
 
-  public lineChartColors3: Color[] = [
-    { // dark grey
-      backgroundColor: 'rgba(86, 196, 121, 0.2)',
-      borderColor: '#56c479',
-      borderCapStyle: 'round',
-      borderDash: [],
-      borderWidth: 4,
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'round',
-      pointBorderColor: '#56c479',
-      pointBackgroundColor: '#fff',
-      pointHoverBorderWidth: 4,
-      pointRadius: 6,
-      pointBorderWidth: 5,
-      pointHoverRadius: 8,
-      pointHitRadius: 10,
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: '#56c479',
-    },
-  ];
-
-  public bookingLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'];
-
-  public bookingOptions = {
-    layout: {
-      padding: {
-        left: 0,
-        right: 8,
-        top: 0,
-        bottom: 0
-      }
-    },
-    scales: {
-      yAxes: [{
-        ticks: {
-          display: false,
-          beginAtZero: true
-        },
-        gridLines: {
-          display: false
-        }
-      }],
-      xAxes: [{
-        ticks: {
-          display: false
-        },
-        gridLines: {
-          display: false
-        }
-      }]
-    },
-    legend: {
-      display: false
-    },
-    responsive: true,
-    maintainAspectRatio: false
-  };
-
-  public usersDatasets = [
+  usersChartData: ChartDataSets[] = [
     {
-      label: 'My First dataset',
-      data: [65, 59, 80, 81, 46, 55, 38, 59, 80],
-      datalabels: {
-        display: false,
-      },
-
-    }
-  ];
-
-  public usersLineChartColors: Color[] = [
-    { // dark grey
-      backgroundColor: 'darkseagreen',
-      borderColor: 'deepskyblue',
-      borderCapStyle: 'round',
-      borderDash: [],
-      borderWidth: 4,
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'round',
-      pointBorderColor: 'deepskyblue',
-      pointBackgroundColor: 'white',
-      pointHoverBorderWidth: 4,
-      pointRadius: 6,
-      pointBorderWidth: 5,
-      pointHoverRadius: 8,
-      pointHitRadius: 10,
-      pointHoverBackgroundColor: 'white',
-      pointHoverBorderColor: 'deepskyblue',
+      data: [133, 425, 155, 682, 77, 421], label: 'Users', fill: false,
+      borderColor: '#14416a',
     },
   ];
 
-  public usersLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'];
-
-  public usersOptions = {
-    layout: {
-      padding: {
-        left: 0,
-        right: 8,
-        top: 0,
-        bottom: 0
-      }
-    },
-    scales: {
-      yAxes: [{
-        ticks: {
-          display: false,
-          beginAtZero: true
-        },
-        gridLines: {
-          display: false
-        }
-      }],
-      xAxes: [{
-        ticks: {
-          display: false
-        },
-        gridLines: {
-          display: false
-        }
-      }]
-    },
-    legend: {
-      display: false
-    },
-    responsive: true,
-    maintainAspectRatio: false
-  };
-
-  public vendorsDatasets = [
+  vendorsChartData: ChartDataSets[] = [
     {
-      label: 'My First dataset',
-      data: [65, 59, 80, 81, 46, 55, 38, 59, 80],
-      datalabels: {
-        display: false,
-      },
-
-    }
-  ];
-
-  public vendorsLineChartColors: Color[] = [
-    { // dark grey
-      backgroundColor: 'lightblue',
-      borderColor: 'yellow',
-      borderCapStyle: 'round',
-      borderDash: [],
-      borderWidth: 4,
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'round',
-      pointBorderColor: 'yellow',
-      pointBackgroundColor: 'white',
-      pointHoverBorderWidth: 4,
-      pointRadius: 6,
-      pointBorderWidth: 5,
-      pointHoverRadius: 8,
-      pointHitRadius: 10,
-      pointHoverBackgroundColor: 'white',
-      pointHoverBorderColor: 'yellow',
+      data: [133, 425, 155, 682, 77, 421], label: 'Vendors', fill: false,
+      borderColor: '#14416a',
     },
   ];
 
-  public vendorsLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'];
-
-  public vendorsOptions = {
-    layout: {
-      padding: {
-        left: 0,
-        right: 8,
-        top: 0,
-        bottom: 0
-      }
-    },
-    scales: {
-      yAxes: [{
-        ticks: {
-          display: false,
-          beginAtZero: true
-        },
-        gridLines: {
-          display: false
-        }
-      }],
-      xAxes: [{
-        ticks: {
-          display: false
-        },
-        gridLines: {
-          display: false
-        }
-      }]
-    },
-    legend: {
-      display: false
-    },
-    responsive: true,
-    maintainAspectRatio: false
-  };
-
-  public stationDatasets = [
+  stationsChartData: ChartDataSets[] = [
     {
-      label: 'My First dataset',
-      data: [65, 59, 80, 81, 46, 55, 38, 59, 80],
-      datalabels: {
-        display: false,
-      },
-
-    }
-  ];
-
-  public stationLineChartColors: Color[] = [
-    { // dark grey
-      backgroundColor: 'lightcoral',
-      borderColor: 'darkseagreen',
-      borderCapStyle: 'round',
-      borderDash: [],
-      borderWidth: 4,
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'round',
-      pointBorderColor: 'darkseagreen',
-      pointBackgroundColor: 'white',
-      pointHoverBorderWidth: 4,
-      pointRadius: 6,
-      pointBorderWidth: 5,
-      pointHoverRadius: 8,
-      pointHitRadius: 10,
-      pointHoverBackgroundColor: 'white',
-      pointHoverBorderColor: 'darkseagreen',
+      data: [133, 425, 155, 682, 77, 421], label: 'Stations', fill: false,
+      borderColor: '#14416a',
     },
   ];
 
-  public stationLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'];
-
-  public stationOptions = {
-    layout: {
-      padding: {
-        left: 0,
-        right: 8,
-        top: 0,
-        bottom: 0
-      }
-    },
-    scales: {
-      yAxes: [{
-        ticks: {
-          display: false,
-          beginAtZero: true
-        },
-        gridLines: {
-          display: false
-        }
-      }],
-      xAxes: [{
-        ticks: {
-          display: false
-        },
-        gridLines: {
-          display: false
-        }
-      }]
-    },
-    legend: {
-      display: false
-    },
-    responsive: true,
-    maintainAspectRatio: false
-  };
-
-  public machineDatasets = [
+  machinesChartData: ChartDataSets[] = [
     {
-      label: 'My First dataset',
-      data: [65, 59, 80, 81, 46, 55, 38, 59, 80],
-      datalabels: {
-        display: false,
-      },
-
-    }
-  ];
-
-  public machineLineChartColors: Color[] = [
-    { // dark grey
-      backgroundColor: 'burlywood',
-      borderColor: 'darkcyan',
-      borderCapStyle: 'round',
-      borderDash: [],
-      borderWidth: 4,
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'round',
-      pointBorderColor: 'darkcyan',
-      pointBackgroundColor: 'white',
-      pointHoverBorderWidth: 4,
-      pointRadius: 6,
-      pointBorderWidth: 5,
-      pointHoverRadius: 8,
-      pointHitRadius: 10,
-      pointHoverBackgroundColor: 'white',
-      pointHoverBorderColor: 'darkcyan',
+      data: [133, 425, 155, 682, 77, 421], label: 'Machines', fill: false,
+      borderColor: '#14416a',
     },
   ];
 
-  public machineLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'];
-
-  public machineOptions = {
-    layout: {
-      padding: {
-        left: 0,
-        right: 8,
-        top: 0,
-        bottom: 0
-      }
-    },
-    scales: {
-      yAxes: [{
-        ticks: {
-          display: false,
-          beginAtZero: true
-        },
-        gridLines: {
-          display: false
-        }
-      }],
-      xAxes: [{
-        ticks: {
-          display: false
-        },
-        gridLines: {
-          display: false
-        }
-      }]
-    },
-    legend: {
-      display: false
-    },
-    responsive: true,
-    maintainAspectRatio: false
-  };
 
 
 
-  visibleGraph='none';
-  isBookingGraphVisible=false;
-  isUsersGraphVisible=false;
-  isVendorsGraphVisible=false;
-  isStationGraphVisible=false;
-  isMachineGraphVisible=false;
+
+  visibleGraph = 'none';
+  isBookingGraphVisible = false;
+  isUsersGraphVisible = false;
+  isVendorsGraphVisible = false;
+  isStationGraphVisible = false;
+  isMachineGraphVisible = false;
   isLoading = false;
   dashboardDetails = []
-  bookingCountsToShow:any[]=[]
+  bookingCountsToShow: any[] = []
   booking_total: string = ""
-  booking_date:string=""
   users_total: string = ""
   vendors_total: string = ""
   stations_total: string = ""
@@ -456,50 +81,73 @@ export class DashboardHomeComponent implements OnInit {
   tree_total: string = ""
   time_total: string = ""
   data_total: string = ""
-  startDate = ""
-  endDate = ""
-  viewsToShow = []
-  reaches = []
-  reachesToShow = []
-  responses = []
-  responsesToShow = []
 
-  constructor(private _router: Router,private _httpService: HttpService) { }
+  booking_dates = []
+  users_dates = []
+  vendors_dates = []
+  charging_stations_dates = []
+  charging_machines_dates = []
+
+  booking_start_date = new Date()
+  endDate = new Date()
+  startDate = new Date()
+  constructor(private _router: Router, private _httpService: HttpService) { }
   ngOnInit(): void {
     this.getdashboardDetails()
   }
-  getdashboardDetails(){
+  getdashboardDetails() {
     this._httpService.getdashboardDetails()
-    .subscribe(
-      data => {
-        console.log("data")
-        this.isLoading = false;
+      .subscribe(
+        data => {
+          console.log("data")
+          this.isLoading = false;
           console.log(data)
-         this.dashboardDetails=data['data']
+          this.dashboardDetails = data['data']
+
+          let startingDates = []
+          startingDates.push(new Date(data['data']['orders']['created_dates'][0]))
+          startingDates.push(new Date(data['data']['users']['created_dates'][0]))
+          startingDates.push(new Date(data['data']['vendors']['created_dates'][0]))
+          startingDates.push(new Date(data['data']['charging_stations']['created_dates'][0]))
+          startingDates.push(new Date(data['data']['charging_machines']['created_dates'][0]))
+
+          startingDates = startingDates.sort((a, b) => {
+            return new Date(a).getTime() - new Date(b).getTime();
+          });
+
+          this.startDate = startingDates[0];
+          this.booking_dates = data['data']['orders']['created_dates']
+          this.users_dates = data['data']['users']['created_dates']
+          this.vendors_dates = data['data']['vendors']['created_dates']
+          this.charging_stations_dates = data['data']['charging_stations']['created_dates']
+          this.charging_machines_dates = data['data']['charging_machines']['created_dates']
+
           this.booking_total = data['data']['orders']['total']
-          this.booking_date= data['data']['orders']['created_dates'][0]
           this.users_total = data['data']['users']['total']
           this.vendors_total = data['data']['vendors']['total']
           this.stations_total = data['data']['charging_stations']['total']
           this.machines_total = data['data']['charging_machines']['total']
+
+
           this.co2_total = parseFloat(data['data']['co2_saved']['total']['auto'] + data['data']['co2_saved']['total']['bike'] + data['data']['co2_saved']['total']['car']).toFixed(2)
           this.tree_total = data['data']['number_of_tree_planed']
           this.time_total = data['data']['total_charging_time']['total']
           this.data_total = data['data']['total_charging_data']['total']
-          
+
 
           console.log("total")
           console.log(this.booking_total)
-      
-      },
-      error => {
-        this.isLoading = false;
-        this._router.navigate(['']);
-      },
-    );
+
+          this.setUpChart()
+        },
+        error => {
+          this.isLoading = false;
+          this._router.navigate(['']);
+        },
+      );
   }
   getDaysArray(start, end) {
-    for (var arr = [], dt = ['data']['orders']['created_dates'][0](start); dt <= new Date(end); dt.setDate(dt.getDate() + 1)) {
+    for (var arr = [], dt = start; dt <= new Date(end); dt.setDate(dt.getDate() + 1)) {
       arr.push(new Date(dt));
     }
     return arr;
@@ -509,8 +157,8 @@ export class DashboardHomeComponent implements OnInit {
     var d = new Date(date),
       month = '' + (d.getMonth() + 1),
       day = '' + d.getDate();
-                                                                  
-      
+
+
     if (month.length < 2)
       month = '0' + month;
     if (day.length < 2)
@@ -541,7 +189,7 @@ export class DashboardHomeComponent implements OnInit {
   }
 
   getMonths(startDate, endDate) {
-    
+
     var start = this.formatDate(startDate).split('-');
     var end = this.formatDate(endDate).split('-');
     var startYear = parseInt(start[0]);
@@ -589,99 +237,90 @@ export class DashboardHomeComponent implements OnInit {
   }
 
 
-  setUpChart(duration) {
-
-    let reachCreatedDate = this.reachesToShow.map(s => s.createdOn);
-    
-    let reachesArray = []
-    
-    
-
-    if (duration == "Daily") {
-      let daysBetween = this.getDaysArray(this.startDate, this.endDate)
+  setUpChart() {
 
 
-      for (let index = 0; index < daysBetween.length; index++) {
-        let obje = {
-          "timeStamp": daysBetween[index],
-          "reaches": reachCreatedDate.filter(reachCreatedDate => this.formatDate(reachCreatedDate) == this.formatDate(daysBetween[index]))
-        }
-        reachesArray.push(obje)
+    let bookingsArray = []
+    let usersArray = []
+    let vendorsArray = []
+    let charginStationsArray = []
+    let charginMachinesArray = []
+
+    let daysBetween = this.getDaysArray(this.startDate, this.endDate)
+    this.lineChartLabels = daysBetween.map(day => this.getDayAndMonth(day))
+
+
+    for (let index = 0; index < daysBetween.length; index++) {
+      let bookingObject = {
+        "timeStamp": daysBetween[index],
+        "bookings": this.booking_dates.filter(booking_date => this.formatDate(booking_date) == this.formatDate(daysBetween[index]))
+      }
+      let usersObject = {
+        "timeStamp": daysBetween[index],
+        "bookings": this.users_dates.filter(booking_date => this.formatDate(booking_date) == this.formatDate(daysBetween[index]))
+      }
+      let vendorsObject = {
+        "timeStamp": daysBetween[index],
+        "bookings": this.vendors_dates.filter(booking_date => this.formatDate(booking_date) == this.formatDate(daysBetween[index]))
+      }
+      let chargingStationObject = {
+        "timeStamp": daysBetween[index],
+        "bookings": this.charging_stations_dates.filter(booking_date => this.formatDate(booking_date) == this.formatDate(daysBetween[index]))
+      }
+      let chargingMachineObject = {
+        "timeStamp": daysBetween[index],
+        "bookings": this.charging_machines_dates.filter(booking_date => this.formatDate(booking_date) == this.formatDate(daysBetween[index]))
       }
 
 
-      this.bookingLabels = daysBetween.map(day => this.getDayAndMonth(day))
-
+      bookingsArray.push(bookingObject)
+      usersArray.push(usersObject)
+      vendorsArray.push(vendorsObject)
+      charginStationsArray.push(chargingStationObject)
+      charginMachinesArray.push(chargingMachineObject)
     }
 
 
-
-    if (duration == "Weekly") {
-
-      let daysBetween = this.getDaysArray(this.startDate, this.endDate)
-
-      let weeksBetween = []
-
-      for (let index = 0; index < daysBetween.length; index++) {
-
-        if (weeksBetween.indexOf(this.getWeekStartDate(daysBetween[index])) == -1) {
-          weeksBetween.push(this.getWeekStartDate(daysBetween[index]));
-
-        }
-
-      }
-
-
-      weeksBetween = weeksBetween
-        .map(function (date) { return date.getTime() })
-        .filter(function (date, i, array) {
-          return array.indexOf(date) === i;
-        })
-        .map(function (time) { return new Date(time); });
-      console.log("weekly")
-      console.log(weeksBetween)
-
-      for (let index = 0; index < weeksBetween.length; index++) {
-        let obje = {
-          "timeStamp": weeksBetween[index],
-          "reaches": reachCreatedDate.filter(reachCreatedDate => this.formatDate(this.getWeekStartDate(reachCreatedDate)) == this.formatDate(weeksBetween[index]))
-        }
-        reachesArray.push(obje)
-      }
-
-
-      this.bookingLabels = weeksBetween.map(day => this.getDayAndMonth(day))
-
-    }
-
-    if (duration == "Monthly") {
-      let monthsBetween = this.getMonths(this.startDate, this.endDate)
-
-
-      for (let index = 0; index < monthsBetween.length; index++) {
-        let obje = {
-          "timeStamp": monthsBetween[index],
-          "reaches": reachCreatedDate.filter(reachCreatedDate => this.checkIfSameMonth(reachCreatedDate, monthsBetween[index]))
-        }
-        reachesArray.push(obje)
-      }
-
-      this.bookingLabels = monthsBetween.map(day => this.getYearAndMonth(day))
-
-
-    }
-
-
-    this.bookingDatasets = [
+    this.bookingChartData = [
       {
-        data: reachesArray.map(reach => reach.reaches.length),label: 'My First dataset', fill: false,
-        borderColor: '#f7b924',
-        backgroundColor: 'rgba(247, 185, 36, 0.2)',
-        datalabels: {
-          display: false,
-        },
+        data: bookingsArray.map(reach => reach.bookings.length),
+        label: 'Bookings', fill: false,
+        borderColor: '#DD5600',
       },
-      
+    ];
+
+    this.usersChartData = [
+      {
+        data: usersArray.map(reach => reach.bookings.length),
+        label: 'Users', fill: false,
+        borderColor: 'darkblue',
+      },
+    ];
+
+
+    this.vendorsChartData = [
+      {
+        data: vendorsArray.map(reach => reach.bookings.length),
+        label: 'Vendors', fill: false,
+        borderColor: 'deepskyblue',
+      },
+    ];
+
+
+    this.stationsChartData = [
+      {
+        data: charginStationsArray.map(reach => reach.bookings.length),
+        label: 'Stations', fill: false,
+        borderColor: 'blueviolet',
+      },
+    ];
+
+    this.machinesChartData = [
+      {
+        data: charginMachinesArray.map(reach => reach.bookings.length),
+        label: 'Machines', fill: false,
+        borderColor: 'lightcoral',
+      },
     ];
 
 
