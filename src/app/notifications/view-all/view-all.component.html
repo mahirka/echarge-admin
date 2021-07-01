@@ -1,0 +1,73 @@
+<div *ngIf="!isLoading" class="main-container ">
+    <div class="container">
+      <div class="profile-title">
+        <div class="heading-tag">
+            <p>All Notifications </p>
+        </div>
+      </div>
+      <div class="search-field">
+        <button class="btn btn-white shadow-none"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <div class="form-field col">
+            <input type="text"  class="form-control input-box" id="exampleInputPassword1" placeholder="Search">
+        </div>
+    </div>
+    <div class="main-card mb-3 card">
+      <div class="card-body">
+        <table class="mb-0 table table-hover">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Messages</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr >
+            <th scope="row">1</th>
+            <td><div class="noti-para">
+                <p><span style="font-weight: bold;">Nikhil Krishnan </span>added new Machine</p>
+             </div>
+             <div class="noti-label">
+                 <p>18/03/2021</p>
+             </div></td>
+            <td>
+              <div class="img">
+                  <div class="icon">
+                    <a ><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                  </div>
+                  <div class="icon">
+                      <a><i class="fas fa-trash" aria-hidden="true"></i></a>
+                  </div>
+              </div>
+            </td>
+          </tr>
+          <tr >
+            <th scope="row">2</th>
+            <td><div class="noti-para">
+                <p><span style="font-weight: bold;">Prashanth k M </span>added new Machine</p>
+             </div>
+             <div class="noti-label">
+                 <p>26/01/2021</p>
+             </div></td>
+            <td>
+              <div class="img">
+                  <div class="icon">
+                    <a ><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                  </div>
+                  <div class="icon">
+                      <a><i class="fas fa-trash" aria-hidden="true"></i></a>
+                  </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loadingScreen d-flex justify-content-center align-items-center">
+    <i  class="fa fa-spin fa-spinner"></i>
+  </div>

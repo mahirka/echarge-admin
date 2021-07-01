@@ -14,6 +14,7 @@ const routes: Routes = [
     {path: 'dashboard/charging-machines', loadChildren: () => import('./charging-mechines/charging-mechines.module').then(m => m.ChargingMechinesModule)},
     {path: 'dashboard/orders', loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)},
     {path: 'dashboard/vehicles', loadChildren: () => import('./vehicles/vehicles.module').then(m => m.VehiclesModule)},
+    {path: 'dashboard/notifications', loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule)},
   
 
     {path: 'dashboard/profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},

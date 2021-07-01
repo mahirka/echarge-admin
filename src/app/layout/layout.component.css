@@ -345,6 +345,19 @@ background-color: #1e596638;
   align-items: self-end;
   margin-left: 3rem;
 }
+.badge {
+  position: relative;
+    top: -20px;
+    left: -25px;
+    border: 1px solid white;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+}
+.notification-block i{
+  font-size: large;
+  color: lightgray;
+}
 
 .menu-container .menu-view1 a,
 .menu-container .menu-view1 i {
@@ -550,18 +563,73 @@ background-color: #1e596638;
 }
 .dropdown-menu {
   border-radius: 10px;
+  left: -2rem;
+    top: 2rem;
 }
 .chat-menu {
   width: 20rem;
   margin-left: 1rem;
 }
-.notification-menu {
-  width: 17rem;
-  margin-left: 1rem;
-}
+
+
 .location-menu {
   width: 20rem;
   margin-left: 1rem;
+}
+.notification-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: self-end;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 18rem;
+  margin-top: 0.5rem;
+}
+
+.noti-para p{
+  font-size: small;
+  font-weight: 300;
+}
+.noti-label p{
+  font-size: small;
+  font-weight: 300;
+  color: darkgray;
+}
+.noti-icon{
+  margin-right: 1rem;
+}
+.noti-icon i{
+  font-size:large;
+  color: darkgray;
+}
+.noti-menu {
+  display: flex;
+  color: #333333;
+  font: normal normal medium 12px/15px Montserrat;
+  justify-content: space-between;
+  font-weight: bold;
+  width: 100%;
+
+}
+ .notification-header {
+  padding: 10px;
+  color: #ffffff;
+  background-color: #43425d;
+}
+ .notification-header .label {
+  display: inline-block;
+  width: 90%;
+  text-align: center;
+  font-weight: 500;
+}
+.noti-label {
+  text-align: left;
+}
+.noti-label a {
+  color: #333333;
+  font-size: smaller;
+  font-weight: 600;
 }
 
 @media (max-width: 1200px) {

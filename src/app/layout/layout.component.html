@@ -57,6 +57,15 @@
                 </ul>
             </li>
             <li class="uk-parent py-2 px-4">
+                <a><i class="fa fa-bell mr-3"></i>Notifications</a>
+                <ul class="uk-nav-sub">
+                    <li (click)="navigate('/dashboard/notifications/view-all')" class="py-2"><a><span
+                                class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li class="uk-parent py-2 px-4">
                 <a><i class="fas fa-car mr-3"></i>Vehicles</a>
                 <ul class="uk-nav-sub">
                     <li (click)="navigate('/dashboard/vehicles/view-all')" class="py-2"><a><span
@@ -192,6 +201,48 @@
 
                     </ul>
                 </div>
+            </div>
+            <div class="notification-block">
+                <div class="dropdown pl-3">
+                    <a role="button" id="dropdownNotificationMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge badge-light">5</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownNotificationMenuLink">
+                        <div class="notification-menu">
+                            <!-- <div class="notification-header">
+                                
+                                <span class="label">Notifications</span>
+                                <span class="mdi mdi-settings"></span>
+                              </div> -->
+                            
+                            <div class="noti-menu">
+                                <div class="noti-icon">
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
+                                </div>
+                                <div class="noti-para">
+                                   <p><span style="font-weight: bold;">Prashanth k M </span>added new Machine</p>
+                                </div>
+                                <div class="noti-label">
+                                    <p>26/01/2021</p>
+                                </div>
+                            </div>
+                            <div class="noti-menu">
+                                <div class="noti-icon">
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
+                                </div>
+                                <div class="noti-para">
+                                   <p><span style="font-weight: bold;">Nikhil Krishnan </span>added new Machine</p>
+                                </div>
+                                <div class="noti-label">
+                                    <p>18/03/2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
             </div>
             <div class="dropdown pl-3">
                 <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
