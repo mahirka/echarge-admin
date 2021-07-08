@@ -22,13 +22,18 @@
                 <h4>{{id}}</h4>
                 <p>{{electricity_supply_type}}</p>
                 <p>{{minimum_charging_power}}</p>
-                <div class="edit-bt">
+                <div class="menu-block">
+                  <div class="edit-bt">
                     <div class="edit-icon">
                         <i class="fas fa-edit" aria-hidden="true"></i> 
                     </div>
                     <div class="text-label">
                         <a [routerLink]="['/dashboard/charging-mechines/edit']" routerLinkActive="router-link-active">Edit</a>
                     </div>
+                  </div>
+                  <div class="button-block">
+                    <button class="btn btn-primary  add-button" (click)="btnClick();">+ Add New</button>
+                  </div>
                 </div>
             </div>
             

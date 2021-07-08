@@ -101,4 +101,7 @@ export class ViewComponent implements OnInit {
         },
       );
   }
+  btnClick() {
+    this._router.navigateByUrl('/dashboard/charging-machines/add-vendor ');
+};
 }

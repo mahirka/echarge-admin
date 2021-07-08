@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IMqttMessage } from 'ngx-mqtt';
+import { IMqttMessage, MqttService } from 'ngx-mqtt';
 import { Subscription } from 'rxjs';
 import { EventMqttService } from 'src/app/services/event-mqtt.service';
 
@@ -10,29 +10,27 @@ import { EventMqttService } from 'src/app/services/event-mqtt.service';
 })
 export class ViewAllComponent implements OnInit {
   isLoading = false;
-  events: any[];
-    private deviceId: string;
-    subscription: Subscription;
+  private subscription: Subscription;
+  public message: string;
 
-  constructor(private readonly eventMqtt: EventMqttService,) { }
+  constructor(private _mqttService: MqttService,) {
+    this.subscription = this._mqttService.observe('notification/admin').subscribe((message: IMqttMessage) => {
+      this.message = message.payload.toString();
+    });
+   }
+   public unsafePublish(topic: string, message: string): void {
+    this._mqttService.unsafePublish(topic, message, {qos: 1, retain: true});
+  }
+  public ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
   ngOnInit(): void {
-    this.subscribeToTopic();
+   
   }
-  ngOnDestroy(): void {
-    if (this.subscription) {
-        this.subscription.unsubscribe();
-    }
+ 
 }
 
-private subscribeToTopic() {
-    this.subscription = this.eventMqtt.topic(this.deviceId)
-        .subscribe((data: IMqttMessage) => {
-            let item = JSON.parse(data.payload.toString());
-            console.log(item)
-            this.events.push(item);
-            
-        });
-}
 
-}
+
+

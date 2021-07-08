@@ -7,6 +7,7 @@ import { EditComponent } from './edit/edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/auth.guard';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddVendorComponent } from './add-vendor/add-vendor.component';
 
 const routes: Routes = [
 
@@ -14,11 +15,12 @@ const routes: Routes = [
   {path:'view/:machineId',component:ViewComponent},
   {path:'new',component:NewComponent},
   {path:'edit/:machineId',component:EditComponent},
+  {path:'add-vendor',component:AddVendorComponent},
   
 ];
 
 @NgModule({
-  declarations: [ViewAllComponent, ViewComponent, NewComponent, EditComponent],
+  declarations: [ViewAllComponent, ViewComponent, NewComponent, EditComponent, AddVendorComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

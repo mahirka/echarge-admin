@@ -54,6 +54,13 @@ export class HttpService {
       observe: 'body'
     });
   }
+  assignVendor(body: any) {
+    console.log("assignVender")
+    return this.http.post('http://134.209.153.116/api/charging_machine/add_vendor',body, {
+      headers: { "x-access-token": localStorage.getItem('token')  },
+      observe: 'body'
+    });
+  }
   deleteMachine(machineId) : Observable<any>{
     console.log("stationId")
     console.log(machineId)

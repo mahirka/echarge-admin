@@ -1,0 +1,24 @@
+<div class="main-card mb-3 card">
+    <div class="card-body "><h5 class="card-title">Add Vendor</h5>
+      <form [formGroup]="addVendorForm">
+        <div class="position-relative form-group"><label for="exampleEmail">Machine Id</label><input name="machine_id"
+                                                                                                id="exampleEmail"
+                                                                                                formControlName="machine_id"
+                                                                                                type="text"
+                                                                                                class="form-control">
+        </div>
+        <div class="position-relative form-group"><label for="exampleEmail">Mob No</label><input name="power"
+          id="exampleEmail"
+          formControlName="mobile"
+          type="text"
+          class="form-control">
+        </div>
+          <div class="button-block">
+            <p class="error-msg" *ngIf="errorMessage" for="">{{errorMessage}}</p>
+  
+            <button class="btn btn-primary mt-3 save-button" (click)="submit()">Save<i *ngIf="isLoading"
+                    class="fa fa-spin fa-spinner"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,3 +1,14 @@
+<script>
+    var client = mqtt.connect('wss://broker.emqx.io:1883');
+    client.subscribe("mqtt/demo");
+
+    client.on("message", function (topic, payload) {
+      alert([topic, payload].join(": "));
+      client.end();
+    });
+
+    client.publish("notification/admin", "hello world!");
+  </script>
 <div *ngIf="!isLoading" class="main-container ">
     <div class="container">
       <div class="profile-title">

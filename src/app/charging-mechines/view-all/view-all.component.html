@@ -33,7 +33,7 @@
                       <div class="date-block">
                         <input type="date" id="start" name="trip-start"
                           value="2021-07-22"
-                          min="2021-01-01" max="2021-12-31" [(ngModel)]='startDate'><label for="exampleSelectMulti" class="date-label">to</label><input type="date" [(ngModel)]='endDate'id="end" name="trip-end"
+                          min="2021-01-01" max="2021-12-31" ><label for="exampleSelectMulti" class="date-label">to</label><input type="date" id="end" name="trip-end"
                           value="2021-10-22"
                           min="2021-01-01" max="2021-12-31">
                       </div>
@@ -87,9 +87,6 @@
                       </tbody>
                     </table>
                   </div>
-                  <div class="button-block">
-                    <a [routerLink]="['/charging-mechines/new']" routerLinkActive="router-link-active"><button class="btn btn-primary mt-3 add-button">+ Add New </button></a>
-                </div>
                   <div *ngIf="publishedChargingMechineToShow.length==0" class="empty">
                     <h3>No Charging Stations To Display</h3>
                 </div>

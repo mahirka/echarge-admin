@@ -17,6 +17,10 @@
     margin-left: 21rem;
     margin-top: 2rem;
   }
+  .menu-block{
+    display: flex;
+    justify-content: space-between;
+  }
   .upload-bt{
     display: flex;
   }
