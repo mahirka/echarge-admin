@@ -1,0 +1,209 @@
+<div *ngIf="!isLoading" class="main-container ">
+    <div class="container">
+      <div class="profile-title">
+        <div class="heading-tag">
+            <p>Company Data </p>
+        </div>
+      </div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link px-2 px-md-3 active" id="nav-published-tab" data-toggle="tab" href="#nav-published"
+                    role="tab" aria-controls="nav-published" aria-selected="true">Published</a>
+            </div>
+        </nav>
+        <div class="tab-content mt-4" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-published" role="tabpanel" aria-labelledby="nav-published-tab">
+                <div class="search-field">
+                    <button class="btn btn-white shadow-none"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <div class="form-field col">
+                        <input type="text"  class="form-control input-box" id="exampleInputPassword1" placeholder="Search">
+                    </div>
+                </div>
+                <div class="main-card mb-3 card">
+                  <div class="card-body">
+                    <div class="menu-container">
+                      <div class="button-block">
+                        <button class="btn btn-primary  add-button" (click)="btnClick();"><i class="fa fa-edit "></i> Edit</button>
+                      </div>
+                      <div class="graph-block">
+                        <a><i class="fa fa-line-chart" aria-hidden="true"></i></a>
+                      </div>
+                      <div class="date-block">
+                        <input type="date" id="start" name="trip-start"
+                          value="2021-07-22"
+                          min="2021-01-01" max="2021-12-31"><label for="exampleSelectMulti" class="date-label">to</label><input type="date" id="end" name="trip-end"
+                          value="2021-10-22"
+                          min="2021-01-01" max="2021-12-31">
+                      </div>
+                      <div class="filter-block">
+                        <div class="dropdown">
+                          <button class="dropbtn">Filter<i class="fa fa-caret-down"></i></button>
+                          <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <table class="mb-0 table table-hover">
+                      <thead>
+                      <tr>
+                        <th>#</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Company Name</td>
+                        <td>
+                           EV Charge
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Service Charge</td>
+                        <td>
+                          500
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Car Plug Types</td>
+                        <td>
+                           3 PIn
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Auto Plug Type</td>
+                        <td>
+                           Chedamo
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Bike Plug Type</td>
+                        <td>
+                           3 Pin
+                        </td>
+                      </tr> <tr >
+                        <th scope="row">1</th>
+                        <td>Car Minimum Charging Power</td>
+                        <td>
+                           300 kw
+                        </td>
+                      </tr> <tr >
+                        <th scope="row">1</th>
+                        <td>Auto Minimum Charging Power</td>
+                        <td>
+                           400 kw
+                        </td>
+                      </tr> <tr >
+                        <th scope="row">1</th>
+                        <td>Bike Minimum Charging Power</td>
+                        <td>
+                           300 kw
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Car Maximum Charging Power</td>
+                        <td>
+                           300 kw
+                        </td>
+                      </tr> <tr >
+                        <th scope="row">1</th>
+                        <td>Auto Maximum Charging Power</td>
+                        <td>
+                           400 kw
+                        </td>
+                      </tr> <tr >
+                        <th scope="row">1</th>
+                        <td>Bike Maximum Charging Power</td>
+                        <td>
+                           300 kw
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Email</td>
+                        <td>
+                           <a>evcharge@gmail.com</a>
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Mobile</td>
+                        <td>
+                           7012979129
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Website</td>
+                        <td>
+                           <a>evcharge.com</a>
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Address</td>
+                        <td>
+                           Eranakulam
+                           Kakkanad P.O
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Country</td>
+                        <td>
+                           India
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Street</td>
+                        <td>
+                           Kakkanad 
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>State</td>
+                        <td>
+                           Kerala
+                           
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>Zipcode</td>
+                        <td>
+                           523
+                        </td>
+                      </tr>
+                      <tr >
+                        <th scope="row">1</th>
+                        <td>City</td>
+                        <td>
+                           Eranakulam
+                        </td>
+                      </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  <div  class="empty">
+                    <h3>No Plugs To Display</h3>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loadingScreen d-flex justify-content-center align-items-center">
+    <i  class="fa fa-spin fa-spinner"></i>
+  </div>

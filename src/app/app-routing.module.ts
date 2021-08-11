@@ -15,6 +15,9 @@ const routes: Routes = [
     {path: 'dashboard/orders', loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)},
     {path: 'dashboard/vehicles', loadChildren: () => import('./vehicles/vehicles.module').then(m => m.VehiclesModule)},
     {path: 'dashboard/notifications', loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule)},
+    {path: 'dashboard/plug-types', loadChildren: () => import('./plug-types/plug-types.module').then(m => m.PlugTypesModule)},
+    {path: 'dashboard/feedback', loadChildren: () => import('./feedback/feedback.module').then(m => m.FeedbackModule)},
+    {path: 'dashboard/company-data', loadChildren: () => import('./company-data/company-data.module').then(m => m.CompanyDataModule)},
   
 
     {path: 'dashboard/profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},

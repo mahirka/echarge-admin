@@ -1,0 +1,141 @@
+<div class="main-card mb-3 card">
+    <div class="card-body "><h5 class="card-title">Edit Machine Details</h5>
+      <form [formGroup]="editCompanyDataForm">
+        <div class="position-relative form-group"><label for="exampleEmail">Company Name</label><input name="name"
+                                                                                                id="exampleEmail"
+                                                                                                formControlName="name"
+                                                                                                type="text"
+                                                                                                class="form-control">
+        </div>
+        <div class="position-relative form-group"><label for="exampleEmail">Service Charge</label><input name="company_service_charge"
+          id="exampleEmail"
+          formControlName="company_service_charge"
+          type="text"
+          class="form-control">
+        </div>
+        <div class="position-relative form-group"><label for="exampleSelectMulti">Bike Plug Type</label><select  name="selectMulti" id="exampleSelectMulti"
+                                  class="form-control"formControlName="bike_plug_types">
+          <option>3 Pin</option>
+          <option>Chedamo</option>
+          <option>CCS</option>
+          <option>Type 1</option>
+          <option>Type 2</option>
+        </select></div>
+        <div class="position-relative form-group"><label for="exampleSelectMulti">Car Plug Type</label><select  name="selectMulti" id="exampleSelectMulti"
+            class="form-control"formControlName="car_plug_types">
+            <option>3 Pin</option>
+            <option>Chedamo</option>
+            <option>CCS</option>
+            <option>Type 1</option>
+            <option>Type 2</option>
+            </select></div>
+            <div class="position-relative form-group"><label for="exampleSelectMulti">Auto Plug Type</label><select  name="selectMulti" id="exampleSelectMulti"
+                class="form-control"formControlName="auto_plug_types">
+            <option>3 Pin</option>
+            <option>Chedamo</option>
+            <option>CCS</option>
+            <option>Type 1</option>
+            <option>Type 2</option>
+            </select></div>
+        <div class="position-relative form-group"><label for="exampleEmail">Auto Minimum Charging Power</label><input name="auto_minimum_charging_power"
+          id="exampleEmail"
+          formControlName="auto_minimum_charging_power"
+          type="text"
+          class="form-control">
+        </div>
+        <div class="position-relative form-group"><label for="exampleEmail">Car Minimum Charging Power</label><input name="car_minimum_charging_power"
+            id="exampleEmail"
+            formControlName="car_minimum_charging_power"
+            type="text"
+            class="form-control">
+          </div>
+          <div class="position-relative form-group"><label for="exampleEmail">Bike Minimum Charging Power</label><input name="bike_minimum_charging_power"
+            id="exampleEmail"
+            formControlName="bike_minimum_charging_power"
+            type="text"
+            class="form-control">
+          </div>
+          <div class="position-relative form-group"><label for="exampleEmail">Auto Maximum Charging Power</label><input name="auto_maximum_charging_power"
+            id="exampleEmail"
+            formControlName="auto_maximum_charging_power"
+            type="text"
+            class="form-control">
+          </div>
+          <div class="position-relative form-group"><label for="exampleEmail">Car Maximum Charging Power</label><input name="car_maximum_charging_power"
+              id="exampleEmail"
+              formControlName="auto_maximum_charging_power"
+              type="text"
+              class="form-control">
+            </div>
+            <div class="position-relative form-group"><label for="exampleEmail">Bike Maximum Charging Power</label><input name="bike_maximum_charging_power"
+              id="exampleEmail"
+              formControlName="bike_maximum_charging_power"
+              type="text"
+              class="form-control">
+            </div>
+            <div class="position-relative form-group"><label for="exampleEmail">Email</label><input name="email"
+                id="exampleEmail"
+                formControlName="email"
+                type="text"
+                class="form-control">
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail">Website</label><input name="website"
+                id="exampleEmail"
+                formControlName="website"
+                type="text"
+                class="form-control">
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail">Mobile</label><input name="mobile"
+                id="exampleEmail"
+                formControlName="website"
+                type="text"
+                class="form-control">
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail">Address</label><Address name="address"
+                id="exampleEmail"
+                formControlName="address"
+                type="text"
+                class="form-control"></Address>
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail">Country</label><input name="country"
+                id="exampleEmail"
+                formControlName="country"
+                type="text"
+                class="form-control">
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail">Zipcode</label><input name="zipcode"
+                id="exampleEmail"
+                formControlName="zipcode"
+                type="text"
+                class="form-control">
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail">State</label><input name="state"
+                id="exampleEmail"
+                formControlName="state"
+                type="text"
+                class="form-control">
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail">Street</label><input name="street"
+                id="exampleEmail"
+                formControlName="street"
+                type="text"
+                class="form-control">
+              </div>
+              <div class="position-relative form-group"><label for="exampleEmail">City</label><input name="city"
+                id="exampleEmail"
+                formControlName="city"
+                type="text"
+                class="form-control">
+              </div>
+
+        
+          <div class="button-block">
+            <p class="error-msg" *ngIf="errorMessage" for="">{{errorMessage}}</p>
+  
+            <button class="btn btn-primary mt-3 save-button" (click)="submit()">Save<i *ngIf="isLoading"
+                    class="fa fa-spin fa-spinner"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
