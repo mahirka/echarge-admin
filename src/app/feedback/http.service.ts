@@ -10,7 +10,7 @@ export class HttpService {
   constructor(private http:HttpClient) { }
 
   getfeedbackDetails() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/feedback/by_admin',  {
+    return this.http.get('https://api.evspace.in/api/feedback/by_admin',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });

@@ -10,7 +10,7 @@ export class HttpService {
 
   constructor(private http:HttpClient) { }
   getchargingStation() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/charging_station/by_admin',  {
+    return this.http.get('https://api.evspace.in/api/charging_station/by_admin',  {
       headers: {"x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
@@ -18,13 +18,13 @@ export class HttpService {
   readById(stationId) : Observable<any>{
     console.log("stationId")
     console.log(stationId)
-    return this.http.get('http://134.209.153.116/api/charging_station/'+stationId,  {
+    return this.http.get('https://api.evspace.in/api/charging_station/'+stationId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }
   createStation(body: any) {
-    return this.http.post('http://134.209.153.116/api/charging_station', body, {
+    return this.http.post('https://api.evspace.in/api/charging_station', body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
     });
@@ -32,7 +32,7 @@ export class HttpService {
   updateStation(stationId,body: any) {
     console.log("stationId")
     console.log(stationId)
-    return this.http.patch('http://134.209.153.116/api/charging_station/'+stationId,body, {
+    return this.http.patch('https://api.evspace.in/api/charging_station/'+stationId,body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
     });
@@ -40,7 +40,7 @@ export class HttpService {
   deleteStation(stationId) : Observable<any>{
     console.log("stationId")
     console.log(stationId)
-    return this.http.delete('http://134.209.153.116/api/charging_station/'+stationId,  {
+    return this.http.delete('https://api.evspace.in/api/charging_station/'+stationId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });

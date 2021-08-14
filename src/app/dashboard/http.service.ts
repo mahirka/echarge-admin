@@ -9,7 +9,7 @@ export class HttpService {
 
   constructor(private http:HttpClient) { }
   getdashboardDetails() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/dashboard/data',  {
+    return this.http.get('https://api.evspace.in/api/dashboard/data',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });

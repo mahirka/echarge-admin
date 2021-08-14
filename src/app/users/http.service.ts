@@ -12,7 +12,7 @@ export class HttpService {
   constructor(private http:HttpClient) { }
 
   getusersProfile() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/users',  {
+    return this.http.get('https://api.evspace.in/api/users',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
@@ -21,7 +21,7 @@ export class HttpService {
   readById(userId) : Observable<any>{
     console.log("userId")
     console.log(userId)
-    return this.http.get('http://134.209.153.116/api/users/'+userId,  {
+    return this.http.get('https://api.evspace.in/api/users/'+userId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });

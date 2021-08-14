@@ -11,7 +11,7 @@ export class HttpService {
   constructor(private http:HttpClient) { }
 
   getordersDetails() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/order/by_admin',  {
+    return this.http.get('https://api.evspace.in/api/order/by_admin',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
@@ -19,7 +19,7 @@ export class HttpService {
   readById(orderId) : Observable<any>{
     console.log("orderId")
     console.log(orderId)
-    return this.http.get('http://134.209.153.116/api/order/'+orderId,  {
+    return this.http.get('https://api.evspace.in/api/order/'+orderId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });

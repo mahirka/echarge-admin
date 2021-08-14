@@ -10,19 +10,19 @@ export class HttpService {
   constructor(private http:HttpClient) { }
 
   getvehicleDetails() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/vehicle/by_admin',  {
+    return this.http.get('https://api.evspace.in/api/vehicle/by_admin',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }
   getVehicleMakeDetails() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/vehicle_make/by_admin',  {
+    return this.http.get('https://api.evspace.in/api/vehicle_make/by_admin',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }
   getVehicleModelDetails() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/vehicle_model/by_admin',  {
+    return this.http.get('https://api.evspace.in/api/vehicle_model/by_admin',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
@@ -30,7 +30,7 @@ export class HttpService {
   readById(makeId) : Observable<any>{
     console.log("makeId")
     console.log(makeId)
-    return this.http.get('http://134.209.153.116/api/vehicle_make/'+makeId,  {
+    return this.http.get('https://api.evspace.in/api/vehicle_make/'+makeId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
@@ -38,7 +38,7 @@ export class HttpService {
   readByModelId(modelId) : Observable<any>{
     console.log("modelId")
     console.log(modelId)
-    return this.http.get('http://134.209.153.116/api/vehicle_make/'+modelId,  {
+    return this.http.get('https://api.evspace.in/api/vehicle_make/'+modelId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
@@ -46,13 +46,13 @@ export class HttpService {
   readByMarketVehicleId(marketVehicleId) : Observable<any>{
     console.log("modelId")
     console.log(marketVehicleId)
-    return this.http.get('http://134.209.153.116/api/market_vehicle/'+marketVehicleId,  {
+    return this.http.get('https://api.evspace.in/api/market_vehicle/'+marketVehicleId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }
   createBrand(body: any) {
-    return this.http.post('http://134.209.153.116/api/vehicle_make', body, {
+    return this.http.post('https://api.evspace.in/api/vehicle_make', body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
     });
@@ -60,7 +60,7 @@ export class HttpService {
   updateMake(makeId,body: any) {
     console.log("makeId")
     console.log(makeId)
-    return this.http.patch('http://134.209.153.116/api/vehicle_make/'+makeId,body, {
+    return this.http.patch('https://api.evspace.in/api/vehicle_make/'+makeId,body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
     });
@@ -68,13 +68,13 @@ export class HttpService {
   deleteMake(makeId) : Observable<any>{
     console.log("makeId")
     console.log(makeId)
-    return this.http.delete('http://134.209.153.116/api/vehicle_make/'+makeId,  {
+    return this.http.delete('https://api.evspace.in/api/vehicle_make/'+makeId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }
   createModel(body: any) {
-    return this.http.post('http://134.209.153.116/api/vehicle_model', body, {
+    return this.http.post('https://api.evspace.in/api/vehicle_model', body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
     });
@@ -82,7 +82,7 @@ export class HttpService {
   updateModel(modelId,body: any) {
     console.log("modelId")
     console.log(modelId)
-    return this.http.patch('http://134.209.153.116/api/vehicle_model/'+modelId,body, {
+    return this.http.patch('https://api.evspace.in/api/vehicle_model/'+modelId,body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
     });
@@ -90,19 +90,19 @@ export class HttpService {
   deleteModel(modelId) : Observable<any>{
     console.log("modelId")
     console.log(modelId)
-    return this.http.delete('http://134.209.153.116/api/vehicle_model/'+modelId,  {
+    return this.http.delete('https://api.evspace.in/api/vehicle_model/'+modelId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }
   getmarketVehicleDetails() : Observable<any> {
-    return this.http.get('http://134.209.153.116/api/market_vehicle/by_admin',  {
+    return this.http.get('https://api.evspace.in/api/market_vehicle/by_admin',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }
   createMarketVehicle(body: any) {
-    return this.http.post('http://134.209.153.116/api/market_vehicle', body, {
+    return this.http.post('https://api.evspace.in/api/market_vehicle', body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
     });
@@ -110,7 +110,7 @@ export class HttpService {
   updateMarketVehicle(marketVehicleId,body: any) {
     console.log("marketVehicleId")
     console.log(marketVehicleId)
-    return this.http.patch('http://134.209.153.116/api/market_vehicle/'+marketVehicleId,body, {
+    return this.http.patch('https://api.evspace.in/api/market_vehicle/'+marketVehicleId,body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
     });
@@ -118,7 +118,7 @@ export class HttpService {
   deleteMarketVehicle(marketVehicleId) : Observable<any>{
     console.log("marketVehicleId")
     console.log(marketVehicleId)
-    return this.http.delete('http://134.209.153.116/api/market_vehicle/'+marketVehicleId,  {
+    return this.http.delete('https://api.evspace.in/api/market_vehicle/'+marketVehicleId,  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
