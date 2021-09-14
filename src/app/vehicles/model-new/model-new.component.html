@@ -13,12 +13,15 @@
           type="text"
           class="form-control">
         </div>
-        <div class="position-relative form-group"><label for="exampleSelectMulti">Vehicle Make</label><select  name="selectMulti" id="exampleSelectMulti"
-            class="form-control"formControlName="vehicle_make">
-            <option>Honda</option>
-            <option>TATA</option>
-            <option>Mahindra</option>
-            </select></div>
+         <div class="position-relative form-group"><label for="exampleSelectMulti">Vehicle Make</label> <select  name="selectMulti" id="exampleSelectMulti"
+          class="form-control"formControlName="vehicle_make" 
+          (change)="changeVehicleMake($event)" required>
+          <option>Select</option>
+          <option *ngFor="let brand of vehicle_makes"
+              value="{{brand.vehicle_make}}">
+              {{brand.vehicle_make}}</option>
+          </select>
+          </div>
           <div class="button-block">
             <p class="error-msg" *ngIf="errorMessage" for="">{{errorMessage}}</p>
   

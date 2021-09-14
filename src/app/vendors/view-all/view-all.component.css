@@ -17,7 +17,9 @@
   background-color: white;
   padding: 2rem;
 }
-
+.chart-wrapper canvas{
+  margin-bottom: 2rem;
+}
 .plan-card__title {
   font-size: 20px;
   font-weight: 600;

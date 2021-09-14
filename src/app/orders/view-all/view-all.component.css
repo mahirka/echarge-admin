@@ -175,6 +175,9 @@ width: 96%;
 .date-label{
   margin: 0 1rem;
 }
+.chart-wrapper canvas{
+  margin-bottom: 2rem;
+}
 .graph-block{
   display: flex;
   align-items: center;

@@ -4,6 +4,7 @@ import { ViewAllComponent } from './view-all/view-all.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
+import { ChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
 
@@ -20,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    ChartsModule,
   ]
 })
 export class CompanyDataModule { }

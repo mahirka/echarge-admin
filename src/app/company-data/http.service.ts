@@ -8,20 +8,26 @@ import { Observable } from 'rxjs';
 export class HttpService {
 
   constructor(private http:HttpClient) { }
-  readById(machineId) : Observable<any>{
+  readById() : Observable<any>{
     console.log("machineId")
-    console.log(machineId)
-    return this.http.get('https://api.evspace.in/api/charging_machine/'+machineId,  {
+    console.log()
+    return this.http.get('https://api.evspace.in/api/company',  {
       headers: { "x-access-token": localStorage.getItem('token') },
       observe: 'body',
     });
   }
-  updateCompanyData(machineId,body: any) {
+  updateCompanyData(body: any) {
     console.log("stationId")
-    console.log(machineId)
-    return this.http.patch('https://api.evspace.in/api/charging_machine/'+machineId,body, {
+    console.log()
+    return this.http.patch('https://api.evspace.in/api/company',body, {
       headers: { "x-access-token": localStorage.getItem('token')  },
       observe: 'body'
+    });
+  }
+  getCompanyDetails() : Observable<any> {
+    return this.http.get('https://api.evspace.in/api/company',  {
+      headers: { "x-access-token": localStorage.getItem('token') },
+      observe: 'body',
     });
   }
 }

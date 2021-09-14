@@ -95,6 +95,9 @@ margin-top: -4px;
 .form-control{
 width: 96%;
 }
+.chart-wrapper canvas{
+  margin-bottom: 2rem;
+}
 .search-field  button {
   background: #0000;
   border-radius: 0;

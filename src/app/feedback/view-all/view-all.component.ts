@@ -25,10 +25,10 @@ export class ViewAllComponent implements OnInit {
     
     .subscribe(
       data => {
-        console.log("plugTypeDetails")
+        console.log("feedbackDetails")
         this.isLoading = false;
           console.log(data)
-      this.orders =  data["plug_types"]
+      this.orders =  data["Feedbacks"]
       this.feedbackDetailsToShow = this.orders
       console.log(this.feedbackDetailsToShow)
      

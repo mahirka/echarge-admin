@@ -7,6 +7,7 @@ import { EditComponent } from './edit/edit.component';
 import { AuthGuard } from '../core/auth.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
 
@@ -23,6 +24,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    ChartsModule,
   ]
 })
 export class ChargingStationsModule { }

@@ -126,6 +126,9 @@
       border-radius: 50px;
       width: 100%;
   }
+  .chart-wrapper canvas{
+    margin-bottom: 2rem;
+  }
   .img i{
     color: #1b9a59;
   }

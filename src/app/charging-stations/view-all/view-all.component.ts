@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChartDataSets } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from '../http.service';
 
@@ -15,6 +17,28 @@ export class ViewAllComponent implements OnInit {
   unPublishedChargingStationToShow:any[]=[]
   unPublishedChargingStations:any[]=[]
   stations = []
+
+  chartDuration = 'Daily';
+  lineChartData: ChartDataSets[] = [
+    { data: [85, 72, 78, 75, 77, 75], label: 'Total Stations' },
+  ];
+
+  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  lineChartOptions = {
+    responsive: true,
+  };
+
+  lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: 'lightcoral',
+    },
+  ];
+
+  lineChartLegend = true;
+  lineChartPlugins = [];
+  lineChartType = 'line';
   
   isLoading = false;
 

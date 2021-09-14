@@ -40,13 +40,15 @@
                         <th scope="row">{{ i + 1 }}</th>
                         <td>{{motorDetails.name}}</td>
                         <td>
-                            {{motorDetails.plug_type}}
+                          <span *ngFor="let machine of motorDetails .plug_types">
+                            {{machine.name}}
+                          </span>
                         </td>
                         <td>{{motorDetails.battery_capacity}}</td>
                         <td>
                           <div class="img">
                               <div class="icon">
-                                <a [routerLink]="['/dashboard/vehicle/view/'+motorDetails.id]" routerLinkActive="router-link-active"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a ><i class="fa fa-eye" aria-hidden="true"></i></a>
 
                               </div>
                               <div class="icon">
@@ -90,13 +92,15 @@
                         <th scope="row">{{ i + 1 }}</th>
                         <td>{{carDetails.name}}</td>
                         <td>
-                            {{carDetails.plug_type}}
+                          <span *ngFor="let machine of carDetails .plug_types">
+                            {{machine.name}}
+                          </span>
                         </td>
                         <td>{{carDetails.battery_capacity}}</td>
                         <td>
                           <div class="img">
                               <div class="icon">
-                                <a [routerLink]="['/dashboard/vehicle/view/'+carDetails.id]" routerLinkActive="router-link-active"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a ><i class="fa fa-eye" aria-hidden="true"></i></a>
 
                               </div>
                               <div class="icon">
@@ -140,13 +144,15 @@
                         <th scope="row">{{ i + 1 }}</th>
                         <td>{{autoDetails.name}}</td>
                         <td>
-                            {{autoDetails.plug_type}}
+                          <span *ngFor="let machine of autoDetails .plug_types">
+                            {{machine.name}}
+                          </span>
                         </td>
                         <td>{{autoDetails.battery_capacity}}</td>
                         <td>
                           <div class="img">
                               <div class="icon">
-                                <a [routerLink]="['/dashboard/vehicle/view/'+autoDetails.id]" routerLinkActive="router-link-active"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a ><i class="fa fa-eye" aria-hidden="true"></i></a>
 
                               </div>
                               <div class="icon">
@@ -162,7 +168,7 @@
                     </table>
                   </div>
                   <div *ngIf="autoDetailsToShow.length==0" class="empty">
-                    <h3>No Cars To Display</h3>
+                    <h3>No Auto To Display</h3>
                 </div>
                 </div>
             </div>

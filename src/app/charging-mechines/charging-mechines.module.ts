@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/auth.guard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddVendorComponent } from './add-vendor/add-vendor.component';
+import { ChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
 
@@ -24,7 +25,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule,
   ]
 })
 export class ChargingMechinesModule { }

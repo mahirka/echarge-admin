@@ -26,7 +26,8 @@
                         <button class="btn btn-primary  add-button" (click)="btnClick();"><i class="fa fa-edit "></i> Edit</button>
                       </div>
                       <div class="graph-block">
-                        <a><i class="fa fa-line-chart" aria-hidden="true"></i></a>
+                        <i class="btn-filter fas fa-chart-area mx-2 " uk-tooltip="Show/ Hide Chart" [class.active]="isChartVisible"
+                        (click)="isChartVisible = !isChartVisible"></i>
                       </div>
                       <div class="date-block">
                         <input type="date" id="start" name="trip-start"
@@ -46,150 +47,159 @@
                         </div>
                       </div>
                     </div>
+                    <div *ngIf="isChartVisible" class="chart-wrapper ">
+                      <canvas baseChart 
+                          [datasets]="lineChartData" 
+                          [labels]="lineChartLabels" 
+                          [options]="lineChartOptions"
+                          [colors]="lineChartColors" 
+                          [legend]="lineChartLegend" 
+                          [chartType]="lineChartType" 
+                          [plugins]="lineChartPlugins">
+                      </canvas>
+                  </div>
                     <table class="mb-0 table table-hover">
-                      <thead>
-                      <tr>
-                        <th>#</th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                      </thead>
                       <tbody>
-                      <tr >
-                        <th scope="row">1</th>
+                      <tr>
+                      
                         <td>Company Name</td>
                         <td>
-                           EV Charge
+                           {{companyDetailsToShow.name}}
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                       
                         <td>Service Charge</td>
                         <td>
-                          500
+                          {{companyDetailsToShow.company_service_charge}}
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                        
                         <td>Car Plug Types</td>
                         <td>
-                           3 PIn
+                          <span *ngFor="let machine of companyDetailsToShow .car_plug_types">
+                            {{machine.name}},
+                          </span>
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                      
                         <td>Auto Plug Type</td>
                         <td>
-                           Chedamo
+                          <span *ngFor="let machine of companyDetailsToShow .auto_plug_types">
+                            {{machine.name}},
+                          </span>
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                        
                         <td>Bike Plug Type</td>
                         <td>
-                           3 Pin
+                          <span *ngFor="let machine of companyDetailsToShow .bike_plug_types">
+                            {{machine.name}},
+                          </span>
                         </td>
                       </tr> <tr >
-                        <th scope="row">1</th>
+                        
                         <td>Car Minimum Charging Power</td>
                         <td>
-                           300 kw
+                          {{companyDetailsToShow.car_minimum_charging_power}}
                         </td>
                       </tr> <tr >
-                        <th scope="row">1</th>
+                      
                         <td>Auto Minimum Charging Power</td>
                         <td>
-                           400 kw
+                          {{companyDetailsToShow.auto_minimum_charging_power}}
                         </td>
                       </tr> <tr >
-                        <th scope="row">1</th>
+                       
                         <td>Bike Minimum Charging Power</td>
                         <td>
-                           300 kw
+                          {{companyDetailsToShow.bike_minimum_charging_power}}
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                     
                         <td>Car Maximum Charging Power</td>
                         <td>
-                           300 kw
+                           {{companyDetailsToShow.car_maximum_charging_power}}
                         </td>
                       </tr> <tr >
-                        <th scope="row">1</th>
+                       
                         <td>Auto Maximum Charging Power</td>
                         <td>
-                           400 kw
+                          {{companyDetailsToShow.auto_maximum_charging_power}}
                         </td>
                       </tr> <tr >
-                        <th scope="row">1</th>
+                       
                         <td>Bike Maximum Charging Power</td>
                         <td>
-                           300 kw
+                          {{companyDetailsToShow.bike_maximum_charging_power}}
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                      
                         <td>Email</td>
                         <td>
-                           <a>evcharge@gmail.com</a>
+                           <a>  {{companyDetailsToShow.email}}</a>
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                      
                         <td>Mobile</td>
                         <td>
-                           7012979129
+                          {{companyDetailsToShow.mobile}}
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                       
                         <td>Website</td>
                         <td>
-                           <a>evcharge.com</a>
+                           <a>  {{companyDetailsToShow.website}}.com</a>
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                        
                         <td>Address</td>
                         <td>
-                           Eranakulam
-                           Kakkanad P.O
+                          {{companyDetailsToShow.address}}
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                        
                         <td>Country</td>
                         <td>
-                           India
+                          {{companyDetailsToShow.country}}
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                        
                         <td>Street</td>
                         <td>
-                           Kakkanad 
+                          {{companyDetailsToShow.street}} 
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                        
                         <td>State</td>
                         <td>
-                           Kerala
+                          {{companyDetailsToShow.state}}
                            
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                      
                         <td>Zipcode</td>
                         <td>
-                           523
+                          {{companyDetailsToShow.zipcode}}
                         </td>
                       </tr>
                       <tr >
-                        <th scope="row">1</th>
+                     
                         <td>City</td>
                         <td>
-                           Eranakulam
+                          {{companyDetailsToShow.city}}
                         </td>
                       </tr>
 
@@ -197,7 +207,7 @@
                     </table>
                   </div>
                   <div  class="empty">
-                    <h3>No Plugs To Display</h3>
+                    <h3>No Data To Display</h3>
                 </div>
                 </div>
             </div>

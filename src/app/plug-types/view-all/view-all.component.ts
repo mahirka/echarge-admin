@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChartDataSets } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -12,6 +14,28 @@ export class ViewAllComponent implements OnInit {
   PlugTypeDetailsToShow:any[]=[ ]
   orders = []
   isLoading = false;
+
+  chartDuration = 'Daily';
+  lineChartData: ChartDataSets[] = [
+    { data: [85, 72, 78, 75, 77, 75], label: 'Total PLugs' },
+  ];
+
+  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  lineChartOptions = {
+    responsive: true,
+  };
+
+  lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: 'rgba(255,255,0,0.28)',
+    },
+  ];
+
+  lineChartLegend = true;
+  lineChartPlugins = [];
+  lineChartType = 'line';
 
   constructor(private _router: Router,private _httpService: HttpService) { }
 

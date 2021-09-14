@@ -23,27 +23,57 @@ export class EditComponent implements OnInit {
     this.machineId = this._activatedRoute.snapshot.paramMap.get('machineId');
     this.editCompanyDataForm = new FormGroup({
       name: new FormControl(null, Validators.required),
-      minimum_charging_power: new FormControl(null, Validators.required),
-      unit_price: new FormControl(null, Validators.required),
-      electricity_supply_type: new FormControl(null, Validators.required),
-      description: new FormControl(null, Validators.required),
-      plug_type: new FormControl(null, Validators.required),
+      company_service_charge: new FormControl(null, Validators.required),
+      bike_plug_types: new FormControl(null, Validators.required),
+      car_plug_types: new FormControl(null, Validators.required),
+      auto_plug_types: new FormControl(null, Validators.required),
+      auto_minimum_charging_power: new FormControl(null, Validators.required),
+      car_minimum_charging_power: new FormControl(null, Validators.required),
+      bike_minimum_charging_power: new FormControl(null, Validators.required),
+      auto_maximum_charging_power: new FormControl(null, Validators.required),
+      car_maximum_charging_power: new FormControl(null, Validators.required),
+      bike_maximum_charging_power: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      website: new FormControl(null, Validators.required),
+      mobile: new FormControl(null, Validators.required),
+      address: new FormControl(null, Validators.required),
+      country: new FormControl(null, Validators.required),
+      zipcode: new FormControl(null, Validators.required),
+      state: new FormControl(null, Validators.required),
+      street: new FormControl(null, Validators.required),
+      city: new FormControl(null, Validators.required),
+      
+      
       
 
     });
 
-    this._httpService.readById(this.machineId)
+    this._httpService.readById()
     .subscribe(
       data => {
         console.log('readById result is ')
         console.log(data)
 
-        this.editCompanyDataForm.get('name').setValue(data['Charging Station']['name']);
-          this.editCompanyDataForm.get('minimum_charging_power').setValue(data['Charging Station']['minimum_charging_power']);
-          this.editCompanyDataForm.get('unit_price').setValue(data['Charging Station']['unit_price']);
-          this.editCompanyDataForm.get('electricity_supply_type').setValue(data['Charging Station']['electricity_supply_type']);
-          this.editCompanyDataForm.get('description').setValue(data['Charging Station']['description']);
-          this.editCompanyDataForm.get('plug_type').setValue(data['Charging Station']['plug_type']);
+        this.editCompanyDataForm.get('name').setValue(data['Company']['name']);
+          this.editCompanyDataForm.get('company_service_charge').setValue(data['Company']['company_service_charge']);
+          this.editCompanyDataForm.get('bike_plug_types').setValue(data['Company']['bike_plug_types']);
+          this.editCompanyDataForm.get('car_plug_types').setValue(data['Company']['car_plug_types']);
+          this.editCompanyDataForm.get('auto_plug_types').setValue(data['Company']['auto_plug_types']);
+          this.editCompanyDataForm.get('auto_minimum_charging_power').setValue(data['Company']['auto_minimum_charging_power']);
+          this.editCompanyDataForm.get('car_minimum_charging_power').setValue(data['Company']['car_minimum_charging_power']);
+          this.editCompanyDataForm.get('bike_minimum_charging_power').setValue(data['Company']['bike_minimum_charging_power']);
+          this.editCompanyDataForm.get('auto_maximum_charging_power').setValue(data['Company']['auto_maximum_charging_power']);
+          this.editCompanyDataForm.get('car_maximum_charging_power').setValue(data['Company']['car_maximum_charging_power']);
+          this.editCompanyDataForm.get('bike_maximum_charging_power').setValue(data['Company']['bike_maximum_charging_power']);
+          this.editCompanyDataForm.get('email').setValue(data['Company']['email']);
+          this.editCompanyDataForm.get('website').setValue(data['Company']['website']);
+          this.editCompanyDataForm.get('mobile').setValue(data['Company']['mobile']);
+          this.editCompanyDataForm.get('address').setValue(data['Company']['address']);
+          this.editCompanyDataForm.get('country').setValue(data['Company']['country']);
+          this.editCompanyDataForm.get('zipcode').setValue(data['Company']['zipcode']);
+          this.editCompanyDataForm.get('state').setValue(data['Company']['state']);
+          this.editCompanyDataForm.get('street').setValue(data['Company']['street']);
+          this.editCompanyDataForm.get('city').setValue(data['Company']['city']);
         
       },
       error => {
@@ -69,12 +99,12 @@ export class EditComponent implements OnInit {
   }
   updateCompanyData() {
 
-    console.log("updatePlan")
+    console.log("updateData")
     console.log(this.editCompanyDataForm.value)
     this.errorMessage = null;
     this.isLoading = true;
     
-    this._httpService.updateCompanyData(this.machineId,this.editCompanyDataForm.value)
+    this._httpService.updateCompanyData(this.editCompanyDataForm.value)
 
       .subscribe(
         data => {
@@ -84,8 +114,8 @@ export class EditComponent implements OnInit {
           if (data['status'] == ['OK']) {
             //data['tocken']
            
-            this.toastr.success("Machine Updated Successfully");
-            this._router.navigate(['/dashboard/charging-machines/view-all']);
+            this.toastr.success("Data Updated Successfully");
+            this._router.navigate(['/dashboard/company-data/view-all']);
           }
 
         },
@@ -107,27 +137,83 @@ export class EditComponent implements OnInit {
       return false;
     }
 
-    if (this.editCompanyDataForm.get('minimum_charging_power').invalid) {
+    if (this.editCompanyDataForm.get('company_service_charge').invalid) {
+      this.errorMessage = "Please provide a valid charge";
+      return false;
+    }
+
+    if (this.editCompanyDataForm.get('bike_plug_types').invalid) {
+      this.errorMessage = "Please provide a valid types";
+      return false;
+    }
+
+    if (this.editCompanyDataForm.get('car_plug_types').invalid) {
+      this.errorMessage = "Please provide a valid types";
+      return false;
+    }
+
+    if (this.editCompanyDataForm.get('auto_plug_types').invalid) {
+      this.errorMessage = "Please provide a valid types";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('auto_minimum_charging_power').invalid) {
       this.errorMessage = "Please provide a valid power";
       return false;
     }
-
-    if (this.editCompanyDataForm.get('unit_price').invalid) {
-      this.errorMessage = "Please provide a valid price";
+    if (this.editCompanyDataForm.get('car_minimum_charging_power').invalid) {
+      this.errorMessage = "Please provide a valid power";
       return false;
     }
-
-    if (this.editCompanyDataForm.get('electricity_supply_type').invalid) {
-      this.errorMessage = "Please provide a valid supply";
+    if (this.editCompanyDataForm.get('bike_minimum_charging_power').invalid) {
+      this.errorMessage = "Please provide a valid power";
       return false;
     }
-
-    if (this.editCompanyDataForm.get('description').invalid) {
-      this.errorMessage = "Please provide a valid description";
+    if (this.editCompanyDataForm.get('auto_maximum_charging_power').invalid) {
+      this.errorMessage = "Please provide a valid power";
       return false;
     }
-    if (this.editCompanyDataForm.get('plug_type').invalid) {
-      this.errorMessage = "Please provide a valid plug";
+    if (this.editCompanyDataForm.get('car_maximum_charging_power').invalid) {
+      this.errorMessage = "Please provide a valid power";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('bike_maximum_charging_power').invalid) {
+      this.errorMessage = "Please provide a valid power";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('email').invalid) {
+      this.errorMessage = "Please provide a valid email";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('website').invalid) {
+      this.errorMessage = "Please provide a valid website";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('mobile').invalid) {
+      this.errorMessage = "Please provide a valid mobile";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('address').invalid) {
+      this.errorMessage = "Please provide a valid address";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('country').invalid) {
+      this.errorMessage = "Please provide a valid country";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('zipcode').invalid) {
+      this.errorMessage = "Please provide a valid zipcode";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('state').invalid) {
+      this.errorMessage = "Please provide a valid state";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('street').invalid) {
+      this.errorMessage = "Please provide a valid street";
+      return false;
+    }
+    if (this.editCompanyDataForm.get('city').invalid) {
+      this.errorMessage = "Please provide a valid city";
       return false;
     }
 

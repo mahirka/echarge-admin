@@ -17,6 +17,7 @@ export class ModelNewComponent implements OnInit {
   newVehicleModelForm: FormGroup;
   errorMessage = null;
   isLoading = false;
+  vehicle_makes=[]
 
   constructor(private toastr: ToastrService, private store: Store<State>,  private _httpService: HttpService, private fb: FormBuilder, private _router: Router,) { }
 
@@ -101,5 +102,9 @@ export class ModelNewComponent implements OnInit {
     
     return true
   }
-
+  changeVehicleMake(e) {
+    this.newVehicleModelForm.get('vehicle_make').setValue('Select');
+    
+    
+  }
 }

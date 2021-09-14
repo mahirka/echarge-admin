@@ -31,8 +31,7 @@
                     <li (click)="navigate('/dashboard/charging-stations/view-all')" class="py-2"><a><span
                                 class="uk-margin-small-right" uk-icon="chevron-right"></span> View All </a>
                     </li>
-                    <li (click)="navigate('/dashboard/charging-stations/new')" class="py-2"><a><span class="uk-margin-small-right"
-                                uk-icon="chevron-right"></span>Add New </a></li>
+                  
                 </ul>
             </li>
 
@@ -66,7 +65,7 @@
                 </ul>
             </li>
             <li class="uk-parent py-2 px-4">
-                <a><i class="fa fa-comments-o" aria-hidden="true"></i>
+                <a><i class="fa fa-comments-o mr-3" aria-hidden="true"></i>
                     Feedback</a>
                 <ul class="uk-nav-sub">
                     <li (click)="navigate('/dashboard/feedback/view-all')" class="py-2"><a><span
@@ -76,7 +75,7 @@
                 </ul>
             </li>
             <li class="uk-parent py-2 px-4">
-                <a><i class="fa fa-comments-o" aria-hidden="true"></i>
+                <a><i class="fa fa-database mr-3" aria-hidden="true"></i>
                     Company Data</a>
                 <ul class="uk-nav-sub">
                     <li (click)="navigate('/dashboard/company-data/view-all')" class="py-2"><a><span
@@ -143,12 +142,20 @@
                         <div class="img-logo">
                             <img src="../../assets/img/echarge-logo.png" alt="">
                         </div>
-                        <li (click)="navigate('/dashboard')" class="py-2 px-4 "><a><i
-                                    class="fas fa-home mr-3"></i>Dashboard</a></li>
-                        <li (click)="navigate('/dashboard/users/view-all')" class="py-2 px-4"><a><i
-                                    class="fas fa-shopping-bag mr-3"></i>Users</a></li>
+                        <li (click)="navigate('/dashboard')" class="py-2 px-4 "><a><i class="fas fa-home mr-3"></i>Dashboard</a>
+                        </li>
                         <li class="uk-parent py-2 px-4">
-                            <a><i class="fa fa-user mr-3"></i>Users</a>
+                            <a><i class="fa fa-user mr-3"></i>Vendors</a>
+                            <ul class="uk-nav-sub">
+                                <li (click)="navigate('/dashboard/vendors/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+            
+                        <li class="uk-parent py-2 px-4">
+                            <a><i class="fa fa-user mr-3"></i>Users</a>                                                                                                  
                             <ul class="uk-nav-sub">
                                 <li (click)="navigate('/dashboard/users/view-all')" class="py-2"><a><span
                                             class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
@@ -157,33 +164,68 @@
                             </ul>
                         </li>
                         <li class="uk-parent py-2 px-4">
-                            <a><i class="fa fa-battery-full mr-3"></i>Charging Stations</a>
+                            <a><i class="fa fa-plug mr-3" aria-hidden="true"></i>Charging Stations</a>
                             <ul class="uk-nav-sub">
                                 <li (click)="navigate('/dashboard/charging-stations/view-all')" class="py-2"><a><span
-                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view All</a>
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span> View All </a>
                                 </li>
-                                <li (click)="navigate('/dashboard/charging-stations/new')" class="py-2"><a><span
-                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>Add New
-                                        </a></li>
+                              
                             </ul>
                         </li>
-
+            
                         <li class="uk-parent py-2 px-4">
-                            <a><i class="fa fa-battery-full mr-3"></i>Charging Machines</a>
+                            <a><i class="fas fa-charging-station mr-3"></i>Charging Machines</a>
                             <ul class="uk-nav-sub">
-                                <li (click)="navigate('/dashboard/charging-mechines/view-all')" class="py-2"><a><span
-                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view All</a>
+                                <li (click)="navigate('/dashboard/charging-machines/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span> View All </a>
                                 </li>
-                                <li (click)="navigate('/dashboard/charging-mechines/new')" class="py-2"><a><span
-                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>Add New
-                                        </a></li>
+                                <li (click)="navigate('/dashboard/charging-machines/add-vendor')" class="py-2"><a><span class="uk-margin-small-right"
+                                            uk-icon="chevron-right"></span>Add Vendor </a></li>
                             </ul>
                         </li>
-
+            
                         <li class="uk-parent py-2 px-4">
                             <a><i class="fa fa-shopping-basket mr-3"></i>Bookings</a>
                             <ul class="uk-nav-sub">
                                 <li (click)="navigate('/dashboard/orders/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="uk-parent py-2 px-4">
+                            <a><i class="fa fa-bell mr-3"></i>Notifications</a>
+                            <ul class="uk-nav-sub">
+                                <li (click)="navigate('/dashboard/notifications/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="uk-parent py-2 px-4">
+                            <a><i class="fa fa-comments-o mr-3" aria-hidden="true"></i>
+                                Feedback</a>
+                            <ul class="uk-nav-sub">
+                                <li (click)="navigate('/dashboard/feedback/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="uk-parent py-2 px-4">
+                            <a><i class="fa fa-database mr-3" aria-hidden="true"></i>
+                                Company Data</a>
+                            <ul class="uk-nav-sub">
+                                <li (click)="navigate('/dashboard/company-data/view-all')" class="py-2"><a><span
+                                            class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="uk-parent py-2 px-4">
+                            <a><i class="fa fa-plug mr-3" aria-hidden="true"></i>Plug Types</a>
+                            <ul class="uk-nav-sub">
+                                <li (click)="navigate('/dashboard/plug-types/view-all')" class="py-2"><a><span
                                             class="uk-margin-small-right" uk-icon="chevron-right"></span>view-all</a>
                                 </li>
                                 

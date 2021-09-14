@@ -40,7 +40,9 @@
                         <th scope="row">{{ i + 1 }}</th>
                         <td>{{motorDetails.name}}</td>
                         <td>
-                            {{motorDetails.plug_type}}
+                          <span *ngFor="let machine of motorDetails .plug_types">
+                            {{machine.name}}
+                          </span>
                         </td>
                         <td>{{motorDetails.battery_capacity}}</td>
                         <td>
@@ -93,7 +95,9 @@
                         <th scope="row">{{ i + 1 }}</th>
                         <td>{{carDetails.name}}</td>
                         <td>
-                            {{carDetails.plug_type}}
+                          <span *ngFor="let machine of carDetails .plug_types">
+                            {{machine.name}}
+                          </span>
                         </td>
                         <td>{{carDetails.battery_capacity}}</td>
                         <td>
@@ -146,7 +150,9 @@
                         <th scope="row">{{ i + 1 }}</th>
                         <td>{{autoDetails.name}}</td>
                         <td>
-                            {{autoDetails.plug_type}}
+                          <span *ngFor="let machine of autoDetails .plug_types">
+                            {{machine.name}}
+                          </span>
                         </td>
                         <td>{{autoDetails.battery_capacity}}</td>
                         <td>

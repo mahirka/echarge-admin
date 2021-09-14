@@ -28,7 +28,8 @@
                         <button class="btn btn-primary  add-button" (click)="btnClick();">+ Add New</button>
                       </div>
                       <div class="graph-block">
-                        <a><i class="fa fa-line-chart" aria-hidden="true"></i></a>
+                        <i class="btn-filter fas fa-chart-area mx-2 " uk-tooltip="Show/ Hide Chart" [class.active]="isChartVisible"
+                        (click)="isChartVisible = !isChartVisible"></i>
                       </div>
                       <div class="date-block">
                         <input type="date" id="start" name="trip-start"
@@ -47,6 +48,17 @@
                           </div>
                         </div>
                       </div>
+                    </div>
+                    <div *ngIf="isChartVisible" class="chart-wrapper ">
+                      <canvas baseChart 
+                          [datasets]="lineChartData" 
+                          [labels]="lineChartLabels" 
+                          [options]="lineChartOptions"
+                          [colors]="lineChartColors" 
+                          [legend]="lineChartLegend" 
+                          [chartType]="lineChartType" 
+                          [plugins]="lineChartPlugins">
+                      </canvas>
                     </div>
                     <table class="mb-0 table table-hover">
                       <thead>

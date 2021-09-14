@@ -13,7 +13,7 @@ export class ViewAllComponent implements OnInit {
   carDetailsToShow:any[]=[ ]
   autoDetailsToShow:any[]=[ ]
   name: string = ""
-  plug_type: string = ""
+  plug_types: string = ""
   battery_capacity: string = ""
   
 
@@ -40,21 +40,21 @@ export class ViewAllComponent implements OnInit {
         vehicle.vehicle_type == "bike" 
       )
       this.name = data['Vehicles'][0]['name']
-      this.plug_type = data['Vehicles'][0]['plug_type']
+      this.plug_types = data['Vehicles'][0]['plug_types']
       this.battery_capacity = data['Vehicles'][0]['battery_capacity']
 
       this.carDetailsToShow = data["Vehicles"].filter(vehicle=>    
         vehicle.vehicle_type == "car" 
       )
       this.name = data['Vehicles'][0]['name']
-      this.plug_type = data['Vehicles'][0]['plug_type']
+      this.plug_types = data['Vehicles'][0]['plug_types']
       this.battery_capacity = data['Vehicles'][0]['battery_capacity']
 
       this.autoDetailsToShow = data["Vehicles"].filter(vehicle=>    
         vehicle.vehicle_type == "auto" 
       )
       this.name = data['Vehicles'][0]['name']
-      this.plug_type = data['Vehicles'][0]['plug_type']
+      this.plug_types = data['Vehicles'][0]['plug_types']
       this.battery_capacity = data['Vehicles'][0]['battery_capacity']
       
       },

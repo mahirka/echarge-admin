@@ -4,6 +4,7 @@ import { NewComponent } from './new/new.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ViewAllComponent } from './view-all/view-all.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
 
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    ChartsModule,
   ]
 })
 export class PlugTypesModule { }
